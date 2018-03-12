@@ -1,0 +1,44 @@
+    {% extends 'base-dash.html' %}
+
+    {% load static %}
+    {% block title %} How do I ? {% endblock %}
+
+    {% block content_block %}
+
+
+
+
+
+          
+
+                 <div class="row clearfix">
+                        <div class="col-md-12 column maincol">
+				 
+					<div class="inline page-title"> <h2> Coming Soon...  </h2>   </div>
+					
+				</div>
+</div>
+       <div class="row clearfix datarow">
+ <div class="col-md-12 column">    
+                           
+
+<p>
+
+We are building an innovative public poll, forum and complaints system for Vizagties which will be ready soon. We really want you to know  when we're ready.
+So be sure to stay updated.
+
+<form class = "comingsoon" role="form" action="/city/notify/" method="post">
+{% csrf_token %}
+				<div class="form-group">
+					 <label for="useremail">Email address</label><input class="form-control" id="useremail" required="required" name = "useremail" type="email" />
+				</div>
+				 <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+
+ </p>
+
+
+                                                       </div>
+                                                    </div>
+
+    {% endblock %}

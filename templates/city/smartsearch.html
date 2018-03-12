@@ -1,0 +1,126 @@
+{% extends 'base.html' %} 
+ {% load static %}
+
+  
+{% block title %}aoucr - Search{% endblock %}
+
+
+{% block content_block %}
+
+{% include "city/datatable.html" %}
+
+
+
+<div id="exTab2">
+
+    <h2> Keyword : {{ category }}  </h2>
+<ul class="nav nav-tabs">
+			<li class="active">
+        <a  href="#1" data-toggle="tab">All</a>
+			</li>
+			<li><a href="#2" data-toggle="tab">News</a>
+			</li>
+			<li><a href="#3" data-toggle="tab">Business</a>
+			</li>
+
+			<li><a href="#4" data-toggle="tab">Transportation</a>
+			</li>
+		</ul>
+
+			<div class="tab-content ">
+
+			  <div class="tab-pane active" id="1"  style="background-color: #fbfbfb;">
+
+          		 {% for n in news %}
+                        <h2><a href="{{ n.url }}" style="color:#1a0dab;">{{ n.title}}</a></h2>
+			<h3 style="font-size:15px;"><a href="{{n.url}}">{{ n.url|slice:":70" }}...</a></h3>
+                        <p align="justify">{{ n.description}}</p>
+			<br>
+			{% endfor %}
+			{% for b in bus %}
+			{{b.from_location }}-
+			{{b.to_location }}
+			<a href="/localbus/" title="{{b.from_location }}">{{ b.bus_number}}</a><br><br>
+			{% endfor %}
+			{% for t in business %}
+			<h1><a href="{{t.id}}/{{t.text}}" style="color:blue;">{{t.name }}<a></h1>
+			<p>{{t.phone3 }},{{t.phone4 }} <br>
+			{{ t.address}}<p><br><br>
+			{% endfor %}
+			{% for tr in train %}
+			<h1>Train Number : {{tr.train_number }}</h1>
+			<h4>Train Name : {{tr.train_name }}</h4> <br>
+			<h4>From Location : {{ tr.from_location}}</h4><br>
+			<h4>To Location : {{ tr.to_location}}</h4><br>
+			<h4>Departure Time : {{ tr.from_time}}</h4><br>
+			<h4>Arrival Time : {{ tr.to_time}}</h4><br>
+			{% endfor %}
+			{% for fl in flight %}
+			<h1>Flight Number : {{fl.flight_number }}</h1>
+			<h4>Flight Name : {{fl.airlines }}<h4> <br>
+			<h4>From Location : {{ fl.from_location}}</h4><br>
+			<h4>To Location : {{ fl.to_location}}</h4><br>
+			<h4>Departure Time : {{ fl.departure_time}}</h4><br>
+			<h4>Arrival Time : {{ fl.arrival_time}}</h4><br>
+			{% endfor %}
+				</div>
+
+
+				<div class="tab-pane" id="2"  style="background-color: #fbfbfb;">
+          			{% for n in news %}
+                        <h1><a href="{{ n.url }}" style="color:#1a0dab;">{{ n.title}}</a></h1>
+			<p style="font-size:15px;"><a href="{{n.url}}">{{ n.url|slice:":70" }}...</a></p>
+                        <p align="justify">{{ n.description}}</p>
+			<br>
+			{% endfor %}
+				</div>
+
+
+
+        <div class="tab-pane" id="3"  style="background-color: #fbfbfb;">
+          {% for t in business %}
+			<h1><a href="{{t.id}}/{{t.text}}" style="color:blue;">{{t.name }}<a></h1>
+			<p>{{t.phone3 }},{{t.phone4 }} <br>
+			{{ t.address}}<p><br><br>
+			{% endfor %}
+				</div>
+
+
+	<div class="tab-pane" id="4"  style="background-color: #fbfbfb;">
+         		{% for b in bus %}
+			{{b.from_location }}-
+			{{b.to_location }}
+			<a href="/localbus/" title="{{b.from_location }}">{{ b.bus_number}}</a><br><br>
+			{% endfor %}
+			
+			{% for tr in train %}
+			<h1>Train Number : {{tr.train_number }}</h1>
+			<h4>Train Name : {{tr.train_name }}</h4> <br>
+			<h4>From Location : {{ tr.from_location}}</h4><br>
+			<h4>To Location : {{ tr.to_location}}</h4><br>
+			<h4>Departure Time : {{ tr.from_time}}</h4><br>
+			<h4>Arrival Time : {{ tr.to_time}}</h4><br>
+			{% endfor %}
+			{% for fl in flight %}
+			<h1>Flight Number : {{fl.flight_number }}</h1>
+			<h4>Flight Name : {{fl.airlines }}<h4> <br>
+			<h4>From Location : {{ fl.from_location}}</h4><br>
+			<h4>To Location : {{ fl.to_location}}</h4><br>
+			<h4>Departure Time : {{ fl.departure_time}}</h4><br>
+			<h4>Arrival Time : {{ fl.arrival_time}}</h4><br>
+			{% endfor %}
+				</div>
+
+			</div>
+  </div>
+
+    
+      
+    
+
+
+
+
+
+
+{% endblock %}

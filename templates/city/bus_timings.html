@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ buses.route }} Bus Details in Vizag  {% endblock %}
+
+{% block meta %}
+
+
+{% include 'city/busmeta.html' %}
+
+
+
+{% endblock %}
+
+
+{% block content_block %}
+
+{% include "city/datatable.html" %}
+
+<div id="fb-root"></div>
+
+<div class="row">
+          <div class="col-md-12">
+
+<br>
+	
+    <h2 align="center">
+           <b>{{ buses.route }} Bus Details in Vizag</b>
+	
+   </h2>
+<div class="page-header">
+
+<h4 style="color:rgb(40, 123, 188)"> <b> Bus Details : </b></h4>
+<table class="table table-bordered table-striped">
+                    <thead>        
+                <tr>
+                  <th>Route No</th>
+		  <th>Starting Point</th>
+		  <th>Ending Point</th>
+                  
+             
+                </tr>
+		</thead>
+		<tbody>
+		<tr>
+                  <td> {{ buses.route }}</td>
+                  <td>{{ buses.from_stop }}</td>
+		  
+                 
+                  <td>{{ buses.to_stop }}</td>
+		  
+                </tr>
+</tbody>
+</table>
+
+	<h4 style="color:rgb(40, 123, 188)"> <b> Timings  : </b></h4>
+	<b>Starting Point :</b> {{ buses.wayone }}<br><br>
+	<b>Ending Point :</b> {{ buses.waytwo }}
+
+
+	<h4 style="color:rgb(40, 123, 188)"> <b> Via Route  : </b></h4>
+<table class="table table-bordered">
+<tbody>
+                <tr>
+                  
+                  <td>{{ buses.s1 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s2 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s3 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s4 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s5 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s6 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s7 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s8 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s9 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s10 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s11 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s12 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s13 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s14 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s15 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s16 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s17 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s18 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s19 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s20 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s21 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s22 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s23 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s24 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s25 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s26 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s27 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s28 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s29 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s30 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s31 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s32 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s33 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s34 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s35 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s36 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s37 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s38 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s38 }}</td>
+                  
+                </tr>
+		<tr>
+                  
+                  <td>{{ buses.s40 }}</td>
+                  
+                </tr>
+                </tbody>
+            </table>
+            		 
+            </div>
+</div>
+                
+</div>
+{% endblock %}

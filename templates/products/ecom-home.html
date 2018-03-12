@@ -1,0 +1,99 @@
+
+{% extends 'base-dash2.html' %}
+ {% load static %}
+{% block content %}
+       
+        
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="text-center">Our Services</h1>
+                                        <p class="text-center lead">We provide a wide range of services at affordable one-time cost</p>
+                                       
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="jumbotron">
+                                        <h2>Grocery Delivery</h2>
+                                        <div class="col-md-12">
+                                            <i class="fa fa-5x fa-fw fa-home text-primary"></i>
+                                        </div>
+                                        <p>
+                                            <em>
+                                                <i class="fa fa-fw fa-rupee"></i>0.00</em>
+                                            <br>
+                                            <em>Free Delivery</em>
+                                        </p>
+                                        <a href="/shopping/grocery/" class="btn btn-block btn-large btn-lg btn-primary">Order Now</a>
+                                    </div>
+                                </div>
+                               <div class="col-md-4">
+                                    <div class="jumbotron">
+                                        <h2>House Repairs</h2>
+                                        <div class="col-md-12">
+                                            <i class="fa fa-5x fa-fw fa-wrench text-primary"></i>
+                                        </div>
+                                        <p>
+                                            <em>
+                                                <i> Now, any repairs, just a click away!! </i></em>
+                                            <br>
+                                            
+                                        </p>
+                                        <a class="btn btn-block btn-large btn-lg btn-primary"> Book a Technician</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="jumbotron">
+                                        <h2>Food Delivery</h2>
+                                        <div class="col-md-12">
+                                            <i class="fa fa-5x fa-fw fa-group text-primary"></i>
+                                        </div>
+                                        <p>
+                                            <em>
+                                                <i> Free Order delivery.</i></em>
+                                            <br>
+                                            <br>
+                                        </p>
+                                        <a class="btn btn-block btn-large btn-lg btn-primary"> Get Smart  !!!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="modal fade" id="viewoffer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-left well well-lg">
+                            <h2>
+                                <i class="fa fa-fw fa-star text-warning faa-burst animated"></i>Just at 99 per month</h2>
+                            <p>Avail the best of all our services at
+                                <i class="fa fa-rupee fa-fw"></i>99 per month and get all our services at your doorstep for free. You
+                                pay only for the products not for the service.</p>
+                            <h4 class="text-primary">Contact Us @ 8886780891</h4>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-lg btn-primary" data-dismiss="modal">Pay Now</a>
+                        <a class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   {% endblock %}

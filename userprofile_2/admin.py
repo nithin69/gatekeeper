@@ -1,0 +1,41 @@
+from django.contrib import admin
+
+# Register your models here.
+from nh5.models import Employee, EmpSkill, SkillSet, EmpSkillAdmin, SkillsetAdmin
+from django import forms
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.admin import UserAdmin
+from nh5.forms import CustomUserChangeForm, CustomUserCreationForm
+from django.contrib.auth.models import Group
+from django.utils.translation import ugettext_lazy as _
+
+
+
+class CustomUserAdmin(UserAdmin):
+    # The forms to add and change user instances
+
+    # The fields to be used in displaying the User model.
+    # These override the definitions on the base UserAdmin
+    # that reference the removed 'username' field
+    fieldsets = (
+        (None, {'fields': ('email', 'password')}),
+        (_('Personal info'), {'fields': ('name', 'phone')}),
+        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2')}
+        ),
+    )
+    form = CustomUserChangeForm
+    add_form = CustomUserCreationForm
+    list_display = ('email', 'name', 'phone', 'id')
+    search_fields = ('email', 'name')
+    ordering = ('email',)
+
+admin.site.register(Employee, CustomUserAdmin)
+
+admin.site.register(SkillSet, SkillsetAdmin)
+
+admin.site.register(EmpSkill, EmpSkillAdmin)

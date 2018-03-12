@@ -1,0 +1,210 @@
+{% extends "base-dash3.html" %}
+
+<script>
+{% block jquery %}
+
+$(".radio-label").click(function(){
+  $("label").removeClass('radio-label-selected');
+  $(this).addClass('radio-label-selected');
+});
+
+$(".billing-label").click(function(){
+  $("label").removeClass('billing-label-selected');
+  $(this).addClass('billing-label-selected');
+});
+
+
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('{{ stripe_pub }}');
+
+
+jQuery(function($) {
+  $('#payment-form').submit(function(event) {
+    var $form = $(this);
+
+    // Disable the submit button to prevent repeated clicks
+    $form.find('button').prop('disabled', true);
+
+    Stripe.card.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
+});
+
+
+function stripeResponseHandler(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $("#card_errors_div").removeClass("hidden");
+    $form.find('.payment-errors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    $("#card_errors_div").addClass("hidden");
+    // response contains id and card, which contains additional card details
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    $form.get(0).submit();
+  }
+};
+
+
+$("#addShippingAddress").click(function(e){
+  e.preventDefault();
+  $("#shippingAddressForm").fadeToggle();
+
+})
+
+{% if not current_addresses  %}
+  $("#shippingAddressForm").fadeToggle();
+{% endif %}
+
+{% endblock %}
+</script>
+
+<style>
+{% block styles %}
+
+.radio-label {
+  font-size: 22px;
+  font-weight: normal;
+  padding: 4px 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.radio-label input[type=radio] {
+  display: none;
+}
+
+.radio-label:hover {
+  font-size: 22px;
+  font-weight: normal;
+  background-color: #428bca;
+  color: white;
+  cursor: pointer;
+
+}
+
+.radio-label-selected {
+  font-size: 22px;
+  font-weight: normal;
+  background-color: #428bca;
+  color: white;
+  cursor: pointer;
+}
+
+.billing-label {
+  font-size: 22px;
+  font-weight: normal;
+  padding: 4px 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.billing-label input[type=radio] {
+  display: none;
+}
+
+.billing-label:hover {
+  font-size: 22px;
+  font-weight: normal;
+  background-color: #428bca;
+  color: white;
+  cursor: pointer;
+
+}
+
+.billing-label-selected {
+  font-size: 22px;
+  font-weight: normal;
+  background-color: #428bca;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+@media(min-width: 1200px) {
+  .total { 
+    position: fixed;
+  }
+}
+
+{% endblock %}
+</style>
+
+
+{% block content %}
+
+<div class='col-sm-3 pull-right'>
+<div class='total'>
+<h1>Current total: {{ order.get_final_amount }}</h1>
+</div>
+</div>
+
+<div class='col-sm-9 pull-left'>
+<a href="/ajax/add_user_address/?next=checkout"> Add Shipping Address </a>
+
+
+
+
+
+
+        <form method='POST' action="/orders/confirm/{{order}}" id="payment-form"> {% csrf_token %}
+        {% if current_addresses  %}
+        <div class='col-sm-12'>
+        <h3>Shipping Addresses</h3>
+         
+            {% for address in current_addresses %}
+            
+            {% if request.user.userdefaultaddress.shipping.id == address.id %} 
+             <label class='radio-label radio-label-selected'>
+            <input type='radio' name='shipping_address' value='{{ address.id }}' checked='checked'/> {{ address.get_address }} 
+            {% else %}
+             <label class='radio-label'>
+            <input type='radio' name='shipping_address' value='{{ address.id }}' /> {{ address.get_address }}
+
+            {% endif %}
+              </label><br/>
+            {% endfor %}
+                </div>
+        {% endif %}
+
+
+        {% if billing_addresses  %}
+        <div class='col-sm-12'>
+        <h3>Billing Addresses</h3>
+
+        
+              {% for address in billing_addresses %}
+               
+              {% if request.user.userdefaultaddress.billing.id == address.id %} 
+                <label class='billing-label billing-label-selected'>
+              <input type='radio' name='billing_address' value='{{ address.id }}' checked='checked'/> {{ address.get_address }} <br/>
+              {% else %}
+              <label class='billing-label'>
+              <input type='radio' name='billing_address' value='{{ address.id }}' /> {{ address.get_address }} <br/>
+
+              {% endif %}
+                </label>
+              {% endfor %}
+            
+        </div>
+        {% endif %}
+       
+          <button class='btn btn-default btn-lg' type="submit">Submit</button>
+
+
+
+
+  
+        </div>
+        </form>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+    {% extends 'base.html' %}
+
+{% load static %}
+{% block title %} Flight Timings {% endblock %}
+
+{% block meta %}
+
+<meta name="Title" content="Flights from vizag, Flight Information in Visakhapatnam | smartvizag" />
+<meta name='description' content="smart vizag provides information about Flight Timings, departures and arrivals, Flight names, Flight information, Flights from vizag"/>
+<meta name='keywords' content="Flight names, Flight Timings, departures, arrivals, flight information, flights from vizag, vizag to singapore flights, vizag to bangalore, flight details" />
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all">
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://smartvizag.com/flight"/>
+<meta property="og:sitename" content = "http://smartvizag.com"/> 
+<meta property="og:title" content="Flight Timings and Details in vizag, Flight information in vizag, Flights from vizag"" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Smartvizag provides information about flight information, Flight information in vizag, Flights from vizag, Flight details in vizag" />
+
+{% endblock %}
+
+{% block content_block %}
+
+             <script>
+$(document).ready(function(){
+
+        $("#travel").show();
+
+});
+</script>     
+
+
+
+{% include "city/datatable.html" %}
+
+
+				 
+					<div class="inline page-title"> <h1> {{page_title }}  </h1>   </div>
+					
+				
+
+       <div class="row clearfix datarow">
+                        <div class="col-md-12 column"> 
+                                                 <table id="myTable" class="display table dataTable">
+    <thead>
+      <tr>
+        <th>Flight Number </th>
+        <th> Flight Name </th>
+
+		  <th> From </th>
+  	<th> To </th>
+  
+ 	 <th> Departure Time </th>
+	<th> Arrival Time </th>
+      </tr>
+    </thead>
+    <tbody>
+     
+	 {% for l in obj_list %}
+	 
+	<tr>
+        <td> {{l.flight_number }}</td>
+        <td> {{l.airlines }}</td>
+        <td> {{l.from_location }}</td>
+        <td> {{l.to_location }}</td>
+	<td> {{l.departure_time }}</td>        
+        <td> {{l.arrival_time }}</td>
+        
+
+
+      </tr>
+	 
+	 
+	 
+	 
+	 {% endfor %}
+	  </tbody>
+  </table>
+                                              
+             </div>
+</div>    
+     
+{% endblock %}

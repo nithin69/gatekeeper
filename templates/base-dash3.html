@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+ {% load static %}
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+
+ <title> {% block title %}  {% endblock %}</title> 
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+    rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+       
+  <!-- Custom -->
+            <link href="{% static 'css-sm/style.css' %}" rel="stylesheet" type="text/css">
+ <script src="{% static 'js/myscript.js' %}"> </script>
+
+
+    </head>
+
+    
+    <body <div class="container">
+    <div class="row">
+     <div class="col-md-3 hidden-sm hidden-xs"></div>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="col-md-6">
+                        <a href="/"><img src="{% static 'img-sm/logo_5.png' %}" class="center-block img-responsive"></a>
+                    </div>
+                    <div class="col-md-3 hidden-sm hidden-xs logsec">
+                        
+                          <ul class="nav navbar-nav navbar-right">
+        
+            <li><a href="{% url 'cart' %}">Cart <span class="badge"> {% if not request.session.items_total %} <div id="carttotal">  {{ request.session.items_total }} </div> {% else %} <div id="carttotal">  {{ request.session.items_total }} </div> {% endif%} </span></a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">Account</a></li>
+            <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'auth_login' %}">Login</a></li>
+            <li><a href="/accounts/register/">Register</a></li>
+            {% endif %}
+          </ul>
+                        </div>
+                        </nav>
+                </div>
+
+      <div class="col-md-12 menulist">
+                    <nav class="navbar navbar-default " role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/shopping/grocery/">Home</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dals &amp; Pulses<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Toor Dal/Kandipappu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Urad Dal/Minnapappu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Moong Dal/Pesara pappu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Fried Gram/Dall Pappu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Raw Gram/Senagapappu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Groundnuts/Senaga Palukullu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">White Peas/ Battani</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bengal Gram/ Kommu Senaga</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kabuli Channa</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flours<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Idly Rawa</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bombay Rawa</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Rice Rawa</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Channa Flour</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Corn Flour</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Aata</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Maida</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Masalas<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Sambar Powder</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Rasam Powder</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Chilli Powder</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ginger Garlic Paste</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Garam Masala Powder</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Biryani Masala Powder</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Chicken Masala Powder</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Meat Masala Powder</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home &amp; Cloth Care<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Cleaners</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Room Freshners</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Mosquito Killers</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Detergent Soap/ Powder/ Liquids</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pooja Items</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal Care<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Hair Care – Oil/Shampoo/Conditoner</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Face Care – Cream/ Talc/Face wash</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Shaving – Cream/Razors</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Oral Care – Paste/ Brush</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Skin Care – Soap/Handwash/Moisturizer</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Deodrants </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Baby Care</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Women Care</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Tea</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Coffee</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Soft Drinks</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Health drinks</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Edible Oils</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Salt</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Sugar</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tamarind</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Jaggery</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Honey</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kissan Jam</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tomato Sauce</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Turmeric</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Vermicelli</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Rice Flakes</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Instant Foods</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Readymade Foods</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Rice</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Biscuits and Chocolates</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Flavoured   Chips</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ingua</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gamaxin</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Cashew</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kissmiss</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Spices<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Jeera</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Mustard</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Dalchini</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Elachi</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Lavang</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Menthulu</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Vamm</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Coriander</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Item</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vegetables<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Aaratikaya</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Beet Root</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bhendi</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bitter Gourd</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bottle Gourd</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Brinjal</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Cabbage</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Cluster Beans</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Chama</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Cucumber</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Donda</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Field Beans</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">French Beans</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Green Chillies</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kanda</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Keera</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Leafy Vegetables</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Onion</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Potato</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ribbed Gourd</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Snake Gourd</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tomato</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right"></ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+      
+     
+    </div>
+
+  
+
+    <script>
+      $('.carousel').carousel({
+                                interval: 3000
+                            })
+    </script>
+
+       
+{% block jumbotron %}
+
+{% endblock %}
+<br/>
+			<div class="col-md-12 content">
+{% block content %}
+
+{% endblock %}
+			</div>
+</div>
+<footer class="text-center footer">
+                <p class="col-md-12"></p>
+                <hr class="divider">Copyright © 2015
+                <a href="http://www.delevere.com">DELEVERE</a>
+                <p></p>
+            </footer>
+            
+            
+      <script>
+$(document).ready(function(){
+
+$(".cartform").on('submit', function(e){
+
+        e.preventDefault();
+	var $form = $( this ),
+        url = $form.attr( 'action' );
+        
+        qid = "p" + event.target.id.slice(1)
+	$.ajax(
+	{
+		url : url,
+		type: "POST",
+                data: $(this).serialize(),
+                success:function(data) 
+		{
+                  $('#carttotal').html(data);
+		},
+		
+	});
+       
+
+});
+	
+});
+</script>  
+            
+            
+ <script>
+$('document').ready(function() {   
+curdate();
+});
+</script>
+
+    
+
+        
+    </body>
+
+</html>

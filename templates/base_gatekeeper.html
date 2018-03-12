@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+ {% load static %}
+
+<html>
+    
+    <head>
+
+ <title> {% block title %}  {% endblock %}</title> 
+ {% block meta %} 
+
+
+{% endblock %}
+
+    </head>
+
+    
+    <body>
+<div class="container">
+<div class ="row">
+<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+<ul class="nav navbar-nav ">
+{% if user.is_authenticated %}
+<li>
+        <p>Welcome {{ user.username }} !!!</p>       
+</li>
+<li>
+<a href="/accounts/logout/">Logout</a>
+</li>
+{% else %}
+
+<li>
+<a href="/accounts/login/">Login</a>
+</li>
+
+{% endif %}
+
+</ul>
+<hr style="margin-top:0px;">
+</div>   
+
+
+    </div>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-sm-12 col-xs-12 text-left">
+            <div class="side-menu" style="font-size:16px; font-family:georgia;">
+              <nav class="navbar">
+                <!-- Main Menu -->
+                <div class="side-menu-container dropdown">
+
+                </div>
+              </nav>
+            </div>
+          </div>	  
+		  
+		  <div class="col-md-10 col-sm-12 col-xs-12 content">		
+{% block content_block %}
+
+{% endblock %}
+			
+</div>
+        </div>
+		</div>
+<div class="footer-container fluid">
+<footer>
+</footer>        
+</div>
+
+
+  {% block custjava %}
+
+
+            {% endblock %}
+
+
+    </body>
+
+</html>

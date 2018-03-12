@@ -1,0 +1,87 @@
+{% extends 'base2.html' %}
+
+{% block title %} {{description.name}}  {% endblock %}
+
+{% block content_block %}
+
+{% include "city/datatable.html" %}
+<style>
+tr:hover {background-color: #f5f5f5}
+</style>
+
+<style>
+.table {
+    width: auto;
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+</style>
+
+<div id="fb-root"></div>
+
+<div class="row">
+          <div class="col-md-12">
+
+<br>
+	
+    <h2 align="center">
+           <b> {{ description.name }}</b>
+	
+   </h2>
+<div class="page-header">
+
+<h4 style="color:rgb(40, 123, 188)"> <b> Contact Details : </b></h4>
+<table class="table">
+                            <tbody>
+                <tr>
+                  <td>Business name :</td>
+                  <td> {{ description.name }}</td>
+             
+                </tr>
+		<tr>
+                  <td>Address :</td>
+                  <td>{{ description.address }}</td>
+                </tr>
+		<tr>
+                  <td>Phone Numbers :</td>
+                  <td>{{ description.phone1 }}<br> {{ description.phone2 }}</td>
+                </tr>
+                <tr>
+                  <td>Website :</td>
+                  <td>{{ description.website }}</td>
+                  
+                </tr>
+                
+		<tr>
+                  <td>Hours Of Operation:</td>
+                  <td>{{ description.timming }}</td>
+                </tr>
+		
+		<tr>
+                  <td>Year Of Established:</td>
+                  <td>{{ description.Established }}</td>
+                </tr>
+		
+              </tbody>
+            </table>
+            		 
+<h4 style="color:rgb(40, 123, 188)"> <b> Professional Background : </b></h4> 
+<table class="table">
+                            <tbody>
+<tr>
+                  <td>Year Of Established:</td>
+                  <td>{{ description.Established }}</td>
+                </tr>
+		
+              </tbody>
+            </table>                
+
+            </div>
+<br>
+ <div class="fb-comments" data-href="https://www.facebook.com/smartcityvizag" data-numposts="5"></div>
+          </div>
+         
+       
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+    {% extends 'base.html' %}
+
+    {% load static %}
+{% block title %}  {{ core_cat|upper}}   {% endblock %}
+
+{% block meta %}
+
+
+{% if core_cat == "police" %}
+
+ {% include 'city/policemeta.html' %}
+
+{% elif core_cat == "chemist" %}
+
+ {% include 'city/chemistmeta.html' %}
+
+{% elif core_cat == "blood bank" %}
+
+ {% include 'city/bloodbankmeta.html' %}
+
+{% elif core_cat == "Fire Services" %}
+
+ {% include 'city/firemeta.html' %}
+
+
+{% endif %}
+
+{% endblock %}
+
+    {% block content_block %}
+
+             <script>
+$(document).ready(function(){
+
+        $("#emergency").show();
+
+});
+</script>     
+       
+
+{% include "city/datatable.html" %}
+          
+
+              
+                   <div class="row clearfix">
+                        <div class="col-md-12 column maincol">
+				 
+					<div class="inline page-title"> <h1>  {{ core_cat|upper}} </h1>   </div>
+					
+				</div>
+</div>
+       <div class="row clearfix datarow">
+                        <div class="col-md-12 column">             	
+
+                            <table id="myTable" class="display table dataTable">
+                                <thead>
+      <tr>
+        <th> Name </th>
+       
+        <th> Phone </th>
+
+ <th> Address </th>
+      </tr>
+    </thead>
+
+                     {% for l in obj_list %}
+
+	<tr>
+        <td> {{l.name }}</td>
+      
+        <td width="200px"> {{l.phone3}}<br>{{l.phone4}}</td>
+          <td> {% if l.address == "NULL" %} 
+			
+		{% else %}
+		{{ l.address  }}				
+
+		 {% endif%} </td>
+
+
+      </tr>
+
+                     {% endfor %}
+                      </tbody>
+      </table>
+
+	
+                                                       </div>
+                                                    
+</div>
+    
+
+    {% endblock %}

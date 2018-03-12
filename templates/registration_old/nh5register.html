@@ -1,0 +1,122 @@
+{% extends "nh5/base.html" %}
+    {% load static %}
+
+
+       
+       
+{% block content%}
+
+      <div class="container logincont">
+          
+          
+            <div class="row">
+		<div class="col-md-12">
+      
+                        <form class="form-horizontal" role="form" method="post" action=".">
+                               {% csrf_token %}         
+<fieldset>
+
+<!-- Form Name -->
+<legend> Please fill in this form to register</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <div class="col-md-4">
+  <input id="id_email" name="username" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <div class="col-md-4">
+  <input id="id_name" name="username" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <div class="col-md-4">
+  <input id="id_company_name" name="username" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Mobile</label>  
+  <div class="col-md-4">
+  <input id="id_phone" name="phone" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Mobile</label>  
+  <div class="col-md-4">
+  <input id="id_address" name="phone" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password</label>  
+  <div class="col-md-4">
+  <input id="id_password1" name="password1" type="password" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Type Password Again</label>  
+  <div class="col-md-4">
+  <input id="id_password2" name="password2" type="password" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Category Type</label>
+  <div class="col-md-4">
+    <select id="id_type" name="selectbasic" class="form-control">
+    <option value="" selected="selected">---------</option>
+<option value="Architect">Architect</option>
+<option value="Interior Designer">Interior Designer</option>
+<option value="Project Management Consultant">Project Management Consultant</option>
+<option value="Contractor">Contractor</option>
+<option value="Material Supplier">Material Supplier</option>
+<option value="Builder">Builder</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+  <div class="submit loginsubmit">
+                                        <button type="submit" class="btn btn-default loginbutton"><b>Submit</b></button>
+                                       
+                                          
+                                        </div>
+
+</fieldset>
+</form>
+
+        
+        
+        
+        
+              </div>
+      </div>
+    </div>
+      
+    
+
+
+{% endblock %}

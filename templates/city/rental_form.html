@@ -1,0 +1,170 @@
+      {% extends 'base.html' %}
+
+    {% load static %}
+    {% block title %} Rental Posting {% endblock %}
+
+{% block content_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+ <legend>   Please fill-in the below form to post your Real Estates for free</legend>
+
+<div class="row clearfix"></br>
+<center>
+​
+<div class="col-sm-12">
+    {% if done %}
+        <h3> Your Real Estate has been successfully posted on aoucr.com. Please visit <a href="/rentals/">www.aoucr/rentals/</a></h3>
+
+
+        {% else %}
+
+<form class="form-horizontal" id="rental_form" method="post" action="/rentalposting/"
+              enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+{{ rental_form.errors }}
+
+<div class="container-fluid">
+<h3><b>Enter Details about your Real Estate:</b></h3>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Property Name</label>  
+  <div class="col-md-4">
+  <input id="id_property_name" name="property_name" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Address</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_Address" name="Address" required></textarea>
+  </div>
+</div>
+
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Rent Price</label>  
+  <div class="col-md-4">
+  <input id="id_rent_price" name="rent_price" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Sale Price</label>  
+  <div class="col-md-4">
+  <input id="id_sale_price" name="sale_price" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Number of Bedrooms</label>  
+  <div class="col-md-4">
+  <input id="id_bed_rooms" name="bed_rooms" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Number of Bathrooms</label>  
+  <div class="col-md-4">
+  <input id="id_bath_rooms" name="bath_rooms" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Plot Area</label>  
+  <div class="col-md-4">
+  <input id="id_plot_area" name="plot_area" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Balcony</label>  
+  <div class="col-md-4">
+  <input id="id_balcony" name="balcony" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Reserved Parking</label>  
+  <div class="col-md-4">
+  <input id="id_reserved_parking" name="reserved_parking" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Facing</label>  
+  <div class="col-md-4">
+  <input id="id_facing" name="facing" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Available From</label>  
+  <div class="col-md-4">
+  <input id="id_available_from" name="available_from" type="date" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Property Age</label>  
+  <div class="col-md-4">
+  <input id="id_property_age" name="property_age" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Available For</label>  
+  <div class="col-md-4">
+  <input id="id_available_for" name="available_for" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton">Image</label>
+  <div class="col-md-4">
+    <input id="id_image" name="image" type="file" class="input-file">
+  </div>
+</div>
+
+
+
+   <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+ 
+
+</form>
+
+        {% endif %}
+         
+</div>
+</div>
+            
+{% endblock %}

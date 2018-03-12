@@ -1,0 +1,118 @@
+{% extends 'base-tour.html' %}
+
+{% load static %}
+{% block title %} Vuda City Central Park{% endblock %}
+
+{% block content_block %}
+<h2 align="center">Vuda City Central Park</h2>
+
+<div class="col-md-9">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/media/img/001.jpg" alt="Vuda City Central Park" title="Vuda City Central Park" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="/media/img/Vuda-2.jpg" alt="Vuda City Central Park" title="Vuda City Central Park" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="/media/img/Vuda-3.jpg" alt="Vuda City Central Park" title="Vuda City Central Park" width="460" height="345">
+      </div>
+      
+
+      <!-- <div class="item">
+        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+      </div> -->
+    </div>
+	</div>
+
+    <!-- Left and right controls -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->  
+	
+	<br><br>
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              </div>
+
+<p>City Central Park also known as (Vuda City Central Park) is an Urban park in the city of Visakhapatnam. The park is located at the heart of the city. it covered an area of 22 acres (8.9 ha)and Inaugurated by Chief Minister of Andhra Pradesh N. Chandrababu Naidu. this park had Andhra Pradesh First musical Fountain.</p>
+<p>
+The park had India's third largest musical fountain after that Delhi's akshardham and pune's sahara. This musical fountain becomes biggest tourist attraction of the city in peak days more then 3000 visitors gathering.<br><br>
+There is a bonsai garden in this park overall 120 varieties of trees we can see in this park.the staff of this park is maintained it well in all seasons and the bonsai association of Visakhpatnam is planning to conduct bonsai festival in every year.11<br><br>
+Another attraction of this park is yoga spacious yoga hall and spacious amphi theater. the capacity of amphi theater is 500 members.<br><br>
+There is 1km jogging track, 850 meters walking track and 0.9 km cycling track is available in this park. cycles will provided by management of this park with limited fare.
+</p>
+
+
+	<!-- <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Timings</h3>
+                </div>
+              </div>
+10.00 AM to 5.00 PM	
+		
+			<p> Days: All	</p>
+  
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Bus</h3>
+                </div>
+              </div>
+
+		
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+              </div>
+Visakhapatnam, Andhra Pradesh -->
+ <div class="col-md-7">
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:270px;width:370px;'><div id='gmap_canvas' style='height:300px;width:440px;'></div><div><small><a href="https://www.embedgooglemaps.com">embedgooglemaps.com</a></small></div><div><small><a href="https://mrdiscountcode.hk/awards/health-fitness-blog-awards-2017/">mrdiscountcode.hk/awards/health-fitness-blog-awards-2017/</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(17.722371354537593,83.3070938519592),mapTypeId: google.maps.MapTypeId.SATELLITE};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.722371354537593,83.3070938519592)});infowindow = new google.maps.InfoWindow({content:'<strong>Vuda City Central Park</strong><br>Vuda City Central Park,RTC Complex Road, Dwaraka Nagar, Visakhapatnam, Andhra Pradesh 530004<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div>
+  <div class="col-md-5">
+<div class="tourist-time">
+   <h3>Timings</h3>
+   <p>Morning : 5AM-8AM,<br>
+   Evening : 3PM-9PM</p>
+			
+			<p> Days: All	</p>
+			 <h3 >Bus</h3>
+			 <p>Bus faculity Available</p>
+			 
+			 <h3 >Address</h3>
+			 
+			 <p>Vuda City Central Park,RTC Complex Road, Dwaraka Nagar, Visakhapatnam, Andhra Pradesh</p>
+			 
+   
+  
+  
+</div>  
+  
+  
+  
+  </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,462 @@
+{% extends 'base-dash2.html' %}
+
+{% load static %}
+{% block title %} Tourist Places in Vizag {% endblock %}
+
+{% block meta %}
+
+<meta name="Title" content="Visakhapatnam Tourist Places, Tourist Places in vizag, Attractions in vizag, places to visit in vizag" />
+<meta name="description" content="Smartvizag provides information about tourist places in vizag, List of tourist places and their addresses in Visakhapatnam, Places to visit in visakhapatnam, Attractions in visakhapatnam"/>
+<meta name="keywords" content="Tourist Places in Vizag, Top 10 tourist places in vizag, Sightseeing places in vizag, Attractions in visakhapatnam, Places to visit in visakhapatnam, Sightseeing. ">
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all">
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://www.smartvizag.com/touristplaces"/>
+<meta property="og:sitename" content = "http://www.smartvizag.com"/> 
+<meta property="og:title" content="Tourist places in vizag, Nearby places to visit in vizag, Attractions in vizag, Sightseeing places in vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Smartvizag provides information about tourist places in vizag, List of tourist places and their addresses in Visakhapatnam, tour places information in vizag" />
+<style>
+
+</style>
+{% endblock %}
+
+{% block content_block %}
+
+
+<br>
+
+
+<div class="container">
+	
+			<div class="row">
+
+<ul class="breadcrumb">
+			<li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+			<li></i> Tourist Places</li>
+			
+		</ul>
+<br/>
+
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/vizag-port-1.jpg" title="vizagport"  width="400" height="200" class="img-rounded" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/vizagport/">Vizag Port</a>
+							</h2>
+							<p>
+								
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/vizagport/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/kailasagiri-1.jpg" title="kailasagiri" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/kailasagiri/">Kailasagiri</a>
+							</h2>
+							<p>
+								The phrase 'Kailasagiri' exactly means 'the Kailas Parvat'; the outer space residence of Lord Shiva and divinity Parvati beached between the Himalayas.
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/kailasagiri/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/dolphin-nose-1.jpg" title="dolphinnose" class="img-rounded"  width="400" height="200"/>
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/dolphinnose/">Dolphin Nose</a>
+							</h2>
+							<p>
+								The Dolphin Nose Vizag, balanced on top of an unsteady peninsula ignoring the Yarada seaside from the altitude of 358 meters over the sea level is a massive...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/dolphinnose/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/visakha-museum-1.jpg" title="museum" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/visakhamuseum/">Visakha Museum</a>
+							</h2>
+							<p>
+								The Visakha Museum Visakhapatnam is to be found at an Old Dutch lodge on the R K Beach Road. The Visakha Museum Vizag has a few of the top and supreme creative...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/visakhamuseum/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/submarine-1.jpg" title="submarine" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/submarinemuseum/">Submarine Museum</a>
+							</h2>
+							<p>
+								
+				The Submarine Museum Vizag also supposed as 'Smritika' which means 'a memoir' is positioned next to the...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/submarinemuseum/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/zoological-park-2.jpg" title="zoo" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/zoopark/">Indira Gandhi Zoological Park</a>
+							</h2>
+							<p>
+								They are classified into split sector like carnivores, lesser carnivores, small mammals, primates, reptiles, ungulates, ...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/zoopark/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/yarada-beach-1.jpg" title="yarada" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/yaradabeach/">Yarada Beach</a>
+							</h2>
+							<p>
+								A wonderful seaside to have a celebration out, Yarada Beach Vizag Tourist Places, is positioned awfully near to the foremost city Vizag <br>...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/yaradabeach/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/Kambala-Konda-1.jpg" title="kambalakonda" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								
+							<a href="/touristplaces/kambalakonda/">Kambala Konda Sanctuary</a>
+							</h2>
+							<p>
+								The Kambalakonda Wildlife Sanctuary Vizag Tourist Places placed in the locality of Vizianagaram and persistent...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/kambalakonda/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<div class="row">
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/Simhachalam-Temple-1.jpg" title="simhachalam" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								
+							<a href="/touristplaces/simhachalam/">Simhachalam Temple</a>
+							</h2>
+							<p>
+								The Simhachalam Temple Vizag, also widely identified as the 'Varaha Laxmi Narasimha Temple' or 'Varaha Narasimha Swami Temple' is a blessed...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/simhachalam/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/vuda-park-1.jpg" title="vudapark" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								
+							<a href="/touristplaces/vudapark/">Vuda Park</a>
+							</h2>
+							<p>
+								Taraka Rama Park, generally celebrated as Vuda Park Vizag Tourist Places from (VUDA - Visakhapatnam Urban Development Authority) Park, is a royal... <br>
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/vudapark/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/rkbeach-1.jpg" title="rkbeach" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/rkbeach/">RK Beach</a>
+							</h2>
+							<p>
+								The Ramakrishna Beach Vizag also normally suppose by its shortened title 'R K Beach' is the mainly accepted, admired and the major event beach of this Port City namely pack crowded with...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/rkbeach/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/borracaves-1.jpg" title="borracaves" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/borracaves/">Borra Caves</a> 
+							</h2>
+							<p>
+								The Borra Caves Vizag Tourist Places also titled as the 'Borra Guhalu' and positioned around 90 Kms from Vizag on the means to the Araku Valley are the likely...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/borracaves/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<div class="row">
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/rosshill-1.jpg" title="rosshill" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/rosshill/">Ross Hill</a> 
+							</h2>
+							<p>
+								The Ross Hill Vizag, also acknowledged as the kanyamarykonda (the hill of Mother Mary) is the vital and the highest mountain between the 3 crests ...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/rosshill/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/matsyadarshini-1.jpg" title="matsyadarshini" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								
+							<a href="/touristplaces/matsyadarshini/">Matsyadarshini Aquarium</a> 
+							</h2>
+							<p>
+								The Matsyadarshini Aquarium Visakhapatnam sited on the Ramakrishna Beach nearby the famed Places in Vizag ...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/matsyadarshini/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/victory-at-sea-1.jpg" title="victoryatsea" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+									<a href="/touristplaces/victoryatsea/">Victory At Sea</a> 
+							</h2>
+							<p>
+								The War Memorial Visakhapatnam also acknowledged as the 'Victory at Sea Vizag' is a memorial sign explicitly elevated in the commemoration of...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/victoryatsea/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/arakuvalley-1.jpg" title="araku" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								<a href="/touristplaces/arakuvalley/">Araku Valley</a>
+							</h2>
+							<p>
+								Araku Valley is one of the most important tourist destinations in Andhra Pradesh. A pleasant hill station famous for its scenic gardens with lush green nature, valleys...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/arakuvalley/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/fishing-harbour-1.jpg" title="harbour" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								 
+							<a href="/touristplaces/fishingharbour/">Fishing Harbour</a> 
+							</h2>
+							<p>
+								Fishing is a most important business in Visakhapatnam. An amount of fishermen has their source of revenue rely on Fishing Harbour in Vizag
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/fishingharbour/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/Ananthagiri-3.jpg" title="ananthagiri" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+									<a href="/touristplaces/ananthagiri/">Ananthagiri Water Falls</a> 
+							</h2>
+							<p>
+								Anantagiri is a village on the main Vizag - Araku road and it is further 3 KM from Borra Junction . From Ananthagiri...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/ananthagiri/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+			<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/chaparai-1.jpg" title="chaparai" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+									<a href="/touristplaces/chaparai/">Chaparai</a> 
+							</h2>
+							<p>
+								Chaparai is a well known picnic spot in Araku valley. A scenic place with water falls and surrounding forest area makes people relax and spend their holiday...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/chaparai/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/Punyagiri-3.jpg" title="punyagiri" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+									<a href="/touristplaces/punyagiri/">Punyagiri</a> 
+							</h2>
+							<p>
+								Sri Uma Kotilingeswara Swami temple is a famous Siva kshetra located in the Vizianagaram District. This temple is located in the Punyagiri hills near S.Kota...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/punyagiri/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/lambasingi-3.jpg" title="lambasingi" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+								 
+							<a href="/touristplaces/lambasingi/">Lambasingi</a> 
+							</h2>
+							<p>
+								Lambasingi (or Lammasingi) is a small village in the Chintapalli Mandal of Visakhapatnam district of Andhra Pradesh, India.
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/lambasingi/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/thotlakonda-3.jpg" title="Thotlakonda" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+									<a href="/touristplaces/thotlakonda/">Thotlakonda</a> 
+							</h2>
+							<p>
+								Thotlakonda Buddhist Complex (17 15 N - 83 23 E) Lies about 15 km from Visakhapatnam city on the way to Bheemili...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/thotlakonda/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+			<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/Mudasarlova-3.jpg" title="mudasarlova" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+									<a href="/touristplaces/mudasarlova/">Mudasarlova</a> 
+							</h2>
+							<p>
+								This Park developed next to the Mudasarlova Reservoir and is set up in the one of the picturesque valleys of Vizag....
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/mudasarlova/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="/media/img/red sand-3.jpg" title="redsandhills" class="img-rounded"  width="400" height="200" />
+						<div class="caption">
+							<h2>
+									<a href="/touristplaces/redsandhills/">Red Sand Hills</a> 
+							</h2>
+							<p>
+								On the Bay of Bengal coast, to the south of the Bheemunipatnam ridge, is an area comprising deeply gullied red sand...
+							</p>
+							<p>
+								<a class="btn btn-primary" href="/touristplaces/redsandhills/">Read More</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+
+{% endblock %}
+
+

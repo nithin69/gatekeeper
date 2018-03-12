@@ -1,0 +1,34 @@
+{% extends 'base2.html' %}
+
+{% block title %} Events  {% endblock %}
+
+{% block content_block %}
+
+{% include "city/datatable.html" %}
+    <div class="row clearfix">
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{page_title }}</h3>
+              </div>
+            </div>
+          </div>
+	{% for l in obj_list %}
+          
+                
+                <div class="col-md-12">
+			
+                  <h2 style="color:blue;">{{l.title }}</h2>
+			
+                  <h4 style="color:green;">{{l.from_date }}</h4>
+                  
+                  <h4>Description:</h4>   {{l.description }}
+		<hr>
+                </div>
+              
+              {% endfor %}
+	
+        </div>
+       
+
+{% endblock %}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+ {% load static %}
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="../../../static/js-sm/bootstrap.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/bootstrap.css' %}"  rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/weather_icons.css' %}" rel="stylesheet" type="text/css">
+            <link href="{% static 'css-sm/style.css' %}" rel="stylesheet" type="text/css">
+             <script type="text/javascript" src="{% static 'js-sm/scripts.js' %}"></script>
+ <title> {% block title %}  {% endblock %}</title> 
+ 
+         <script>
+  $(function(){
+    $("#myTable").dataTable();
+  })
+  </script>
+  
+  
+
+  
+    </head>
+
+    
+    <body>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-3 hidden-sm hidden-xs"></div>
+                    <div class="col-md-6">
+                        <a href="/"><img src="{% static 'img-sm/logo_5.png' %}" class="center-block img-responsive"></a>
+                    </div>
+                    <div class="col-md-3 hidden-sm hidden-xs logsec">
+                        
+                          <ul class="nav navbar-nav navbar-right">
+        
+            {% if user.is_authenticated %}
+            <li><a href="#">Account</a></li>
+            <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="/accounts/login/">Login</a></li>
+            {% endif %}
+          </ul>
+                    
+                        
+                        </div>
+                </div>
+
+    
+                   
+            </div>
+      <hr/>
+ 
+
+        <div class="container main-container">
+            <div class="col-md-2 sidebar">
+                <div class="row">
+                    <!-- uncomment code for absolute positioning tweek see top comment in
+                    css -->
+                    <div class="absolute-wrapper"></div>
+                    <!-- Menu -->
+                    <div class="side-menu">
+                        <nav class="navbar navbar-default " >
+                            <!-- Main Menu -->
+                            <div class="side-menu-container">
+                                <ul class="nav navbar-nav">
+                                    <li {% if request.path == "/city/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/polls/"> Polls</a>
+                                        
+                                    <li {% if request.path == "/city/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/city/"><span class="fa fa-fw fa-home"></span> Environmental</a>
+                                    </li>
+                                    <li {% if request.path == "/city/govt/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/city/govt/"><span class="fa fa-fw fa-university"></span> Social</a>
+                                    </li>
+                                    <li {% if request.path == "/city/events/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/city/events/"><span class="fa fa-fw fa-ticket"></span> Economic</a>
+                                    </li>
+                                                                        <li {% if request.path == "/city/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/city/"><span class="fa fa-fw fa-home"></span> Governance</a>
+                                    </li>
+                                    <li {% if request.path == "/city/govt/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/city/govt/"><span class="fa fa-fw fa-university"></span> General</a>
+                                    </li>
+                                    <li {% if request.path == "/city/events/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/city/events/"><span class="fa fa-fw fa-ticket"></span> Civic</a>
+                                    </li>
+                                    
+                                    <!-- Dropdown-->
+                                    
+                                   
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+	<div class="col-md-10 content">		
+{% block content_block %}
+
+{% endblock %}
+			
+
+        </div>
+        
+        <footer class="text-center footer">
+                <p class="col-md-12"></p>
+                <hr class="divider">Copyright © 2015
+                <a href="http://www.delevere.com"> Delevere </a>
+                <a href="/city/about/">About Us </a>
+                  <a href="/city/contact/">Contact Us </a>
+                <p></p>
+            </footer>
+        <script>
+$('document').ready(function() {   
+var d = new Date();
+var n = d.toDateString();
+x = document.getElementById("curdate").innerHTML = n;
+return x;
+
+
+});
+</script>
+
+
+  
+           <script>
+$(function(){ 
+    // this will get the full URL at the address bar 
+    var url = window.location.href;  
+ 
+    // passes on every "a" tag  
+    $("#dropdown a").each(function() { 
+            // checks if its the same on the address bar 
+        if(url == (this.href)) {  
+            $(this).closest("li").addClass("active"); 
+       // if($("span").parent()==travel)
+$(this).closest("li").parent().show(); 
+   
+        } 
+    }); 
+});
+  </script>
+  
+  
+  
+        <script>
+$('document').ready(function() {   
+
+    highlight_menu('{{request.path}}');
+
+
+
+});
+</script>
+        
+    </body>
+
+</html>

@@ -1,0 +1,149 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" >
+<head>
+    <title>Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/overrides.css" />
+    
+
+    <script type="text/javascript">
+    //<![CDATA[
+        window.__admin_media_prefix__ = "/static/admin/";
+        window.__admin_utc_offset__ = "0";
+    //]]>
+    </script>
+    <script src="/static/admin/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/admin/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+    
+
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/related-widget-wrapper.js"></script>
+<script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+
+    <meta name="robots" content="NONE,NOARCHIVE" />
+    <script type="text/javascript">
+    //<![CDATA[
+            (function($) {
+                $(document).ready(function() {
+                    $('input[type="submit"]').addClass('btn');
+                    $('[title]').tooltip();
+                });
+            }(jQuery));
+    //]]>
+    </script>
+</head>
+
+
+<body class=" gatekeeperapp- change-form">
+
+<!-- Container -->
+<div class="container">
+
+    
+    <!-- Header -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+<a class="navbar-brand" href="/admin/">Gatekeeper</a>
+
+                </div>
+                <div id="header-navbar-collapse" class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        
+                        
+                        <li class="dropdown">
+                            
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <strong>{{request.user}}</strong> <span class="caret"></span></a>
+                            
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin/password_change/">Change password</a></li>
+                                
+                                <li><a href="/admin/logout/">Log out</a></li>
+                            </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- END Header -->
+    <div class="row">
+        <div class="col-sm-12">
+            
+<ul class="breadcrumb">
+<li><a href="/admin/">Home</a></li>
+<li><a href="/admin/gatekeeperapp/">Gatekeeperapp</a></li>
+</ul>
+
+
+
+
+<br/><br/>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+    <center>  
+
+        
+      
+      <h2>List of entries ddd</h2>
+      {% for e in Vehicle %}
+<table border="1">
+<tr width="25px" height="25px">
+<td>
+<a href="/admin/gatekeeperapp/vehicle/{{e.gatepass}}">{{e.gatepass}}</a>
+</td>
+<td>
+{{e.gate}}
+</td>
+
+<td>
+{{e.vehicle}}
+</td>
+
+<td>
+{{e.gatepass}}
+</td>
+
+
+</tr>
+
+
+</table>
+      {% endfor %}
+
+
+    
+    </center>
+    </div>
+  </div>
+</div>
+
+</div>
+    </div>
+</div>
+</body>
+</html>
+

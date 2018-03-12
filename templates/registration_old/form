@@ -1,0 +1,74 @@
+<div class="row">
+<div class="module form-module">
+  
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+    <input type="submit" value="submit" class="submit-login">
+    </form>
+  </div>
+  
+  <div class="cta"><a href="#">Forgot your password?</a></div>
+</div>
+</div>
+
+<style>
+.form-module {
+    position: relative;
+    background: #ffffff;
+    max-width: 322px;
+    width: 100%;
+    border-top: 5px solid #33b5e5;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.form-module .form:nth-child(2) {
+    display: block;
+}
+.form-module .form {
+    
+    padding: 40px;
+}
+.form-module h2 {
+    margin: 0 0 20px;
+    color: #33b5e5;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+}
+.form-module input {
+    outline: none;
+    display: block;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    margin: 0 0 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-wieght: 400;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+form input.submit-login {
+    cursor: pointer;
+    background: #33b5e5;
+    width: 100%;
+    border: 0;
+    padding: 10px 15px;
+    color: #ffffff;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+.form-module .cta {
+    background: #f2f2f2;
+    width: 100%;
+    padding: 15px 40px;
+    box-sizing: border-box;
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+}
+
+</style>

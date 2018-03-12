@@ -1,0 +1,54 @@
+{% extends "base.html" %} 
+
+
+{% block title %} Smart Vizag RealEstates {% endblock %}
+{% block meta %}
+
+
+{% include 'city/rentalsmeta.html' %}
+
+
+
+{% endblock %}
+
+        {% block content_block %}
+
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section">
+                                <div class="row">
+                                    {% for r in rent %}
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <a href="/rentals/{{r.id}}/"><img src="/media/{{ r.image }}" class="center-block img-responsive img-thumbnail" style="height:200px; overflow:hidden;"></a>
+                                            </div>
+                                            <div class="col-md-9 text-left">
+                                                <h3><a href="/rentals/{{r.id}}/"><b>{{ r.property_name }}</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="/media/rup.png/" style="height:25px; width:20px;"><b>{{r.rent_price}}</b>
+                                                    
+                                                </h3>
+						
+						
+                                                <address>
+                                                    
+						  
+                                                    <i class="fa fa-fw fa-map-marker"></i>{{ r.Address }}
+                                                    </address>
+						<p>Bedrooms: {{r.bed_rooms}}</p>
+						<p>Bathrooms: {{r.bath_rooms}}</p>
+						<p>Plot Area: {{r.plot_area}}</p>
+						
+                                                <hr>
+                                            </div>
+						</div>
+                                        </div>
+					{% endfor %}
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+				
+{% endblock %}

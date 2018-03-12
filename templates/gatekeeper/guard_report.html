@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+
+
+{% block content_block %}
+
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-md-12" id="printableArea">
+	-->
+	<div class="col-md-12">
+        
+      
+      <h2>List of Vehicle Entries </h2>
+ <!--    
+<table border="1" class="table table-striped bordered">
+
+<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Entry Gate
+						</th>
+
+						<th>
+							Entry Gatepass
+						</th>
+
+							<th>
+							Time of Entry
+						</th>
+						<th>
+							Liner
+						</th>
+						<th>
+							Place
+						</th>
+						<th>
+							Bill No.
+						</th>
+						<th>
+							Movement
+						</th>
+
+<th>
+							Validity
+						</th>
+
+
+					</tr>
+				</thead>
+ {% for e in entries %}
+
+<tr>
+<td>
+{{e.gatepass}} 
+</td>
+<td>
+{{e.gate}}
+</td>
+
+<td>
+{{e.gatepass}}
+</td>
+
+
+<td>
+{{e.time_of_entry}} 
+</td>
+<td>
+{{e.line}}
+</td>
+
+<td>
+{{e.place_from}}
+</td>
+
+<td>
+{{e.bill_no}}
+</td>
+
+<td>
+{{e.movement_type}}
+</td>
+
+<td>
+{{e.validity_date}}
+</td>
+
+
+
+</tr>
+
+
+
+      {% endfor %}
+
+</table>
+-->    
+    </div>
+   <!--  <input type="button" onclick="printDiv('printableArea')" value="print" /> -->
+  </div>
+</div>
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+
+
+<table border="1" class="table table-striped bordered">
+
+<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Entry Gatepass
+						</th>
+
+						<th>
+							Entry Gate
+						</th>
+
+							<th>
+							Time of Entry
+						</th>
+						<th>
+							Liner
+						</th>
+						<th>
+							Place
+						</th>
+						<th>
+							Movement
+						</th>
+						<th>
+							Bill No.
+						</th>
+
+<th>
+							Validity
+						</th>
+
+<th>
+							Print
+						</th>
+					</tr>
+				</thead>
+ {% for e in entries %}
+
+<tr id="printableArea">
+<td>
+{{e.id}} 
+</td>
+<td>
+ {{e.gatepass}}
+</td>
+
+<td>
+{{e.gate}}  
+</td>
+
+
+<td>
+{{e.time_of_entry}} 
+</td>
+<td>
+{{e.line}}
+</td>
+
+<td>
+{{e.place_from}}
+</td>
+
+<td>
+  {{e.movement_type}}
+</td>
+
+<td>
+{{e.bill_no}} 
+</td>
+
+<td>
+{{e.validity_date}}
+</td>
+
+<td>
+<input type="button" onclick="printDiv('printableArea')" value="Print" />
+</td>
+
+
+
+</tr>
+
+
+
+      {% endfor %}
+
+</table>
+
+
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function printDiv(divName) {
+     
+     
+var t = "<table border='1' class='table table-striped bordered'> <thead> <tr>  <th>#</th><th> Entry Gatepass </th> <th> Entry Gate </th> <th> Time of Entry  </th> <th> Liner  </th> <th>  Place </th> <th> Movement </th> <th> Bill No. </th> <th> Validity </th> <th> Print </th> </tr> 				</thead> <tr>";
+
+
+var k = "</tr> </table> ";
+
+var printContents =document.getElementById(divName).innerHTML;
+
+
+
+var printContents12 = t.concat(printContents, k);
+     console.log(printContents12); 
+var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents12;
+
+     window.print();
+
+     document.body.innerHTML = printContents12;
+}
+</script>
+
+{% endblock %}

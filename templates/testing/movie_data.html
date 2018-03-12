@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ movies.movie_name }}  {% endblock %}
+
+{% block content_block %}
+
+<style>
+.well{
+	background-color: #FFFFFF;
+	}
+	h1{
+	color:#00456e ;
+	    padding-top: 10px;
+	}
+	img.img-responsive
+	{
+    
+    margin-left: auto;
+    margin-right: auto;
+	}
+	.table {
+    
+    border-bottom: 1px solid #ccc;
+    
+}
+.res-table {
+    padding: 10px;
+}
+</style>
+
+<div class="col-md-12" style="box-shadow: 0 0 8px rgba(0,0,0,.3);">
+<h1 class="text-center">{{ movies.movie_name }}</h1>
+<div class="col-md-5">
+<img src="{{ movies.image }}" class="img-responsive">
+</div>
+<div class="col-md-6">
+	<div class="" style="margin-top:10px">
+<b>Director:</b> {{ movies.director }}<br>
+<b>Genre:</b> {{ movies.genre }}<br>
+<b>Actors :</b> {{ movies.actors }}
+</div>
+</div>
+
+<div class="clearfix"></div>
+ <div class="res-table">
+       <div class=" clearfix datarow">
+                        <div class="column"> 
+<table id="myTable" class="display table dataTable table-bordered">
+    <thead>
+      <tr>
+        <th>Theater name</th>
+        <th> Address </th>
+
+		  <th>Timings </th>
+                  
+        
+      </tr>
+    </thead>
+    <tbody>
+     
+{% for l in data %}
+	 
+	<tr>
+        <td>{{ l.theatre_name }}</td>
+        <td>{{ l.address }}</td>
+		  <td>{{ l.timings1 }} &nbsp;  {{ l.timings2 }}</td>
+      </tr>
+	 
+	 {% endfor %}
+	  </tbody>
+  </table>
+                                              
+                      
+</div>
+</div>
+</div>
+
+
+ 
+{% endblock %}
+
+
+
+</div>
+
+

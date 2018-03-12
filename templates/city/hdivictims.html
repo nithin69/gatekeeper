@@ -1,0 +1,187 @@
+      {% extends 'base.html' %}
+
+    {% load static %}
+    {% block title %} Protection of AP Depositors {% endblock %}
+
+{% block content_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+ <legend>   Please fill-in the below form to submit your complaint</legend>
+
+<div class="row clearfix"></br>
+<center>
+​
+<div class="col-sm-12">
+    {% if done %}
+        <p> Your complaint has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+
+<form class="form-horizontal" id="victim_form" method="post" action="/victims/"
+              enctype="multipart/form-data">
+                    {% csrf_token %}
+
+{{ victim_form.errors }}
+
+<div class="container-fluid">
+<h3><b>Enter Personal Details:</b></h3>
+<div class="col-sm-6">
+<div class="form-group">
+<label for="title" class="col-sm-4 text-right control-label">I'm victim of </label>
+<div class="col-md-8">
+<select name="victim_of" id="victim_of" class="form-control">
+<option value="Agri Gold" selected>Agri Gold</option>
+<option value="Abhaya Gold">Abhaya Gold</option>
+<option value="Akshaya Gold">Akshaya Gold</option>
+<option value="Akshitha Gold">Akshitha Gold</option>
+<option value="Avani Gold">Avani Gold</option>
+<option value="Vasantha Gold">Vasantha Gold</option>
+<option value="Siri Gold">Siri Gold</option>
+<option value="Forever Gold">Forever Gold</option>
+<option value="Bommarillu Farms">Bommarillu Farms</option>
+<option value="Mythri Lands">Mythri Lands</option>
+<option value="PACL">PACL</option>
+<option value="Sri Vatsala">Sri Vatsala</option>
+<option value="N Mart">N Mart</option>
+<option value="SIMS">SIMS</option>
+<option value="Gold Quest">GOld Quest</option>
+<option value="RMP InfoTech">RMP InfoTech</option>
+<option value="Kesava Reddy School">Kesava Reddy School</option>
+<option value="Maheswara Get it">Maheswara Get it</option>
+<option value="VR Chits">VR Chits</option>
+<option value="Keerthi Sai Chits">Keerthi Sai Chits</option>
+<option value="Subhadarsi Chits">Subhadarsi Chits</option>
+<option value="Amway">Amway</option>
+<option value="HIM">HIM</option>
+</select>
+</div>
+</div>
+<br>
+
+<div class="form-group">
+<label for="aadharnumber" class="col-sm-4 text-right control-label">Aadhar Number</label>
+<div class="col-md-8">
+<input type="text" pattern=".{12,12}" id="id_aadharnumber" name="aadhar_number" class="form-control" maxLength=12 placeholder="Aadhar Number" required>
+<span id="aadharnum" style="color:red;"></span>
+<br>
+</div>
+</div>
+<div class="form-group">
+<label for="name" class="col-sm-4 text-right control-label">Your Name</label> ​
+<div class="col-md-8">
+<input type="text" name="name" class="form-control" id="id_name" value="" placeholder="Full Name" required>
+
+<span id="fullnameValidation"></span>
+<br>
+</div>
+</div>
+<div class="form-group">
+<label for="district" class="col-sm-4 text-right control-label"> District
+</label>
+<div class="col-md-8 col-sm-12">
+<select name="district" id="district" class="form-control">
+<option value="">Select district</value>
+<option value="533">NIZAMABAD(నిజామాబాదు)</option>
+<option value="534">KARIMNAGAR(కరీంనగర్)</option>
+<option value="535">MEDAK(మెదక్)</option>
+<option value="536">HYDERABAD(హైదరాబాద్)</option>
+<option value="537">RANGAREDDY(రంగారెడ్డి)</option>
+<option value="538">MAHBUBNAGAR(మహబూబ్ నగర్)</option>
+<option value="539">NALGONDA(నల్గొండ)</option>
+<option value="540">WARANGAL(వరంగల్)</option>
+<option value="541">KHAMMAM(ఖమ్మం)</option>
+<option value="542">SRIKAKULAM(శ్రీకాకుళం)</option>
+<option value="543">VIJAYANAGARAM(విజయనగరం)</option>
+<option value="544">VISAKHAPATNAM(విశాఖపట్నం)</option>
+<option value="545">EAST GODAVARI(ఈస్ట్ గోదావరి)</option>
+<option value="546">WEST GODAVARI(వెస్ట్ గోదావరి)</option>
+<option value="547">KRISHNA(కృష్ణ)</option>
+<option value="548">GUNTUR(గుంటూరు)</option>
+<option value="549">PRAKASAM(ప్రకాశం)</option>
+<option value="550">SRI POTTI SRIRAMULU NELLORE(శ్రీ పొట్టి శ్రీరాములు నెల్లూరు)</option>
+<option value="551">KADAPA(కడప)</option>
+<option value="552">KURNOOL(కర్నూల్)</option>
+<option value="553">ANANTAPUR(అనంతపూర్)</option>
+<option value="554">CHITTOOR(చిత్తూర్)</option>
+<option value="532">ADILABAD(ఆదిలాబాద్)</option>
+</select>
+<br>
+</div>
+</div>
+<div class="form-group">
+<label for="mandal" class="col-sm-4 text-right control-label"> Mandal
+</label>
+<div class="col-md-8 col-sm-12">
+<select name="mandal" id="mandal" class="form-control" disabled>
+<option value="">Select mandal</option>
+</select>
+<br>
+</div>
+</div>
+<div class="form-group">
+<label for="Address" class="col-sm-4 text-right control-label">Address
+</label> ​
+<div class="col-md-8 col-sm-12">
+<input type="text" name="address" id="address" class="form-control" value="" placeholder="House number, street, village" required>
+</div>
+</div>
+</div>
+​
+<div class="col-sm-6">
+<div class="form-group">
+<label for="number" class="col-sm-4 text-right control-label">Mobile Number</label>
+<div class="col-md-8">
+<input type="tel" id="id_mobile_number" pattern=".{10,10}" name="mobile_number" class="form-control" value="" minLength=10 maxLength=10 placeholder="Mobile Number" required>
+
+<span style="color:red;" id="contact"></span>
+<br>
+</div>
+</div>
+<div class="form-group">
+<label for="email" class="col-sm-4 text-right control-label">Your Email<span class="red"></span></label>
+<div class="col-md-8">
+<input type="text" name="email" class="form-control" value="" placeholder="Email">
+<br>
+</div>
+</div>
+<div class="form-group">
+<label for="number" class="col-sm-4 text-right control-label">Pancard Number<span class="red"></span></label>
+<div class="col-md-8">
+<input type="text" id="id_pancard_number" name="pancard_number" class="form-control" value="" placeholder="Pancard Number">
+ 
+<br>
+</div>
+</div>
+<div class="form-group">
+<label for="voterid" class="col-sm-4 text-right control-label">Voter ID<span class="red"></span></label>
+<div class="col-md-8">
+<input type="text" id="id_voter_id" name="voter_id" class="form-control" value="" placeholder="Voter ID">
+ 
+<br>
+</div>
+</div>
+<div class="form-group">
+  <label class="col-sm-4 control-label" for="filebutton">Address Proof</label>
+  <div class="col-sm-4">
+    <input id="id_address_proof" name="address_proof" type="file" class="input-file">
+  </div>
+</div>
+</div>
+</div>
+
+   <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+ 
+
+</form>
+
+        {% endif %}
+         
+</div>
+</div>
+            
+{% endblock %}

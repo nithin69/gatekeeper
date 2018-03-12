@@ -1,0 +1,112 @@
+{% extends 'base-tour.html' %}
+
+{% load static %}
+{% block title %} Tenneti ParK{% endblock %}
+
+{% block content_block %}
+<h2 align="center">Tenneti ParK</h2>
+
+<div class="col-md-9">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/media/img/tennetipark1.jpg" alt="Tenneti ParK" title="Tenneti ParK" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="/media/img/tennetipark2.jpg" alt="Tenneti ParK" title="Tenneti ParK" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="/media/img/tennetipark3.JPG" alt="Tenneti ParK" title="Tenneti ParK" width="460" height="345">
+      </div>
+      
+
+      <!-- <div class="item">
+        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+      </div> -->
+    </div>
+	</div>
+
+    <!-- Left and right controls -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->  
+	
+	<br><br>
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              </div>
+
+<p>Tenneti Park on the Vizag-Bheemili Road in Vishakapatnam, Andhra Pradesh is a beautiful park from where the sea and the sunrise views are popular. This is one destination which tourists who visit Vishakapatnam do not miss because the little park is simply remarkable and is set in a picturesque location facing the sea. The combination of multicolored hues of the verdant park, the azure blue water and the pristine skies and the kaleidoscopic flora in the park along with well laid walkways, pebbles and rock landscaping make for wonderful scenery, right out of a picture book. The hills forming the backdrop to this setting only add to the allure. Away from the bustling city, Tenneti Park attracts a lot of residents looking for respite from the hustle and bustle of city life, who come and picnic here with their friends and family.</p>
+
+
+
+	<!-- <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Timings</h3>
+                </div>
+              </div>
+10.00 AM to 5.00 PM
+		
+			<p> Days: All	</p>
+  
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Bus</h3>
+                </div>
+              </div>
+
+		
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+              </div>
+Visakhapatnam, Andhra Pradesh -->
+ <div class="col-md-7">
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:350px;width:440px;'><div id='gmap_canvas' style='height:270px;width:350px;'></div><div><small><a href="https://www.embedgooglemaps.com"></a></small></div><div><small><a href="https://mrdiscountcode.hk/top-20-expats-blogs-2017/"></a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(17.7469885,83.35117887823479),mapTypeId: google.maps.MapTypeId.SATELLITE};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.7469885,83.35117887823479)});infowindow = new google.maps.InfoWindow({content:'<strong>Tenneti Park</strong><br>Tenneti Park,Beach Rd, Opposite To Kailasagiri Hills, Jodugulla Palem, Visakhapatnam, Andhra Pradesh 530001<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div>
+  <div class="col-md-5">
+<div class="tourist-time">
+   <h3>Timings</h3>
+   <p>Morning : 6AM-8AM</p>
+			
+			<p> Days: All	</p>
+			 <h3 >Bus</h3>
+			 <p>Bus faculity Available</p>
+			 
+			 <h3 >Address</h3>
+			 
+			 <p>Tenneti Park,Beach Rd, Opposite To Kailasagiri Hills, Jodugulla Palem, Visakhapatnam, Andhra Pradesh</p>
+			 
+   
+  
+  
+</div>  
+  
+  
+  
+  </div>
+
+</div>
+
+
+{% endblock %}

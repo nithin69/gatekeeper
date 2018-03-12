@@ -1,0 +1,44 @@
+In Html
+
+<div class="pagination">
+<span class="step-links">
+{% if nlist.has_previous %}
+<a href="?page={{ nlist.previous_page_number }}" title="previous"><b> << Previous</b></a>
+{% endif %}
+
+
+<span class="current">
+  Page {{ nlist.number }} of {{ nlist.paginator.num_pages }}
+</span>
+
+{% if nlist.has_next %}
+<a href="?page={{ nlist.next_page_number }}" title="next"><b>Next >> </b></a>
+{% endif %}
+</span>
+</div>
+
+
+In Views
+def index(request):
+    context_dict = {}
+    elist = Ping.objects.filter(ping_category="Events").order_by('-id')[:1]
+    nlist = Ping.objects.filter(ping_category="News").all().order_by('-id')
+    alist = Ping.objects.filter(ping_category="Alerts").order_by('-id')[:1]
+    glist = Ping.objects.filter(ping_category="Government")
+    gvlist = Ping.objects.filter(ping_category="GVMC").order_by('-id')[:1]
+    paginator = Paginator(nlist, 10)
+    page = request.GET.get('page')
+    try:
+        nlist = paginator.page(page)
+    except PageNotAnInteger:
+        nlist = paginator.page(1)
+    except EmptyPage:
+        nlist = paginator.page(paginator.num_pages)
+    context_dict = {'elist': elist, 'nlist': nlist, 'alist': alist,
+     'glist': glist, 'gvlist': gvlist}
+    return render(request, 'city/index.html', context_dict)
+
+
+
+
+    

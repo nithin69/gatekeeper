@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block content_block %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+
+      <h2> Select Report to View </h2>
+     
+
+
+
+<div class="container">
+  <div class="row">
+
+<form method="get" class="reply-form" action = "/" name="form1" id="form1">
+
+<div class="form-group col-md-2">
+				 
+
+<select class="selectpicker form-control" name="reporttype" id="reporttype"  onChange="chgAction()">
+
+  <option id = "piechart">Select Report </option>
+  <option id = "piechart">View Vehicles by Gate </option>
+  <option id = "tvehicles">View Vehicles Of Today</option>
+  <option id = "twohours">View Vehicles in last 2 hours</option>
+  <option id = "report"> Search By Date</option>
+
+
+</select>
+
+
+</div>
+
+<div class="form-group col-md-3">
+				 
+
+<select class="selectpicker form-control" name="reporttype" id="reporttype"  onChange="chgAction()">
+
+  <option id = "piechart">Container Status </option>
+  <option id = "piechart">All </option>
+  <option id = "tvehicles">IN</option>
+  <option id = "twohours">OUT</option>
+  <option id = "report"> INandOUT</option>
+  <option id = "report"> INandNOTOUT</option>
+
+
+</select>
+
+
+</div>
+
+
+    <div class="form-group col-md-2">
+        <p class="datetime"> <input requierd class="form-control form-control-inline vDateField" id="id_time_of_entry_0" name="from_date" placeholder="From Date" id="from_date" size="10" title="" type="text"/></p>
+    </div>
+
+    <div class="form-group col-md-2">
+        <p class="datetime"><input required class="form-control form-control-inline vDateField" id="id_time_of_entry_0" name="to_date" placeholder="TO Date" id="to_date" size="10" title="" type="text"/></p>
+    </div>
+<div class="form-group col-md-2"><button type="submit" class="btn btn-primary">Submit</button></div> 
+
+<!-- <input type="date" placeholder="Departure Date" id="departure_date" name="departure_date" required=""> -->
+
+
+</form>
+
+
+
+
+  </div>
+</div>    
+
+
+
+
+
+    </div>
+  
+  
+</div>
+</div>
+
+{% endblock %}
+
+
+
+
+{% block customjs_block %}
+
+
+<script type="text/javascript">
+
+
+function chgAction() {
+    var form = document.form1;
+    
+    console.log('chgAction()');
+    console.log(form.reporttype.selectedIndex);
+    var reportname = document.getElementById("reporttype").value;
+    switch (form.reporttype.selectedIndex) {
+        case 1:
+            form.action = "/piechart/";
+            break;
+        case 2:
+            form.action = "/tvehicles/";
+            break;
+	 case 3:
+            form.action = "/twohours/";
+            break;
+	 case 4:
+            form.action = "/report/";
+            break;
+	
+
+    }
+}
+
+
+</script>
+
+
+
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,169 @@
+    {% extends 'base.html' %}
+
+    {% load static %}
+{% block title %} How Do I ?  {% endblock %}
+
+{% block meta %}
+
+
+<meta name="Title" content="How Do I|smartvizag |Local Search" />
+<meta name="description" content="How Do I Do"/>
+<meta name="keywords" content="How Do I,How Do I help?,Know Information,get the information,gather the info,gather the information,gather all the information"/>
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all"/>
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://smartvizag.com/howdoi/"/>
+<meta property="og:sitename" content = "http://smartvizag.com"/> 
+<meta property="og:title" content="where can i get the latest information in vizag, how can i pay electricity bill, where can i, how can i, how to, where to,  in vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Smartvizag provides information about 'where', 'how' and 'what' can i do in Visakhapatnam" />
+
+{% endblock %}
+
+    {% block content_block %}
+
+
+
+{% include "city/datatable.html" %}
+
+				 <div class="inline page-title"> <h2> {{page_title }}  </h2>   </div>
+					<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/health/"><span class="fa fa-plus-square fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/health/"> Health </a>
+							</h3>
+							<p>
+								Find information about government health schemes and programs.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/transport/"><span class="fa fa-truck fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/transport/"> Transport </a>
+							</h3>
+							<p>
+								Find information about Transportion Services.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/utilities/"><span class= "fa fa-cogs fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/utilities/"> Utilities </a>
+							</h3>
+							<p>
+								Find information about all the utilities.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/business/"><span class="fa fa-suitcase fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/business/"> Business </a>
+							</h3>
+							<p>
+								Find information about businesses.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/education/"><span class="fa fa-graduation-cap fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/education/"> Education </a>
+							</h3>
+							<p>
+								Find information about education.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/welfare/"><span class="fa fa-recycle fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/welfare/"> Welfare </a>
+							</h3>
+							<p>
+								Find information about welfare schemes and programs.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/tax/"><span class="fa fa-money fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/tax/"> Tax </a>
+							</h3>
+							<p>
+								Find information about tax services.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/child/"><span class="fa fa-child fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/child/"> Child & Women </a>
+							</h3>
+							<p>
+								Find information about women and child programs.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/howdoi/employement/"><span class="fa fa-laptop fa-5x" style="color:#158cba"></span></a>
+						<div class="caption">
+							<h3>
+								<a href="/howdoi/employement/"> Employement </a>
+							</h3>
+							<p>
+								Find information about employement programs.
+							</p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+    {% endblock %}

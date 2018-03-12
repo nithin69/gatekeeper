@@ -1,0 +1,69 @@
+{% extends 'base2.html' %} 
+ {% load static %}
+
+  
+{% block title %}SMART VIZAG - Search{% endblock %}
+
+
+{% block content_block %}
+
+{% include "testing/datatable.html" %}
+
+<div class="hero-unit">
+    
+      {% if news or bus or business or train or flight %}
+    <h2> Keyword : {{ category }}  </h2>
+    
+        <div class="row">
+                    <div class="col-md-8">
+			{% for n in news %}
+                        <h1><a href="{{ n.url }}" style="color:blue;">{{ n.title}}</a></h1>
+			<p style="font-size:15px;"><a href="{{n.url}}" style="color:green;">{{ n.url|slice:":70" }}...</a></p>
+                        <p align="justify">{{ n.description}}</p>
+			<br>
+			{% endfor %}
+			{% for b in bus %}
+			{{b.from_location }}-
+			{{b.to_location }}
+			<a href="/localbus/" title="{{b.from_location }}">{{ b.bus_number}}</a><br><br>
+			{% endfor %}
+			{% for t in business %}
+			<h1><a href="{{t.id}}/{{t.text}}" style="color:blue;">{{t.name }}<a></h1>
+			<p>{{t.phone3 }},{{t.phone4 }} <br>
+			{{ t.address}}<p><br><br>
+			{% endfor %}
+			{% for tr in train %}
+			<h1>Train Number : {{tr.train_number }}</h1>
+			<p>Train Name : {{tr.train_name }}<p> <br>
+			<p>From Location : {{ tr.from_location}}</p><br>
+			<p>To Location : {{ tr.to_location}}</p><br>
+			<p>Departure Time : {{ tr.from_time}}</p><br>
+			<p>Arrival Time : {{ tr.to_time}}</p><br>
+			{% endfor %}
+			{% for fl in flight %}
+			<h1>Flight Number : {{fl.flight_number }}</h1>
+			<p>Flight Name : {{fl.airlines }}<p> <br>
+			<p>From Location : {{ fl.from_location}}</p><br>
+			<p>To Location : {{ fl.to_location}}</p><br>
+			<p>Departure Time : {{ fl.departure_time}}</p><br>
+			<p>Arrival Time : {{ fl.arrival_time}}</p><br>
+			{% endfor %}		
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

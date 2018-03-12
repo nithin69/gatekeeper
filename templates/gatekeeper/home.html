@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block title %} gatekeeper  {% endblock %}
+
+{% block body_block %}
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+    <center>  
+    
+    
+    <div class="col-sm-8 wow fadeInRight" data-wow-delay="0.3s">
+            <h4>Enter the TRUCK details</h4>
+            <div id="success"></div>
+            {% if done %}
+        <p> information had been submited</p>
+            {% else %}
+    
+    <form novalidate id="contactForm" class="reply-form form-inline" method="post" action=".">
+                    {% csrf_token %}
+
+
+         <div class="form-group">
+              <label class="col-sm-2 control-label">
+                Gate
+              </label>
+              <div class="col-sm-10">
+                <select name="gate" id="gate">
+                <option value ="Gate1">Gate1 </option>
+                <option value ="Gate2">Gate2 </option>
+                <option value ="Gate3">Gate3 </option>
+                <option value ="Gate4">Gate4 </option>
+                <option value ="Gate5">Gate5 </option>
+                </select>
+              </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            GatePass No.
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="gatepass_no" name="gatepass_no"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Company
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="company" name="company"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Time Of Entry
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="vehicle_load" name="vehicle_load"/>
+          </div>
+        </div>        
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Vehicle Load
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="vehicle_load" name="vehicle_load"/>
+          </div>
+        </div>  
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Vehicle Load
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="vehicle_load" name="vehicle_load"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            moment_type
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="moment_type" name="moment_type"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            transporter_name
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="transporter_name" name="transporter_name"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            vehicle_no
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="vehicle_no" name="vehicle_no"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            place_from
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="place_from" name="place_from"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            bill_no
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="bill_no" name="bill_no"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            validity_date
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="validity_date" name="validity_date"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            status
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="status" name="status"/>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            remarks
+          </label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="remarks" name="remarks"></textarea>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            action_required
+          </label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="action_required" name="action_required"></textarea>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            comments
+          </label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="comments" name="comments"> </textarea>
+          </div>
+        </div>         
+
+
+
+
+
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+             
+            <input type ="submit" value="SUBMIT" class="btn btn-lg btn-info" onclick="/gate/"/>
+          </div>
+        </div>
+      </form>
+
+
+{% endif %}
+
+
+
+
+
+
+{% endblock %}         
+

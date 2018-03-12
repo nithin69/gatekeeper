@@ -1,0 +1,83 @@
+{% extends "base.html" %} 
+
+
+{% block title %} {{ joblist.job_type }} {% endblock %}
+{% block meta %}
+
+
+{% include 'city/jobsmeta.html' %}
+
+
+
+{% endblock %}
+
+        {% block content_block %}
+        
+              <div class="row">
+                    <div class="col-md-12">
+                        <div class="section">
+                            
+                                <div class="row">
+					
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            
+                                            <div class="col-md-12 text-left">
+                                                <h1>{{ joblist.title }}
+                                                    <span class="label label-success faa-tada animated">Available</span>
+                                                </h1>
+						
+                                            <p>Postiton Type : {{joblist.position_type}}</p>
+                                                <p>Salary Type : {{joblist.salary_type}}</p>
+	                                        
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">
+                                                            <i class="fa fa-fw fa-lg fa-phone"></i>Call Us</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <h4>{{ joblist.phone }}</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">
+                                                            <i class="fa fa-fw fa-lg fa-map-marker"></i>Address</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <h4>{{ joblist.address }}</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">Description</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <p>{{joblist.description}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                
+  </div>
+            
+    </body>
+
+{% endblock %}

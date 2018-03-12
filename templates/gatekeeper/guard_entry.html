@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container mt2">
+
+<div id="success"></div>
+
+
+            {% if done %}
+        <p> <br/> Data has been sucessfully saved. <br/> 
+        <input type="button" onclick="printDiv('printableArea')" value="Print" />
+        <a href= "/"> Click here to go to go to Home page. </a> <br/>  </p>
+
+<!--   ####################################  printible area ################################### -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+<table border="1" class="table table-striped bordered">
+
+<thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Entry Gatepass
+            </th>
+
+            <th>
+              Entry Gate
+            </th>
+
+              <th>
+              Time of Entry
+            </th>
+            <th>
+              Liner
+            </th>
+            <th>
+              Place
+            </th>
+            <th>
+              Movement
+            </th>
+            <th>
+              Bill No.
+            </th>
+
+<th>
+              Validity
+            </th>
+
+
+          </tr>
+        </thead>
+ <tr id="printableArea">
+<td>
+{{entries.gatepass}} 
+</td>
+<td>
+ {{entries.gatepass}}
+</td>
+
+<td>
+{{entries.gate}}  
+</td>
+
+
+<td>
+{{entries.time_of_entry}} 
+</td>
+<td>
+{{entries.line}}
+</td>
+
+<td>
+{{entries.place_from}}
+</td>
+
+<td>
+  {{entries.movement_type}}
+</td>
+
+<td>
+{{entries.bill_no}} 
+</td>
+<td>
+{{entries.validity_date}}
+</td>
+
+
+</tr>
+</table>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function printDiv(divName) {
+     
+     
+var t = "<table border='1' class='table table-striped bordered'> <thead> <tr>  <th>#</th><th> Entry Gatepass </th> <th> Entry Gate </th> <th> Time of Entry  </th> <th> Liner  </th> <th>  Place </th> <th> Movement </th> <th> Bill No. </th> <th> Validity </th> <th> Print </th> </tr>         </thead> <tr>";
+
+
+var k = "</tr> </table> ";
+
+var printContents =document.getElementById(divName).innerHTML;
+
+
+
+var printContents12 = t.concat(printContents, k);
+     console.log(printContents12); 
+var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents12;
+
+     window.print();
+
+     document.body.innerHTML = printContents12;
+}
+</script>
+
+
+
+
+
+
+
+<!--  #################################### printible area close ############################ -->        
+         <br/> 
+
+        <a href= "/"> Click here to go to go to Home page. </a> <br/>  </p>
+    {% else %}
+ <p> <br/>  <br/> 
+
+        <a href= "/"> Click here to go to go to Home page. </a> <br/>  </p>
+
+
+    <form method="post" name = "entryform" action="/gentryin/" onsubmit="return validateForm()">
+    {% csrf_token %}
+         <div class="col-md-4 col-xs-12">
+       
+            <div class="form-group">
+              <label for="sel1">Liner:</label>
+              <select class="form-control" id="line" name="line">
+                <option>select</option>
+                {% for l in liner %}
+                  <option value="{{l.id}}">{{l.liner}}</option>
+                {% endfor %}
+              </select>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="sel1">Movement Type:</label>
+<!--
+              <select class="form-control" id="sel1">
+                <option >select</option>
+                <option>IN </option>
+                <option>OUT</option>
+              </select>
+              -->
+              <input type="label" class="form-control" id="movement_type" name="movement_type" readonly value ="IN" >
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="place">Place From:</label>
+                <input type="text" class="form-control" id="place_from" name="place_from">
+          </div>
+        </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="bln">BL No.</label>
+                <input type="text" class="form-control" id="bill_no" name="bill_no">
+          </div>
+        </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="vdate">Validity Date:</label>
+
+
+
+
+                <input type="text" class="form-control" id="validity_date" name="validity_date">
+          </div>
+        </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="cname">Customer Name:</label>
+                <input type="text" class="form-control" id="customer_name" name="customer_name">
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="shipper">CHA/Shipper</label>
+                <input type="text" class="form-control" id="cha" name="cha">
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="vname">Vessel Name:</label>
+                <input type="text" class="form-control" id="vessel_name" name="vessel_name">
+          </div>
+        </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="vayno">Vay. No.</label>
+                <input type="text" class="form-control" id="vay_no" name="vay_no">
+          </div>
+        </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="tname">Transporter Name:</label>
+                <input type="text" class="form-control" id="transporter_name" name="transporter_name">
+          </div>
+        </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="truckno">Truck No.</label>
+                <input type="text" class="form-control" id="vehicle_no" name="vehicle_no">
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+            <div class="col-md-3 col-xs-3">
+                    <div class="form-group">
+                        <label for="usr">Gate pass id: </label><div class="value">
+                          {{vehicles_count}}
+                        </div>
+                        
+                    </div>
+            </div>
+
+            <div class="col-md-3 col-xs-3">
+                    <div class="form-group">
+                        <label for="usr">Gate </label><div class="value">
+                          <input type="text" class="form-control" readonly id ="gate" name="gate" value="{{gate_id}}">{{gate}}
+                        </div>
+                        
+                    </div>
+            </div>
+
+            <div class="col-md-6 col-xs-6">
+                    <div class="form-group">
+                        <label for="usr">Time of Entry: </label><div class="value" id="demo"></div>
+                        
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+           <div style="overflow-x:auto;" class="col-md-12">
+        
+                <table class= "table color">
+                    <thead> 
+                        <th>CONTAINERS</th>
+                    </thead>
+                </table>
+            
+            </div>
+            <div style="overflow-x:auto;" class="col-md-12">
+              <table class="table">
+               
+                <tr>
+                    <td><input placeholder = " CONTAINER 1 No." required type="text" name="container_no_1" id="container_no_1"></td> 
+                    <td><input placeholder = " SZ & TE" required type="text" name="sz_1" id="sz_1"></td>
+                    <td><input placeholder = " MTY / LDN" required type="text" name="mty_1" id="mty_1"></td>
+                    <td><input placeholder = "MFG YEAR." required type="text" name="mfg_year_1" id="mfg_year_1"></td>
+                    <td><input placeholder = " GR. WEIGHT" required type="text" name="gr_weight_1" id="gr_weight_1"></td>
+                </tr><tr>
+                    <td><input placeholder = "  TARE WEIGHT" required type="text" name="tare_weight_1" id="tare_weight_1"></td>
+                    <td><input  placeholder = "  CBM" required type="text" name="cbm_1" id="cbm_1"></td>
+                    <td><input placeholder = "ACTION REQUIRED" required type="text" name="action_required_1" id="action_required_1"></td>  
+                    <td><input placeholder = "STATUS" required type="text" name="status_1" id="status_1"></td>
+                    <td><input placeholder = "LOCATION" required type="text" name="location_1" id ="location_1"></td>
+                </tr>
+
+
+<tr>
+  <td><input placeholder = "GRADE" required type="text" name="grade_1" id="grade_1"></td>
+                    <td><input placeholder = "remarks" required type="text" name="remarks_1" id ="remarks_1"></td>
+              <td><input type="text" readonly name="vehicle_1" id ="vehicle_1" value = {{vehicles_count}}></td>
+
+
+
+                <tr>
+                    <td><input  placeholder = " CONTAINER 2 No."  type="text" name="container_no_2" id="container_no_2"></td> 
+                    <td><input   placeholder = " SZ & TE" type="text" name="sz_2" id="sz_2"></td>
+                    <td><input  placeholder = " MTY / LDN" type="text" name="mty_2" id="mty_2"></td>
+                    <td><input placeholder = "MFG YEAR."  type="text" name="mfg_year_2" id="mfg_year_2"></td>
+                    <td><input placeholder = " GR. WEIGHT"  type="text" name="gr_weight_2" id="gr_weight_2"></td>
+                </tr><tr>    
+                    <td><input placeholder = "  TARE WEIGHT" type="text" name="tare_weight_2" id="tare_weight_2"></td>
+                    <td><input placeholder = "  CBM" type="text" name="cbm_2" id="cbm_2"></td>
+                    <td><input placeholder = "ACTION REQUIRED"  type="text" name="action_required_2" id="action_required_2"></td>
+                    <td><input placeholder = "STATUS"  type="text" name="status_2" id="status_2"></td>
+                    <td><input placeholder = "LOCATION" type="text" name="location_2" id ="location_2"></td>
+                    </tr>
+
+                    <tr>
+                    <td><input placeholder = "GRADE"  type="text" name="grade_2" id="grade_2"></td>
+                    <td><input placeholder = "remarks"  type="text" name="remarks_2" id ="remarks_2"></td>
+                    <td><input type="text" readonly name="vehicle_2" id ="vehicle_2" value = {{vehicles_count}}></td>
+                </tr>
+
+              </table>
+            </div>
+          
+    </div>
+    <br>
+    <div class="container align">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Save and add another</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+   
+</form>
+
+{% endif %}
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+<script>
+
+$('#validity_date').datepicker({
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    dateFormat: "yy-mm-dd"
+});
+
+
+</script>
+
+  <script>
+function validateForm() {
+    var container_no_2 = document.forms["entryform"]["container_no_2"].value;
+    if (container_no_2 != "") {
+        document.getElementById("sz_2").required = true;
+        document.getElementById("mty_2").required = true;
+        document.getElementById("mfg_year_2").required = true;
+        document.getElementById("gr_weight_2").required = true;
+        document.getElementById("tare_weight_2").required = true;
+        document.getElementById("cbm_2").required = true;
+        document.getElementById("action_required_2").required = true;
+        document.getElementById("grade_2").required = true;
+        document.getElementById("status_2").required = true;
+        document.getElementById("status_2").required = true;
+        document.getElementById("location_2").required = true;
+                document.getElementById("remarks_2").required = true;
+        
+    }
+}
+</script>
+
+</body>
+</html>

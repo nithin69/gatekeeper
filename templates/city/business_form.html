@@ -1,0 +1,170 @@
+      {% extends 'base.html' %}
+
+    {% load static %}
+    {% block title %} Business Posting {% endblock %}
+
+{% block content_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+ <legend>   Please fill-in the below form to post your business</legend>
+
+<div class="row clearfix"></br>
+<center>
+​
+<div class="col-sm-12">
+    {% if done %}
+        <h3> Your Business has been successfully posted on aoucr.com. Please visit <a href="/shopping/">www.aoucr.com</a></h3>
+
+
+        {% else %}
+
+<form class="form-horizontal" id="business_form" method="post" action="/businessposting/"
+              enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+{{ business_form.errors }}
+
+<div class="container-fluid">
+<h3><b>Enter Business Details:</b></h3>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Company/Organisation Name</label>  
+  <div class="col-md-4">
+  <input id="id_name" name="name" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Email Address</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_email" name="email" required></textarea>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Address</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_address" name="address" required></textarea>
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Website Link</label>  
+  <div class="col-md-4">
+  <input id="id_website" name="website" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Category Type</label>  
+  <div class="col-md-4">
+  <select name="core_cat" id="id_core_cat" class="form-control">
+<option value="hospitals" selected>Hospitals</option>
+<option value="advocate">Advocates</option>
+<option value="chemist">Chemists</option>
+<option value="fire">Fire Services</option>
+<option value="bloodbank">Blood Banks</option>
+<option value="police">Police Station</option>
+<option value="tax">Taxi Services</option>
+<option value="Resorts">Resorts</option>
+<option value="Horoscope">Astrology/Horoscope</option>
+<option value="Movie">Movie Theatres</option>
+<option value="Watches">Watch Shops</option>
+<option value="Internet">Internet Service Providers</option>
+<option value="gov">Government Organization</option>
+<option value="charity">Charity Trusts</option>
+<option value="education">Educational Institutions</option>
+<option value="gift">Gift Shops</option>
+<option value="sweets">Sweet Shops</option>
+<option value="clubs">Clubs</option>
+<option value="sports">Sports Shops</option>
+<option value="wedding">Wedding</option>
+<option value="restaurants">Restaurants</option>
+<option value="hotels">Hotels</option>
+<option value="bakaries">Bakaries</option>
+<option value="wine">Wine Shops</option>
+<option value="software">Software Companies</option>
+<option value="automobiles">Automobile Companies</option>
+<option value="hostels">Hostels</option>
+<option value="oldagehome">Old Age Homes</option>
+<option value="packers">Packers & Movers</option>
+<option value="logistics">Logistics</option>
+<option value="astrology">Astrology</option>
+<option value="banks">Banks</option>
+<option value="gas">Gas Agencies</option>
+<option value="electronics">Electronics</option>
+<option value="gyms">Gyms</option>
+<option value="temples">Temples</option>
+<option value="jute">Jute Mills</option>
+<option value="realestate">Real Estates</option>
+<option value="bookshop">Book Shops</option>
+<option value="dance">Dance Schools</option>
+<option value="pest">Pest Control</option>
+<option value="petshop">Pet Shops</option>
+<option value="shopping">Shopping</option>
+</select>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Phone Number</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_phone3" name="phone3" required></textarea>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Phone Number 2</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_phone4" name="phone4" required></textarea>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Established Year</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_Established" name="Established" required></textarea>
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Timings</label>  
+  <div class="col-md-4">
+  <input id="id_timming" name="timming" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+
+
+</div>
+
+   <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+ 
+
+</form>
+
+        {% endif %}
+         
+</div>
+</div>
+            
+{% endblock %}

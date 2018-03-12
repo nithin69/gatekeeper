@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} Events  {% endblock %}
+
+{% block content_block %}
+
+
+{% include "city/datatable.html" %}
+
+
+                         <div class="row clearfix">
+                        <div class="col-md-12 column maincol">
+				 
+					<div class="inline page-title"> <h3> {{page_title }}  </h3>   </div>
+					
+				</div>
+</div>
+       <div class="row clearfix datarow">
+ <div class="col-md-12 column">    
+                                        <table id="myTable" class="display table dataTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th> Venue </th>
+
+		  <th> Date</th>
+
+      </tr>
+    </thead>
+    <tbody>
+     
+	 {% for l in obj_list %}
+	 
+	<tr>
+        <td> {{l.title }}</td>
+        <td> {{l.venue }}</td>
+  <td> {{l.from_date }}</td>
+ 
+
+
+      </tr>
+	 
+	 
+	 
+	 
+	 {% endfor %}
+	  </tbody>
+  </table>
+                                              
+                                              
+                                              
+                                </div>
+                     </div>
+
+{% endblock %}

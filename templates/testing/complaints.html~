@@ -1,0 +1,178 @@
+      {% extends 'base.html' %}
+
+    {% load static %}
+    {% block title %} Complaints {% endblock %}
+	
+	{% block meta %}
+<meta name="Title" content=" visakhapatnam complaints|smartvizag |Local Search" />
+<meta name="description" content="complaints against website"/>
+<meta name="keywords" content="log complaints,write complaints,attach supporting file against complaint,attach images against the complaints">
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all">
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://smartvizag.com/complaints/"/>
+<meta property="og:sitename" content = "http://smartvizag.com"/> 
+<meta property="og:title" content="raise a complaint, facing problems, report, complaint, issues, problems in vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Smartvizag provides you an opportunity to complaint about any issues pr problems in Visakhapatnam" />
+
+
+{% endblock %}
+
+    {% block content_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">                            
+        
+    {% if done %}
+        <p> Your complaint has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+  <div class="cmply-form">
+<form class="form-horizontal" id="complaint_form" method="post" action="/complaints/"
+              enctype="multipart/form-data">
+                    {% csrf_token %}
+
+  <legend>   Please fill-in the below form to submit your complaint</legend>
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Complaint category:</label>
+  <div class="col-md-4">
+    <select id="id_complaint_category" name="complaint_category" class="form-control">
+<option value="" selected="selected">---------</option>
+<option value="Parking">Parking</option>
+<option value="Street Lights">Street Lights</option>
+<option value="Bad Road Condition">Bad Road Condition</option>
+<option value=" Unauthorized Construction"> Unauthorized Construction</option>
+<option value="Provide Dust Bins">Provide Dust Bins</option>
+<option value="Removal of Debris/Garbage">Removal of Debris/Garbage</option>
+<option value="Provide Dust Bins">Provide Dust Bins</option>
+<option value="Public Utilities - Water">Public Utilities - Water</option>
+<option value="Public Utilities - Electricity">Public Utilities - Electricity</option>
+<option value="Public Utilities - Roads">Public Utilities - Roads</option>
+<option value="Public Utilities - Public Transport">Public Utilities - Public Transport</option>
+<option value="Public Utilities - Hospital">Public Utilities - Hospital</option>
+<option value="Accident">Accident</option>
+<option value="Traffic">Traffic</option>
+<option value="Street Dogs">Street Dogs</option>
+<option value="Other">Other</option>
+<option value="Fire Accident">Fire Accident</option>
+      
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Landmark</label>  
+  <div class="col-md-4">
+  <input id="id_landmark" maxlength="30" name="landmark" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+<!-- File Button --> 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton">Image</label>
+  <div class="col-md-4">
+    <input id="id_image" name="image" type="file" class="input-file">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Contact Number</label>  
+  <div class="col-md-4">
+  <input id="id_phone_num" name="phone_num" type="number" class="form-control input-md" required>
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Email Id</label>  
+  <div class="col-md-4">
+  <input  id="id_email" maxlength="30" name="email" type="email" class="form-control input-md" required>
+
+  </div>
+</div>
+
+<!-- Text input-->
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Message</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_description" name="description" required></textarea>
+  </div>
+</div>
+   <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+
+</form>
+</div>                                              
+        {% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}
+
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+
+<script>  
+
+ $(function() {
+  
+    // Setup form validation on the #register-form element
+    $("#complaint_form").validate({
+    
+        rules: {
+        email: {
+                required: true,
+                email: true
+            },
+        mobile_num: {
+            required: true,
+            minlength: 10
+        },
+           
+        },
+        messages: {
+           
+            email: {
+                required: "Please provide an email",
+                email: "Please provide a valid email address"
+            },
+            mobile_num: {
+                required: "Please provide a mobile num",
+                minlength: "Please provide a valid phone number"
+            },
+        },
+        ignore:      "",
+        errorClass:  'fieldError',
+        onkeyup:     false,
+        onblur:      false,
+        errorElement:'label',
+
+    });
+    
+    $("#submit").click(function(){
+        $("#booking_form").submit();
+        return true;
+    });
+});
+
+</script>

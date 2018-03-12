@@ -1,0 +1,78 @@
+{% extends 'base-dash.html' %}
+
+    {% load static %}
+    {% block title %}  {% endblock %}
+
+    {% block content_block %}
+
+
+<div class="row clearfix">
+		<div class="col-md-12 column maincol">
+			<h3 class="news_title">
+				<b> City News - <script language = "JavaScript">
+var now = new Date();
+var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var monNames = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+document.write(dayNames[now.getDay()] + " " + monNames[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear());
+</script>
+
+</b>
+			</h3>
+			<ul class="news_list">
+		
+
+<li class="news_text_add"> 
+{% for l in obj_list %}
+<div class=""><a target="_blank" href="{{l.link}}=">{{l.title }}</a>
+        
+ </div>
+	 
+	 
+{% endfor %}
+ 
+			</div>		
+				</li>
+
+			</ul>
+
+
+
+
+		</div>
+
+
+
+<div class="row clearfix">
+		<div class="col-md-12 column xcity">
+			<h3 class="news_title">
+				<b> City News - Tuesday March 24, 2015
+
+</b>
+			</h3>
+			<ul class="news_list">
+		
+
+<li class="news_text_add"> 
+{% for l in obj_list %}
+<div class=""><a target="_blank" href="{{l.link}}=">{{l.title }}</a>
+        
+ 
+	 
+	 
+{% endfor %}
+ 
+			</div>		
+				</li>
+
+			</ul>
+
+
+
+
+		</div>
+</div>
+
+{% endblock %}
+
+
+

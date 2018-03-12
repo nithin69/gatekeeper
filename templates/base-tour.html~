@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+ {% load static %}
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+
+ <title> {% block title %}  {% endblock %}</title> 
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>			
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+    rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+       <link rel="shortcut icon" href="/static/img/favicon.png" title="favicon" >
+  <!-- Custom -->
+            <link href="{% static 'css-sm/style.css' %}" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+	#tfheader{
+		background-color:white;
+	}
+	#tfnewsearch{
+		float:right;
+		padding:0px;
+	}
+	.tftextinput{
+		margin: 10px -14px;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #0076a3; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+		border-right:0px;
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #0076a3; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+</style>
+          
+    </head>
+
+    
+    <body>
+<div class="container">
+<div class ="row">
+<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+<ul class="nav navbar-nav ">
+<li>
+<a href="/accounts/login/">Login</a>
+</li>
+<li>
+<a href="/accounts/register/">Register</a>
+</li>
+</ul>
+<div id="tfheader">
+		<form id="tfnewsearch" method="get" action="/smartsearch/">
+		        <input type="text" class="tftextinput"  name="q" placeholder="Search..." size="21" maxlength="120">
+			<input type="submit" value="search" class="tfbutton">
+		</form>
+
+	<div class="tfclear"></div>
+	</div>
+
+
+
+</div>
+<hr style="margin-top:0px;">
+</div>   
+
+     
+        <div class="row">
+	<div class="col-md-3 navcol">
+	</div>
+          <div class="col-md-6 navcol">
+          
+	   
+           <a href="/"><img src="/media/logo.png/"  alt= "logo" title="smartvizag" class="center-block img-responsive"></a>
+	</div>
+        <div class="col-md-3 navcol">
+	</div>
+          
+        
+      </div>
+    </div>
+
+
+
+
+ 
+
+<div class="container">
+<div class="col-md-3">
+ <div class="row row-offcanvas row-offcanvas-left">
+     
+<!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation"> -->
+                <ul class="nav tournav">
+		<li><a href="/"> Home</a></li>
+                     <li><a href="/touristplaces/vizagport/" alt="vizagport" title="vizagport">Vizag Port</a></li>
+                    <li><a href="/touristplaces/kailasagiri/" alt="kailasagiri" title="kailasagiri">Kailasagiri</a></li>
+                    <li><a href="/touristplaces/dolphinnose/" alt="dolphinnose" title="dolphinnose">Dolphin Nose </a></li>
+                     <li><a href="/touristplaces/visakhamuseum/" alt="museum" title="museum">Visakha Museum</a></li>
+                    <li><a href="/touristplaces/submarinemuseum/" alt="submarine" title="submarine">Submarine Museum</a></li>
+                     <li><a href="/touristplaces/zoopark/" alt="zoo" title="zoo">Indira Gandhi Zoological Park</a></li>
+                    <li><a href="/touristplaces/yaradabeach/" alt="yarada" title="yarada">Yarada Beach</a></li>
+                    <li><a href="/touristplaces/kambalakonda/" alt="kambalakonda" title="kambalakonda">Kambala Konda Wild Life Sanctuar</a></li>
+                    <li><a href="/touristplaces/simhachalam/" alt="simhachalam" title="simhachalam">Simhachalam Temple</a></li>
+                    <li><a href="/touristplaces/vudapark/" alt="vudapark" title="vudapark">Vuda Park</a></li>
+                    <li><a href="/touristplaces/rkbeach/" alt="rkbeach" title="rkbeach">Rama Krishna Beach</a></li>
+                    <li><a href="/touristplaces/borracaves/" alt="borra" title="borra">Borra Caves</a></li>
+                    <li><a href="/touristplaces/rosshill/" alt="ross" title="ross">Ross Hill</a></li>
+                    <li><a href="/touristplaces/matsyadarshini/" alt="matsyadarshini" title="matsyadarshini">Matsyadarshini Aquarium </a></li>
+                    <li><a href="/touristplaces/victoryatsea/" alt="victory" title="victory">Victory at Sea </a></li>
+                    <li><a href="/touristplaces/arakuvalley/" alt="araku" title="araku">Araku Valley</a></li>
+                    <li><a href="/touristplaces/fishingharbour/" alt="harbour" title="harbour">Fishing Harbour  </a></li>
+		    <li><a href="/touristplaces/ananthagiri/" alt="ananthagiri" title="ananthagiri">Ananthagiri Hills  </a></li>
+		    <li><a href="/touristplaces/chaparai/" alt="chaparai" title="chaparai">Chaparai  </a></li>
+		    <li><a href="/touristplaces/punyagiri/" alt="punyagiri" title="punyagiri">Punyagiri  </a></li>
+		    <li><a href="/touristplaces/lambasingi/" alt="lambasingi" title="lambasingi">Lambasingi  </a></li>
+		    <li><a href="/touristplaces/thotlakonda/" alt="thotlakonda" title="thotlakonda">Thotlakonda  </a></li>
+		    <li><a href="/touristplaces/mudasarlova/" alt="mudasarlova" title="mudasarlova">Mudasarlova  </a></li>
+                    <li><a href="/touristplaces/redsandhills/" alt="redsandhills" title="redsandhills">Red Sand Hills  </a></li>
+                    
+                </ul>
+</div>
+</div>
+
+
+{% block content_block %}
+
+{% endblock %}
+
+</div>
+<div class="footer-container fluid">
+<footer class="container text-center" style="background-color:#484848;">
+  <div class="col-md-3">
+    <div class="social">
+       <ul class="social-i" >
+        <li><a href="https://www.facebook.com/smartcityvizag" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/smartvizag/" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/115832378597244363170/posts" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+       </ul>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h4>
+<b style="color:white;">Quick Links</b>
+<hr>
+    </h4>
+    <ul class="quick-link">
+      <li><a href="/">Home</a></li>	
+      <li><a href="/touristplaces/">Tourist Places</a></li>
+      <li><a href="/shopping/">Directory</a></li>
+      <li><a href="/education/">Education</a></li>
+      <li><a href="/hospital/">Hospitals</a></li>
+      <li><a href="/movies/">Entertainment</a></li>
+</ul>      
+  </div>
+<div class="col-md-3">
+    <h4>
+<b style="color:white;">Quick Links</b>
+<hr>
+</h4>
+    <ul class="quick-link">
+      <li><a href="/govt/">Government Offices</a></li>
+      <li><a href="/localbus/">Local Bus</a></li>
+      <li><a href="/train/">Train</a></li>
+      <li><a href="/flight/">Flight</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/contact/">Contact Us</a></li>
+</ul>      
+  </div>
+
+  <div class="col-md-3" style="color:white;">
+  <h4><b style="color:white;">Quick Contact</b></h4>
+<hr>
+  DELEVERE
+</br>STARTUP MOKSHA</br>
+CYBER HILLS NO:2</br>
+MADHURAWADA</br>
+VISAKHAPATNAM,
+</br>Pincode:500045</br>
+Email Id:contact@smartvizag.com
+  </div>
+</footer>        
+</div>
+<script>
+for (var i = 0; i < document.links.length; i++) {
+    if (document.links[i].href == document.URL) {
+        document.links[i].className = 'active';
+    }
+}
+</script>  
+        
+    </body>
+
+</html>

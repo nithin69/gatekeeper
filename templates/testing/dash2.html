@@ -1,0 +1,190 @@
+{% extends 'base-dash.html' %}
+
+{% load static %}
+{% block title %} Smart Vizag {% endblock %}
+
+{% block content_block %}
+
+	<div class="row clearfix">
+		<div class="col-md-6 column xcity">
+			<h3 class="title">
+				<b> City News - 05 April</b>
+			</h3>
+			<ul class="news_list">
+				<li> 
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/art-allows-me-to-relax/article7070298.ece">  ‘Art allows me to relax’</a>  - The Hindu  <br/>
+					
+				</li>
+				<li>
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/krishna-college-crosses-a-milestone/article7070300.ece
+">  Krishna College crosses a milestone
+ </a> - The Hindu
+<br/>
+					
+</div>
+				</li>
+				<li> 
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/rinls-suggestion-comes-handy-to-ntpc/article7069402.ece
+"> RINL’s suggestion comes handy to NTPC
+  </a> - The Hindu
+ <br/>
+					
+</div>
+				</li>
+				<li> 
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/cadaver-transplantation-gaining-acceptance/article7070294.ece
+">  Cadaver transplantation gaining acceptance
+   </a>  - The Hindu
+  </a> <br/>
+					
+</div>
+				</li>
+				<li> 
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/rinl-turnover-nosedives/article7069400.ece
+">  RINL turnover nosedives
+  </a> - The Hindu
+ <br/>
+					
+				</li>
+
+				<li> 
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/defer-public-hearing-on-port-expansion/article7070302.ece
+">  ‘Defer public hearing on port expansion’
+ </a> - The Hindu
+ <br/>
+					
+</div>
+				</li>
+				<li> 
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/utkal-divas-at-scindia-today/article7070308.ece
+"> Utkal Divas at Scindia today
+    </a>  - The Hindu
+  </a> <br/>
+					
+</div>
+				</li>
+				<li> 
+<div class="news_text"><a target="_blank" href="http://www.thehindu.com/todays-paper/tp-national/tp-andhrapradesh/no-water-supply-tomorrow/article7070322.ece
+">  No water supply tomorrow
+ </a> - The Hindu
+ <br/>
+					
+				</li>
+
+
+
+			</ul>
+                        
+                      
+
+		</div>
+
+		<div class="col-md-6 column xgreen">
+		     <div class="green_section">
+			<div class="green_title">
+				 <h3 class = "xgtitle"> <b> Want to Go Green ?? </b> </h3>
+			</div>
+			<div class="green_text">
+				<h4>Join our innovative Green initiative and save on plastic bags. Please fill-in the below form. We will contact you soon.</h4>
+				<form class = "greensignup" role="form" action="/city/gnotify/" method="post">
+{% csrf_token %}
+				<div class="form-group">
+					<input placeholder = "Enter name" class="form-control" id="username" required="required" name = "username" pattern="[A-Za-z0-9]{3,}" title="Please enter atleast three letters" type="name" /> <br/>
+					 	<input placeholder = "Enter email" class="form-control" id="useremail" required="required" name = "useremail" type="email" /> <br/>
+						<input placeholder = "Enter phone num" class="form-control" id="userphone" required="required" name = "userphone" pattern="[0-9]{10}" title="Please enter ten digit number" type="phone" />
+				</div>
+				 <button type="submit" class="btn btn-default green-button"> <b> Submit </b></button>
+			</form>
+			</div>
+			</div>
+		</div>
+
+	</div> 
+
+
+
+<div class="row clearfix">
+		<div class="col-md-6 column city_updates">
+				<h3 class = "updates_title"> City Updates - 05 April </h3>
+			<ul class="udpates_list">
+       
+       
+       			
+       				<li>
+                                      International Society for Krishna Consciousness: Discourse on moral values by Samba Das Prabhu, ISKCON, Sagarnagar, 6 pm.
+					
+				</li>
+                                <li>
+                                       Visakhapatnam Port: National Maritime, Seafarers' Club, Port Area, 8;30 am.
+					
+				</li>
+
+				<li>
+					Utkal Samaj: 80th Utkal Divas celebrations, HSL CMD Rear Admiral N.K. Mishra chief guest, Lalita Kalamandir, Shipyard, Colony 07:30 pm.
+				</li>
+                             
+
+
+			</ul>
+		</div>
+		<div class="col-md-6 column city_emergency">
+				<h3 class = "emergency_title"> Emergency </h3>
+			<ul class="emergency_list">
+				<li>
+					I Town PS : Tel No. 2563632 (L&O) 2521673 (Traffic)
+				</li>
+				<li>
+					II Town PS : Tel No.2546866 (L&O) 2783677 (Traffic)
+				</li>
+				<li>
+					III Town PS : Tel No. 2555517 (L&O) / 2755348 (Traffic)
+				</li>
+				<li>
+					IV Town PS : Tel No.2710695
+				</li>
+				<li>
+					V Town PS : Tel No. 2558241 (L&O) / 2783397 (Traffic)
+				</li>
+				<li>
+					Ambulance - 108
+				</li>
+				<li>
+					 Help Line - 1913
+				</li>
+				<li>
+					 Fire - 101
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+
+
+
+<div class="row clearfix">
+		<div class="col-md-6 column coming_soonx">
+				<h3 class = "coming_soonx_title"> Coming Soon </h3>
+			<ul class="coming_soonx_list">
+				<li>
+					Vizag Pollution Analytics
+				</li>
+				<li>
+					Smart Health !!!
+				</li>
+				<li>
+					Public Polls
+				</li>
+				<li>
+					Smart Community
+				</li>
+				<li>
+					Fraud Alerts
+				</li>
+				
+			</ul>
+		</div>
+		
+	</div>
+
+{% endblock %}

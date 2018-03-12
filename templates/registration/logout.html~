@@ -1,0 +1,19 @@
+    {% extends 'base.html' %}      
+
+{% load static %}
+{% block title %}  Agricomm  {% endblock %}
+
+{% block content_block %}
+
+<div class="em-wrapper-area02" style="background-color:whitesmoke;">
+
+<div class="container" style="background-color:white;">
+<h2>You have successfully Logged Out </h2>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+
+{% endblock %}
+

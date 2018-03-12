@@ -1,0 +1,58 @@
+{% extends "nh5/base.html" %}
+    {% load static %}
+
+
+       
+       
+{% block content%}
+
+      <div class="container logincont">
+          
+          
+            <div class="row">
+		<div class="col-md-12">
+                                        <legend> Sign In</legend>
+                            <form class = "form-horizontal loginform" role="form" method="post" action=".">
+                                           {% csrf_token %} 
+                                        <div class="form-group">
+  <label class="col-md-4 control-label" for="id_username">Username</label>  
+  <div class="col-md-4">
+  <input required="required" id="id_username" maxlength="30" name="username" type="text" class="form-control input-md">
+
+  </div>
+</div>
+                                       <div class="form-group">
+  <label class="col-md-4 control-label" for="id_password1">Password</label>
+  <div class="col-md-4">
+    <input required="required" id="id_password" name="password" type="password" class="form-control input-md">
+
+  </div>
+</div>
+                                        <div class="submit loginsubmit">
+                                        <button type="submit" class="btn btn-default loginbutton"><b>Submit</b></button>
+                                       
+                                             <p class = "registerpara">
+                                        <a href="/accounts/nh5register" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            <u> Sign Up Here </u> &nbsp;&nbsp;&nbsp;
+                                        </a>
+     <a href="/accounts/password/reset/" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            <u>Forgot Password </u>
+                                        </a> </p>
+                                        
+                                        </div>
+                                  
+                                        
+                                        
+                                      </form>
+        
+        
+        
+        
+              </div>
+      </div>
+    </div>
+      
+    
+
+
+{% endblock %}

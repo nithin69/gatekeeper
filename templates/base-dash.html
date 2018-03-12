@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+ {% load static %}
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="../../../static/js-sm/bootstrap.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/bootstrap.css' %}"  rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/weather_icons.css' %}" rel="stylesheet" type="text/css">
+ <title> {% block title %}  {% endblock %}</title> 
+  <!-- Data Tables -->
+
+ <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css"> 
+
+  <!-- Custom -->
+<link rel="stylesheet" href="{% static 'css/sidestyle.css' %}">
+     <script src="{% static 'js/bootstrap.js' %}"> </script>
+ <script src="{% static 'js/myscript.js' %}"> </script>
+
+        <script>
+  $(function(){
+    $("#myTable").dataTable();
+  })
+  </script>
+
+
+    </head>
+
+    
+    <body>
+        <div class="section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 hidden-sm hidden-xs"></div>
+                    <div class="col-md-6">
+                        <a href="/"><img src="{% static 'img-sm/logo_5.png' %}" alt="logo" title="smartvizag" class="center-block img-responsive"></a>
+                    </div>
+                    <div class="col-md-3 hidden-sm hidden-xs text-right"></div>
+                </div>
+                <div class="row text-center">
+                    <p>Wednesday, July 08,2015. |
+                        <i class="glyphicon glyphicon-cloud"></i>&nbsp;&nbsp;33°C</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container-fluid anil main-container">
+            <div class="col-md-2 sidebar">
+                <div class="row">
+                    <!-- uncomment code for absolute positioning tweek see top comment in
+                    css -->
+                    <div class="absolute-wrapper"></div>
+                    <!-- Menu -->
+                    <div class="side-menu">
+                        <nav class="navbar navbar-default " role="navigation">
+                            <!-- Main Menu -->
+                            <div class="side-menu-container">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="/"><span class="fa fa-fw fa-home"></span> Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="/govt/"><span class="fa fa-fw fa-university"></span> Government Ofices</a>
+                                    </li>
+                                    <li>
+                                        <a href="/events/"><span class="fa fa-fw fa-ticket"></span> Upcoming Events</a>
+                                    </li>
+                                    <!-- Dropdown-->
+                                    <li class="panel panel-default" id="dropdown">
+                                        <a data-toggle="collapse" href="#dropdown-lvl1">
+							<span class="fa fa-fw fa-bus"></span> Travel <span class="caret"></span>
+						</a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="dropdown-lvl1" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li>
+                                                        <a href="/localbus/">Bus</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/train/">Train</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/flight/">Flight</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/taxi/">Taxi</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="/business/"><span class="fa fa-fw fa-list"></span> Directory</a>
+                                    </li>
+                                    <li>
+                                        <a href="/education/"><span class="fa fa-fw fa-graduation-cap"></span> Education</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ngo/"><span class="fa fa-fw fa-plus"></span> NGO / Charities</a>
+                                    </li>
+                                    <li>
+                                        <a href="/howdoi/"><span class="fa fa-fw fa-question text-primary"></span> HOW DO I?</a>
+                                    </li>
+                                   
+                                    <li class="panel panel-default" id="dropdown">
+                                        <a href="#dropdown-lvl2" data-toggle="collapse">
+							<span class="fa fa-fw fa-ambulance text-danger"></span> Emergency <span class="caret"></span>
+						</a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="dropdown-lvl2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li>
+                                                        <a href="/emergency/police/">Police Station</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/emergency/blood_bank/">Blood Bank</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/emergency/fire/">Fire Service</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/emergency/chemist/">Chemist</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- End of drop down -->
+                                    </li>
+                                   
+                                                    
+                                 
+                                                    
+                                     <li>
+                                  <a href="/emergency/customer_care/"><span class="fa fa-fw fa-shopping-cart"></span> Customer Care Nos</a>
+                                </li>                             </div>
+                            <!-- /.navbar-collapse -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+			<div class="col-md-10 content">
+{% block content_block %}
+
+{% endblock %}
+			</div>
+</div>
+<footer class="text-center footer">
+                <p class="col-md-12"></p>
+                <hr class="divider">Copyright © 2015
+                <a href="http://www.delevere.com">DELEVERE</a>
+                <p></p>
+            </footer>
+        
+    </body>
+
+</html>

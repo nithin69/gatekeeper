@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+ {% load static %}
+
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="kc6BCbN1elPxMosmbZsTQsNx55ZEWsJ8zxXlZp5hZkk" >
+	<meta name="alexaVerifyID" content="VbP0CKn0bfzmaGTwQHAudn2ShuU"/> 
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+        <script type="text/javascript" src="../../../static/js-sm/bootstrap.js"></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please try in other browser</noscript>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/bootstrap.css' %}"  rel="stylesheet" type="text/css">
+        <!--<link href="{% static 'css-sm/weather_icons.css' %}" rel="stylesheet" type="text/css">-->
+            <link href="{% static 'css-sm/style.css' %}" rel="stylesheet" type="text/css">
+	    <link rel="stylesheet" href="http://www.smartvizag.com/" >
+	<link rel="shortcut icon" href="/static/img/favicon.ico" title="favicon" >
+             <script type="text/javascript" src="{% static 'js-sm/scripts.js' %}"></script>
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"Qjp5n1aMp41070", domain:"smartvizag.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Qjp5n1aMp41070" style="display:none" height="1" width="1" alt="" /></noscript>
+<script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-78117028-1', 'auto'); ga('send', 'pageview'); </script>
+
+<!-- End Alexa Certify Javascript --> 
+ <title> {% block title %}  {% endblock %}</title> 
+ {% block meta %} 
+
+
+{% endblock %}
+
+
+<style type="text/css">
+	#tfheader{
+		background-color:white;
+	}
+	#tfnewsearch{
+		float:right;
+		padding:0px;
+	}
+	.tftextinput{
+		margin: 10px -14px;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #0076a3; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+		border-right:0px;
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #0076a3; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+</style>
+          
+    </head>
+
+    
+    <body>
+<div class="container">
+<div class ="row">
+<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+<ul class="nav navbar-nav ">
+<li>
+<a href="/accounts/login/">Login</a>
+</li>
+<li>
+<a href="/accounts/register/">Register</a>
+</li>
+</ul>
+<div id="tfheader">
+		<form id="tfnewsearch" method="get" action="/smartsearch/">
+		        <input type="text" class="tftextinput"  name="q" placeholder="Search..." size="21" maxlength="120">
+			<input type="submit" value="search" class="tfbutton">
+		</form>
+
+	<div class="tfclear"></div>
+	</div>
+
+
+
+</div>
+<hr style="margin-top:0px;">
+</div>   
+
+     
+        <div class="row">
+	<div class="col-md-3 navcol">
+	</div>
+          <div class="col-md-6 navcol">
+          
+	   
+           <a href="/"><img src="/media/logo.png/"  alt= "logo" title="smartvizag" class="center-block img-responsive"></a>
+	</div>
+        <div class="col-md-3 navcol">
+	</div>
+          
+        
+      </div>
+    </div>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-sm-12 col-xs-12 text-left">
+            <div class="side-menu" style="font-size:16px; font-family:georgia;">
+              <nav class="navbar">
+                <!-- Main Menu -->
+                <div class="side-menu-container dropdown">
+		<div id="example" class="more">
+                  <ul class="nav navbar-nav">
+                                    <li {% if request.path == "/" %} class="active"  {% else %} class="wactive" {% endif %} >
+					
+					
+                                        <a href="/" title="home"><img src ="/media/home.png" alt="home" style="width:40px; height:30px;"> &nbsp; Home</a>
+                                    </li>
+                                    <li {% if request.path == "/govt/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/govt/" title="govt"><img src ="/media/govt.png" alt="government offices" style="width:40px; height:30px;">  Government Offices</a>
+                                    </li>
+                                     <li {% if request.path == "/touristplaces/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/touristplaces/" title="touristplaces"><img src ="/media/tour.png" alt="tourist places" style="width:40px; height:30px;">&nbsp; Tourist Places</a>
+                                    </li>
+                                   
+                                    <!-- Dropdown-->
+                                    <li class="panel panel-default" onclick="calc(this)"  id="dropdown">
+                                        <a data-toggle="collapse"  href="#dropdown-lvl1" title="travel">
+							<img src ="/media/travel.png" alt="travel" style="width:40px; height:30px;">&nbsp; Travel <span class="caret"></span>
+						</a>
+                                        <!-- Dropdown level 1 -->
+                                        
+                                                <ul id="dropdown-lvl1" class="nav navbar-nav dd1 collapse">
+                                                    <li {% if request.path == "/localbus/" %} class="eactive"   {% else %} class="wactive" {% endif %}>
+                                                        <a href="/localbus/" title="localbus"><img src ="/media/bus.png" alt="local bus" style="width:40px; height:30px;"> &nbsp; Bus</a>
+                                                    </li>
+                                                    <li {% if request.path == "/train/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/train/" title="train"><img src ="/media/train.png" alt="train" style="width:40px; height:30px;">&nbsp; Train</a>
+                                                    </li>
+                                                    <li {% if request.path == "/flight/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/flight/" title="flight"><img src ="/media/flight.png" alt="flight" style="width:40px; height:30px;">&nbsp; Flight</a>
+                                                    </li>
+                                                    <li {% if request.path == "/taxi/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/taxi/" title="taxi"><img src ="/media/taxi.png" alt="taxi" style="width:40px; height:30px;"> &nbsp; Taxi</a>
+                                                    </li>
+                                                </ul>
+                                          
+                                    </li>
+                                    <li {% if request.path == "/Automobiles/" or request.path == "/Restaurants/"  or request.path == "/Electronics/" or request.path == "/wedding/" or request.path == "/Hotels/" or request.path == "/Banks/" or request.path == "/Gift/" or request.path == "/shopping/" or request.path == "/Sweets/" or request.path == "/watches/" or request.path == "/Movie/" or request.path == "/Clubs/" or request.path == "/Sports/" or request.path == "/Bakeries/" or request.path == "/Wine/" or request.path == "/Resorts/" or request.path == "/Software/" or request.path == "/Hostels/" or request.path == "/Oldagehome/" or request.path == "/Logistics/" or request.path == "/Astrology/" or request.path == "/Gas/" or request.path == "/Gym" or request.path == "/Temples/" or request.path == "/Jute/" or request.path == "/Realestate/" or request.path == "/Bookshop/" or request.path == "/Dance/" or request.path == "/Pest/" or request.path == "/petshop/"%} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/shopping/" title="business directory"><img src ="/media/directory.png" alt="directory" style="width:40px; height:30px;"> &nbsp; Directory</a>
+                                    </li>
+                                    <li {% if request.path == "/education/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/education/" title="education"><img src ="/media/education.png" alt="education" style="width:40px; height:30px;">&nbsp; Education</a> 
+                                    </li>
+                                    <li {% if request.path == "/ngo/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/ngo/" title="ngo"><img src ="/media/ngo.png" alt="ngo" style="width:40px; height:30px;"> &nbsp; NGO / Charities</a>
+                                    </li>
+                                    <li {% if request.path == "/howdoi/home/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/howdoi/home/" title="howdoi"><img src ="/media/how-do-i.png" alt="how do i" style="width:40px; height:30px;">&nbsp; HOW DO I?</a>
+                                    </li>
+                                    <li {% if request.path == "/hospital/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/hospital/" title="hospital"><img src ="/media/hospital.png" alt="hospital" style="width:40px; height:30px;">  &nbsp; Hospitals</a>
+                                    </li>
+                                    
+                                    
+<li class="panel panel-default" id="dropdown" onclick="calc(this)">
+                                        <a href="#dropdown-lvl2" title="emergency" data-toggle="collapse">
+							<img src ="/media/emergency.png" alt="emergency" style="width:40px; height:30px;">&nbsp; Emergency <span class="caret"></span>
+						</a>
+                                        <!-- Dropdown level 1 -->
+
+
+                                      <ul id="dropdown-lvl2" class="nav navbar-nav dd2 collapse">
+                                                    <li {% if request.path == "/police/" %} class="eactive" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/police/" title="police"><img src ="/media/police.png" alt="police stations" style="width:40px; height:30px;">&nbsp; Police Station</a>
+                                                    </li>
+                                                    <li {% if request.path == "/bloodbank/" %} class="eactive" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/bloodbank/" title="bloodbank"><img src ="/media/blood-bank.png"  alt="blood bank" style="width:40px; height:30px;">&nbsp;  Blood Bank</a>
+                                                    </li>
+                                                    <li {% if request.path == "/fire/" %} class="eactive" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/fire/" title="fire"> <img src ="/media/fire-services.png" alt="fire services" style="width:40px; height:30px;">&nbsp; Fire Service</a>
+                                                    </li>
+                                                    <li {% if request.path == "/chemist/" %} class="eactive" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/chemist/" title="chemist"> <img src ="/media/chemist.png" alt="chemist" style="width:40px; height:30px;">&nbsp; Chemist</a>
+                                                    </li>
+						    <li {% if request.path == "/ifsc-codes/" %} class="eactive" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/ifsc-codes/" title="ifsc"> <img src ="/media/chemist.png" alt="ifsc" style="width:40px; height:30px;">&nbsp; Ifsc Codes</a>
+                                                    </li>
+                                                </ul>
+                                           
+                                        <!-- End of drop down -->
+                                    </li>
+                                   
+                                   <li {% if request.path == "/movies/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/movies/" title="movies"><img src ="/media/entertainment.png" alt="entertainment" style="width:40px; height:30px;">&nbsp; Entertainment</a>
+                                    </li>
+				   <li {% if request.path == "/jobs/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/jobs/" title="jobs"><img src ="/media/job.png" alt="jobs" style="width:40px; height:30px;">&nbsp; Jobs</a>
+                                    </li>
+				   <li {% if request.path == "/rentals/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/rentals/" title="Real Estates"><img src ="/media/rentals.png" alt="rentals" style="width:40px; height:30px;">&nbsp; Rentals</a>
+                                    </li>
+                                    <li {% if request.path == "/complaints/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/complaints/" title="complaints"><img src ="/media/complaints.png" alt="complaints" style="width:40px; height:30px;">&nbsp; Complaints</a>
+                                    </li>
+                                   
+                                </ul>
+</div>
+                </div>
+              </nav>
+            </div>
+          </div>	  
+		  
+		  <div class="col-md-10 col-sm-12 col-xs-12 content">		
+{% block content_block %}
+
+{% endblock %}
+			
+</div>
+        </div>
+		</div>
+<div class="footer-container fluid">
+<footer class="container text-center" style="background-color:#484848;">
+  <div class="col-md-3">
+    <div class="social">
+       <ul class="social-i" >
+        <li><a href="https://www.facebook.com/smartcityvizag" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/smartvizag/" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/115832378597244363170/posts" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+       </ul>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h4>
+<b style="color:white;">Quick Links</b>
+<hr>
+    </h4>
+    <ul class="quick-link">
+      <li><a href="/">Home</a></li>	
+      <li><a href="/touristplaces/">Tourist Places</a></li>
+      <li><a href="/shopping/">Directory</a></li>
+      <li><a href="/education/">Education</a></li>
+      <li><a href="/hospital/">Hospitals</a></li>
+      <li><a href="/movies/">Entertainment</a></li>
+</ul>      
+  </div>
+<div class="col-md-3">
+    <h4>
+<b style="color:white;">Quick Links</b>
+<hr>
+</h4>
+    <ul class="quick-link">
+      <li><a href="/govt/">Government Offices</a></li>
+      <li><a href="/localbus/">Local Bus</a></li>
+      <li><a href="/train/">Train</a></li>
+      <li><a href="/flight/">Flight</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/contact/">Contact Us</a></li>
+</ul>      
+  </div>
+
+  <div class="col-md-3" style="color:white;">
+  <h4><b style="color:white;">Quick Contact</b></h4>
+<hr>
+  DELEVERE
+</br>STARTUP MOKSHA</br>
+CYBER HILLS NO:2</br>
+MADHURAWADA</br>
+VISAKHAPATNAM,
+</br>Pincode:500045</br>
+Email Id:contact@smartvizag.com
+  </div>
+</footer>        
+</div>
+
+
+  {% block custjava %}
+
+
+            {% endblock %}
+       
+
+<script>
+
+ function calc(e) {
+        console.log(e.id);
+    }
+
+
+
+</script>
+
+
+
+    </body>
+
+</html>

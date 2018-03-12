@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Business Data  {% endblock %}
+
+{% block content_block %}
+
+{% include "city/datatable.html" %}
+<div id="fb-root"></div>
+
+<div class="row">
+          <div class="col-md-12">
+
+<br>
+	
+    <h2 align="center">
+           <b> {{ description.name }}</b>
+	
+   </h2>
+<div class="page-header"> 
+<h4> <b> Address : </b></h4>
+                <p>{{ description.address }} </p>		
+
+<br>
+
+<h4><b> Phone Numbers : </b></h4>
+	                
+            	<p>{{ description.phone1 }}<br> {{ description.phone2 }}<br>{{ description.phone3 }}<br>{{ description.phone4 }}
+</p>
+
+<h4><b> Website : </b></h4>
+             	<p>{{ description.website }} </p>
+            		  
+            </div>
+<br>
+<br>
+ <div class="fb-comments" data-href="https://www.facebook.com/aoucr" data-numposts="5"></div>
+          </div>
+         
+       
+</div>
+{% endblock %}

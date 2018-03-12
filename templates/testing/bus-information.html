@@ -1,0 +1,76 @@
+    {% extends 'base2.html' %}
+    {% load static %}
+{% block title %}  Bus timings in Vizag  {% endblock %}
+
+{% block meta %}
+
+<meta name="title" content="Local Bus Timings, bus timings in vizag, vizag city bus timings, buses information in vizag, apsrtc buses, Visakhapatnam city bus route, bus stops| smartvizag" >
+<meta name="keywords" content="bus timings in vizag, bus routes, apsrtc buses, city bus routes, buses from, buses to, local bus timings">
+<meta name="description" content="smart vizag provides you the latest bus timings in vizag and all the information about buses, Visakhapatnam city bus routes, bus stops, apsrtc buses">
+<meta name="robots" content="index, nofollow">
+<meta http-equiv="content-type" content="text/html;UTF-8">
+<meta http-equiv="cache-control" content="cache">
+<meta http-equiv="content-language" content="en">
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://smartvizag.com/localbus"/>
+<meta property="og:sitename" content = "http://smartvizag.com"/> 
+<meta property="og:title" content="Local Bus Timings and Details in vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Smartvizag provides bus timings in vizag, local buses timings in vizag, bus numbers, Vizag Route Bus timings and Details, Visakhapatnam Bus timings" /> 
+
+{% endblock %} 
+
+    {% block content_block %}
+
+             <script>
+$(document).ready(function(){
+
+        $("#travel").show();
+
+});
+</script>     
+
+{% include "city/datatable.html" %}
+
+					<div class="inline page-title"> <h2> Local bus timings  </h2>   </div>
+
+       <div class="row clearfix datarow">
+                        <div class="col-md-12 column"> 
+<table id="myTable" class="display table dataTable">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th> To </th>
+
+		  <th>  Bus Number </th>
+                  
+        
+      </tr>
+    </thead>
+    <tbody>
+     
+	  {% for l in object_list %}
+	 
+	<tr>
+        <td> {{l.from_stop }}</td>
+        <td> {{l.to_stop }}</td>
+
+
+		  <td><a href="{{l.text}}">{{l.route }}</a></td>
+
+
+      </tr>
+	 
+	 
+	 
+	 
+	 {% endfor %}
+	  </tbody>
+  </table>
+                                              
+                      
+</div>
+</div>
+
+    {% endblock %}

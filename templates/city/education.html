@@ -1,0 +1,74 @@
+    {% extends 'base-dash.html' %}
+
+{% load static %}
+{% block title %}  Education {% endblock %}
+
+{% block meta %}
+
+<meta name="Title" content="Educational Institutions in  Visakhapatnam | aoucr" />
+<meta name="description" content="aoucr provides you educational institutions in vizag along with their phone numbers and address It gives you complete information on Education in Visakhapatnam, Colleges, Universities and Educational Institutions in Visakhapatnam" />
+<meta name="keywords" content="andhra university, au, eamcet, education, edcet, college, colleges, schools, convents, education, counselling, exams, exam results, andhra university, university, cbse, icse, isce, andhra pradesh, ap, engineering , mcacet, Degree, ignou, jntuc, gitam eng college,enducational institutions in vizag, training, education, visakhapatnam exams, lawcet, online education" />
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all">
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://www.aoucr.com/education/"/>
+<meta property="og:sitename" content = "http://www.aoucr.com"/> 
+<meta property="og:title" content="educations organisations in vizag, Schools in vizag, colleges in vizag, engineering colleges in vizag, best schools in vizag, education institutions in vizag, shopping malls in vizag, function halls in vizag, restaurants in vizag, hotels in vizag, resorts in vizag, automobile companies in vizag, hostels in vizag, banks in vizag, meeseva in vizag, electronic shops in vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="aoucr provides information about all the educational institutions with Phone Numbers, Addresses in Visakhapatnam" />
+
+{% endblock %}
+
+{% block content_block %}
+
+
+
+      <div class="row clearfix">
+                        <div class="col-md-12 column">
+					<div class="inline"> <h2> Business </h2>  <small> Last updated: {{ last_updated}} </small> </div>
+						<br class="clearBoth" />
+
+                
+                <table id="myTable" class="display table dataTable">
+        <thead>
+          <tr>
+                <th>Name </th>
+                <th> Phone </th>
+
+                                  <th> Email</th>
+  <th> Address </th>
+  
+          </tr>
+        </thead>
+        <tbody>
+         
+                 {% for l in obj_list %}
+                 
+                <tr>
+                <td> {{l.name }}</td>
+                <td> {{l.phone }}</td>
+
+
+                                  <td> {{l.email }}</td>
+                                                  <td> {{l.address }}</td>
+
+
+          </tr>
+                 
+                 
+                 
+                 
+                 {% endfor %}
+                  </tbody>
+  </table>
+                                                                                          
+                                                                                          
+                
+                
+                
+</div>
+</div>
+
+
+{% endblock %}

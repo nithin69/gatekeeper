@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+ {% load static %}
+
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="kc6BCbN1elPxMosmbZsTQsNx55ZEWsJ8zxXlZp5hZkk" >
+	<meta name="alexaVerifyID" content="VbP0CKn0bfzmaGTwQHAudn2ShuU"/> 
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+        <script type="text/javascript" src="../../../static/js-sm/bootstrap.js"></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please try in other browser</noscript>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/bootstrap.css' %}"  rel="stylesheet" type="text/css">
+
+        <!--<link href="{% static 'css-sm/weather_icons.css' %}" rel="stylesheet" type="text/css">-->
+            <link href="{% static 'css-sm/style1.css' %}" rel="stylesheet" type="text/css">
+	    <link rel="stylesheet" href="http://www.smartvizag.com/" >
+	<link rel="shortcut icon" href="/static/img/favicon.ico" title="favicon" >
+             <script type="text/javascript" src="{% static 'js-sm/scripts.js' %}"></script>
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"Qjp5n1aMp41070", domain:"smartvizag.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Qjp5n1aMp41070" style="display:none" height="1" width="1" alt="" /></noscript>
+
+
+<!-- End Alexa Certify Javascript --> 
+ <title> {% block title %}  {% endblock %}</title> 
+ {% block meta %} 
+
+
+{% endblock %}
+
+          
+    </head>
+
+    
+    <body>
+ <div class="container">
+  
+   <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+<ul class="nav navbar-nav ">
+<li>
+<a href="/accounts/login/"> Login</a>
+</li>
+<li>
+<a href="/accounts/register/">  Register</a>
+</li>
+</ul>
+<div id="tfheader">
+    <form id="tfnewsearch" method="get" action="/smartsearch/">
+            <input type="text" class="tftextinput" name="q" placeholder="Search..." size="21" maxlength="120">
+      <input type="submit" value="search" class="tfbutton">
+    </form>
+  <div class="tfclear"></div>
+  </div>
+
+
+                                        
+</div>
+     
+        <div class="row">
+          <div class="col-md-12 navcol">
+          
+	   
+           <a href="/"><img src="/media/logo.png/"  alt= "logo" title="smartvizag" class="center-block img-responsive"></a>
+        
+          
+        </div>
+      </div>
+<div class="menu-mb">
+
+<a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;"><i class="fa fa-bars" aria-hidden="true"></i></a>
+<a href="#" id="example-hide" class="hideLink" onclick="showHide('example');return false;">  <i class="fa fa-bars" aria-hidden="true"></i></a>
+</div>
+ <div class="row">
+          <div class="col-md-2 col-sm-12 col-xs-12 text-left">
+            <div class="side-menu" style="font-size:14px;">
+              <nav class="navbar">
+                <!-- Main Menu -->
+                <div class="side-menu-container dropdown">
+    <div id="example" class="more">
+                  <ul class="nav navbar-nav">
+                                    <li {% if request.path == "/testing/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/testing/" title="home"><span class="fa fa-fw fa-home"></span> Home</a>
+                                    </li>
+                                    <li {% if request.path == "/testing/govt/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/testing/govt/" title="govt"><span class="fa fa-fw fa-university"></span> Government Offices</a>
+                                    </li>
+                                     <li {% if request.path == "/testing/touristplaces/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/testing/touristplaces/" title="touristplaces"><span class="fa fa-bullseye"></span> Tourist Places</a>
+                                    </li>
+                                   
+                                    <!-- Dropdown-->
+                                    <li class="panel panel-default" onclick="calc(this)"  id="dropdown">
+                                        <a data-toggle="collapse"  href="#dropdown-lvl1" title="travel">
+              <span class="fa fa-fw fa-bus"></span> Travel <span class="caret"></span>
+            </a>
+                                        <!-- Dropdown level 1 -->
+                                        
+                                                <ul id="dropdown-lvl1" class="nav navbar-nav1 dd1 collapse">
+                                                    <li {% if request.path == "/testing/localbus/" %} class="eactive"   {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/localbus/" title="localbus"><span class="fa fa-bus"></span> &#160; Bus</a>
+                                                    </li>
+                                                    <li {% if request.path == "/testing/train/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/train/" title="train"><span class="fa fa-train"></span> &#160; Train</a>
+                                                    </li>
+                                                    <li {% if request.path == "/testing/flight/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/flight/" title="flight"><span class="fa fa-plane"></span> Flight</a>
+                                                    </li>
+                                                    <li {% if request.path == "/testing/taxi/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/taxi/" title="taxi"><span class="fa fa-taxi"></span> &nbsp; Taxi</a>
+                                                    </li>
+                                                </ul>
+                                          
+                                    </li>
+                                    <li {% if request.path == "/business/Automobiles/" or request.path == "/business/Restarents/"  or request.path == "/business/Electronics/" or request.path == "/business/wedding/" or request.path == "/business/Hotels/" or request.path == "/business/Banks/" or request.path == "/business/Gift/" or request.path == "/business/shopping/" or request.path == "/business/Sweets/" or request.path == "/business/watches/" or request.path == "/business/Movie/" or request.path == "/business/Clubs/" or request.path == "/business/Sports/" or request.path == "/business/Bakeries/" or request.path == "/business/Wine/" or request.path == "/business/Resorts/" or request.path == "/business/Software/" or request.path == "/business/Hostels/" or request.path == "/business/Oldagehome/" or request.path == "/business/Logistics/" or request.path == "/business/Astrology/" or request.path == "/business/Gas/" or request.path == "/business/Gym" or request.path == "/business/Temples/" or request.path == "/business/Jute/" or request.path == "/business/Realestate/" or request.path == "/business/Bookshop/" or request.path == "/business/Dance/" or request.path == "/business/Pest/" or request.path == "/business/petshop/"%} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/testing/business/shopping/" title="business directory"><span class="fa fa-fw fa-list"></span> Directory</a>
+                                    </li>
+                                    <li {% if request.path == "/testing/education/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/testing/education/" title="education"><span class="fa fa-fw fa-graduation-cap"></span> Education</a> 
+                                    </li>
+                                    <li {% if request.path == "/testing/ngo/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/testing/ngo/" title="ngo"><span class="fa fa-user-secret"></span> NGO / Charities</a>
+                                    </li>
+                                    <li {% if request.path == "/testing/howdoi/home/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/testing/howdoi/home/" title="howdoi"><span class="fa fa-fw fa-question"></span> HOW DO I?</a>
+                                    </li>
+                                    <li {% if request.path == "/testing/hospital/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/testing/hospital/" title="hospital"><span class="fa fa-plus-square"></span>  &nbsp; Hospitals</a>
+                                    </li>
+                                    
+                                    <li class="panel panel-default" id="dropdown" {% if '/testing/emergency/' in request.path %} class="eactive" {% else %} class="wactive" {% endif %}>
+                                        <a href="#dropdown-lvl2" title="emergency" data-toggle="collapse">
+              <span class="fa fa-exclamation-circle"></span> Emergency <span class="caret"></span>
+            </a>
+                                        <!-- Dropdown level 1 -->
+                                      
+                                                <ul id="dropdown-lvl2" class="nav navbar-nav1 collapse dd2">
+                                                    <li {% if request.path == "/testing/emergency/police/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/emergency/police/" title="police"><span class="fa fa-ship"></span> Police Station</a>
+                                                    </li>
+                                                    <li {% if request.path == "/testing/emergency/bloodbank/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/emergency/bloodbank/" title="bloodbank"> <span class="fa fa-circle"></span> Blood Bank</a>
+                                                    </li>
+                                                    <li {% if request.path == "/testing/emergency/fire/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/emergency/fire/" title="fire"> <span class="fa fa-fire-extinguisher"></span> Fire Service</a>
+                                                    </li>
+                                                    <li {% if request.path == "/testing/emergency/chemist/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/testing/emergency/chemist/" title="chemist"> <span class="fa fa-medkit"></span> Chemist</a>
+                                                    </li>
+                                                </ul>
+                                           
+                                        <!-- End of drop down -->
+                                    </li>
+                                   
+                                   <li {% if request.path == "/testing/movies/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/testing/movies/" title="complaints"><span class="fa fa-file-video-o "></span> Entertainment</a>
+                                    </li>
+
+                                    <li {% if request.path == "/testing/complaints/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/testing/complaints/" title="complaints"><span class="fa fa-hand-o-right"></span> Complaints</a>
+                                    </li>
+                                   
+                                </ul>
+</div>
+                </div>
+              </nav>
+            </div>
+          </div>    
+      
+      <div class="col-md-10 col-sm-12 col-xs-12 content">   
+{% block content_block %}
+
+{% endblock %}
+      
+</div>
+        </div>
+
+    </div>
+
+      
+<div class="footer-container fluid">
+<footer class="container text-center" style="background-color:#484848;">
+  <div class="col-md-3">
+    <div class="social">
+       <ul class="social-i" >
+        <li><a href="https://www.facebook.com/smartcityvizag" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/smartvizag/" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/115832378597244363170/posts" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+       </ul>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h4>
+<b style="color:white;">Quick Links</b>
+<hr>
+    </h4>
+    <ul class="quick-link">
+      <li><a href="/">Home</a></li>	
+      <li><a href="/touristplaces/">Tourist Places</a></li>
+      <li><a href="/shopping/">Directory</a></li>
+      <li><a href="/education/">Education</a></li>
+      <li><a href="/hospital/">Hospitals</a></li>
+      <li><a href="/movies/">Entertainment</a></li>
+</ul>      
+  </div>
+<div class="col-md-3">
+    <h4>
+<b style="color:white;">Quick Links</b>
+<hr>
+</h4>
+    <ul class="quick-link">
+      <li><a href="/govt/">Government Offices</a></li>
+      <li><a href="/localbus/">Local Bus</a></li>
+      <li><a href="/train/">Train</a></li>
+      <li><a href="/flight/">Flight</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/contact/">Contact Us</a></li>
+</ul>      
+  </div>
+
+  <div class="col-md-3" style="color:white;">
+  <h4><b style="color:white;">Quick Contact</b></h4>
+<hr>
+  DELEVERE
+</br>STARTUP MOKSHA</br>
+CYBER HILLS NO:2</br>
+MADHURAWADA</br>
+VISAKHAPATNAM,
+</br>Pincode:500045</br>
+Email Id:contact@smartvizag.com
+  </div>
+</footer>        
+</div>
+
+
+  {% block custjava %}
+
+
+            {% endblock %}
+       
+
+<script>
+
+ function calc(e) {
+        console.log(e.id);
+    }
+
+
+
+</script>
+
+
+
+    </body>
+
+</html>

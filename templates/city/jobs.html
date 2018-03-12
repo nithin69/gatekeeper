@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block meta %}
+
+
+{% include 'city/jobsmeta.html' %}
+
+
+
+{% endblock %}
+
+{% block title %} Smart Vizag Jobs {% endblock %}
+        {% block content_block %}
+
+        	<h2>
+		<a href="/jobposting/"><span class="label label-success faa-tada animated" style="align:right;">Free Job Posting</span></a></h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section">
+                                <div class="row">
+                                    {% for j in job_list %}
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            
+                                            <div class="col-md-12 text-left">
+                                                <h3>{{ j.job_type }}
+                                                    
+                                                </h3>
+						
+                                                <hr><h4>Job Role : <a href="/jobs/{{j.slug}}/">{{ j.title }}</a></h4>
+						<p>Postiton Type : {{j.position_type}}</p>
+						<p>Company Name : {{j.company_name}}</p>
+						                                                <p>Salary Type : {{j.salary_type}}</p>
+						<p>Description : {{j.description}}</p>
+						<p>Key Skills Required : {{j.key_skills}}</p>
+                                                <!--<address>
+                                                    <i class="fa fa-fw fa-phone"></i>Contact : {{ j.phone }}<br>
+						    
+                                                    
+						    <i class="fa fa-fw fa-phone"></i>Timings : {{ j.timings }}<br>
+						    <i class="fa fa-fw fa-phone"></i>Experience : {{ j.experience }}<br>
+                                                    <i class="fa fa-fw fa-map-marker"></i>{{ j.address }}
+                                                    </address>-->
+                                                                                                <hr>
+                                            </div>
+						</div>
+                                        </div>
+					{% endfor %}
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+
+{% endblock %}

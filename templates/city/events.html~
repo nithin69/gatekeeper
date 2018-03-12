@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} {{page_title }} in Vizag  {% endblock %}
+
+{% block content_block %}
+
+{% include "city/datatable.html" %}
+    <div class="row clearfix">
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{page_title }}</h3>
+              </div>
+            </div>
+          </div>
+	{% for l in obj_list %}
+          
+                <div class="col-md-4">
+                  <img src="{{l.image1 }}" style="height:120px; width:250px;" class="img-responsive">
+                </div>
+                <div class="col-md-8">
+			
+                  <a href="/event/{{l.id}}/" title="{{l.title }}"><h2>{{l.title }}</h2></a>
+			
+                  <h4>{{l.from_date }}</h4>
+                  <br>
+                  <a href="/event/{{l.id}}/" title="{{l.title }}" class="btn btn-primary">Read More</a>
+		<hr>
+                </div>
+              
+              {% endfor %}
+	
+        </div>
+       
+
+{% endblock %}

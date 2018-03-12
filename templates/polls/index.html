@@ -1,0 +1,37 @@
+    {% extends 'polls_base.html' %}
+
+{% load static %}
+
+{% block title %} Smart Vizag {% endblock %}
+
+            {% block content_block %}
+
+
+
+<h2>  {{ core_cat|upper}} </h2>
+                <div class="col-xs-12 col-sm-9 col-md-9">
+
+              
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+
+                           
+   {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}  
+       <li><a href="/polls/detail/{{ question.id }}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+               
+	
+                                                       </div>
+                                                    </div>
+                                    </div>
+
+
+
+                             {% endblock %}

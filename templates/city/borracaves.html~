@@ -1,0 +1,110 @@
+{% extends 'base-tour.html' %}
+
+{% load static %}
+{% block title %} Borra caves {% endblock %}
+
+{% block content_block %}
+<h1 align="center">Borra Caves</h1>
+
+<div class="col-md-9">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/media/img/borracaves-1.jpg" alt="borracaves" title="borracaves" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="/media/img/borracaves-2.jpg" alt="borracaves" title="borracaves" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="/media/img/borracaves-3.jpg" alt="borracaves" title="borracaves" width="460" height="345">
+      </div>
+
+      <!-- <div class="item">
+        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+      </div> -->
+    </div>
+	</div>
+
+    <!-- Left and right controls -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->  
+	
+	<br><br>
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              </div>
+
+<p>The Borra Caves Vizag Tourist Places also titled as the 'Borra Guhalu' and positioned around 90 Kms from Vizag on the means to the Araku Valley are the likely antediluvian grotto of huge geographical significance those get crowd of visitor all during the year. Araku Valley is one of the biggest and deepest caves of the country. Hanging at the altitude of 705 meters and compute a propos 80 meters in their deepness, the interiors of the Borra Caves obviously outline single Stalagmite and Stalactite shape.</p><p> A Shiva Temple is placed in the zone of the Borra Caves where a marble structure caricaturing the top of a cow can be prospected. The inter decoration of the Borra Caves Vizag are clarify with 26 mercury, halogen electric lamps and sodium fog which offer captivating inspection of the astonishing Stalagmite and Stalactite arrangements here. The mainly perfect months for going a trip to the Borra Caves Visakhapatnam are between the November and December.
+			</p>
+
+	<!-- <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Timings</h3>
+                </div>
+              </div>
+10.00 AM to 5.00 PM	
+		
+			<p> Days: All	</p>
+  
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Bus</h3>
+                </div>
+              </div>
+
+		
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+              </div>
+Visakhapatnam, Andhra Pradesh -->
+ <div class="col-md-7">
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:284px;width:100px;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">									embed google map							</a></small></div><div><small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(18.2449412,83.03130529999999),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(18.2449412,83.03130529999999)});infowindow = new google.maps.InfoWindow({content:'<strong>borra caves</strong><br>borra caves, visakhapatnam, Andhra Pradesh<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div>
+  <div class="col-md-5">
+<div class="tourist-time">
+   <h3>Timings</h3>
+   <p>10.00 AM to 5.00 PM</p>
+			
+			<p> Days: All	</p>
+			 <h3 >Bus</h3>
+			 <p>Araku bus from RTC Complex </p>
+			 
+			 <h3 >Address</h3>
+			 
+			 <p>Visakhapatnam, Andhra Pradesh</p>
+			 
+   
+  
+  
+</div>  
+  
+  
+  
+  </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+ {% load static %}
+
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="kc6BCbN1elPxMosmbZsTQsNx55ZEWsJ8zxXlZp5hZkk" >
+	<meta name="alexaVerifyID" content="VbP0CKn0bfzmaGTwQHAudn2ShuU"/> 
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+        <script type="text/javascript" src="../../../static/js-sm/bootstrap.js"></script>
+	<noscript>Sorry, your browser does not support JavaScript! Please try in other browser</noscript>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/bootstrap.css' %}"  rel="stylesheet" type="text/css">
+        <!--<link href="{% static 'css-sm/weather_icons.css' %}" rel="stylesheet" type="text/css">-->
+            <link href="{% static 'css-sm/style.css' %}" rel="stylesheet" type="text/css">
+	    <link rel="stylesheet" href="http://www.smartvizag.com/" >
+	<link rel="shortcut icon" href="/static/img/favicon.ico" title="favicon" >
+	<link href="{% static 'css-new/style1.css' %}" rel="stylesheet" type="text/css">
+             <script type="text/javascript" src="{% static 'js-sm/scripts.js' %}"></script>
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"Qjp5n1aMp41070", domain:"smartvizag.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Qjp5n1aMp41070" style="display:none" height="1" width="1" alt="" /></noscript>
+
+
+<!-- End Alexa Certify Javascript --> 
+ <title> {% block title %}  {% endblock %}</title> 
+ {% block meta %} 
+
+
+{% endblock %}
+
+          
+    </head>
+
+    
+    <body>
+ <div class="container">
+   
+     
+        <div class="row">
+          <div class="col-md-12 navcol">
+          
+	   
+           <a href="/testing/"><img src="/media/smartvizag.jpg"  alt= "logo" title="smartvizag" class="center-block img-responsive"></a>
+        	
+          
+        </div>
+      </div>
+    </div>
+<!--<a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;"> <span class="glyphicon glyphicon-menu-hamburger"></span> Show Menu</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#" id="example-hide" class="hideLink" onclick="showHide('example');return false;"> <span class="glyphicon glyphicon-menu-hamburger"></span> Hide Menu</a>-->
+
+
+
+      <div class="container b-content">
+<form class="form-inline" role="form" style="font-size: 13px;">
+  <div class="form-group">
+    <label for="user name"><b>User Name:</b></label>
+    <input type="text" size="15" class="form-control" id="uname">
+  </div>
+  <div class="form-group">
+    <label for="pwd"><b>Password:</b></label>
+    <input type="password" size="15" class="form-control" id="pwd">
+  </div>
+  <button type="submit" class="btn btn1 btn-primary">login</button>
+  <a href="#" style="text-decoration:underline;color:green">Lost Password</a>
+  <label><b>No account yet?</b></label>
+  <a href="#" style="text-decoration:underline;color:green">Register</a>
+</form>
+<div class="row content">
+
+   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 lsidenav">
+      <div class="well" style="background-color:#003399!important;color:white;">
+      <p><a href="/testing/" class="border-bottom"><span class="fa fa-fw fa-home"></span> Home</a></p>
+      <p><a href="/testing/govt/" class="border-bottom"><span class="fa fa-fw fa-university"></span> Government Offices </a></p>
+      <p><a href="/testing/touristplaces/" class="border-bottom"><span class="fa fa-bullseye"></span> Tourist Places</a></p>
+      <p><a href="/testing/localbus/" class="border-bottom"><span class="fa fa-bus"></span>  Bus</a></p>
+      <p><a href="/testing/train/" class="border-bottom"><span class="fa fa-train"></span> Train</a></p>
+      <p><a href="/testing/flight/" class="border-bottom"><span class="fa fa-plane"></span> Flight</a></p>
+      <p><a href="/testing/taxi/" class="border-bottom"><span class="fa fa-taxi"></span>  Taxi</a></p>
+	<p><a href="/testing/business/shopping/" class="border-bottom"><span class="fa fa-fw fa-list"></span> Directory</a></p>
+	<p><a href="/testing/education/" class="border-bottom"><span class="fa fa-fw fa-graduation-cap"></span> Education</a></p>
+	<p><a href="/testing/ngo/" class="border-bottom"><span class="fa fa-user-secret"></span> NGO/Charities</a></p>
+	<p><a href="/testing/howdoi/home/" class="border-bottom"><span class="fa fa-fw fa-question"></span> How Do I?</a></p>
+	<p><a href="/testing/hospital/" class="border-bottom"><span class="fa fa-plus-square"></span> Hospitals</a></p>
+	<p><a href="/testing/emergency/police/" class="border-bottom"><span class="fa fa-ship"></span> Police Stations</a></p>
+	<p><a href="/testing/emergency/fire/" class="border-bottom"><span class="fa fa-fire-extinguisher"></span> Fire Stations</a></p>
+	<p><a href="/testing/emergency/bloodbank/" class="border-bottom"><span class="fa fa-circle"></span> Blood Banks</a></p>
+	<p><a href="/testing/emergency/chemist/" class="border-bottom"><span class="fa fa-medkit"></span> Chemists</a></p>
+	<p><a href="/testing/complaints/" class="border-bottom"><span class="fa fa-hand-o-right"></span> Complaints</a></p>
+      </div>
+      
+    </div>
+
+
+
+
+
+
+
+      <!--  <div class="row">
+          <div class="col-md-2 col-sm-12 col-xs-12 text-left">
+            <div class="side-menu" style="font-size:14px;">
+              <nav class="navbar">
+               
+                <div class="side-menu-container dropdown">
+		<div id="example" class="more">
+                  <ul class="nav navbar-nav">
+                                    <li {% if request.path == "/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/" title="home"><span class="fa fa-fw fa-home"></span> Home</a>
+                                    </li>
+                                    <li {% if request.path == "/govt/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/govt/" title="govt"><span class="fa fa-fw fa-university"></span> Government Offices</a>
+                                    </li>
+                                     <li {% if request.path == "/touristplaces/" %} class="active"{% else %} class="wactive" {% endif %}>
+                                        <a href="/touristplaces/" title="touristplaces"><span class="fa fa-bullseye"></span> Tourist Places</a>
+                                    </li>
+                                   
+                                  
+                                    <li class="panel panel-default" onclick="calc(this)"  id="dropdown">
+                                        <a data-toggle="collapse"  href="#dropdown-lvl1" title="travel">
+							<span class="fa fa-fw fa-bus"></span> Travel <span class="caret"></span>
+						</a>
+                                     
+                                        
+                                                <ul id="dropdown-lvl1" class="nav navbar-nav dd1 collapse">
+                                                    <li {% if request.path == "/localbus/" %} class="eactive"   {% else %} class="wactive" {% endif %}>
+                                                        <a href="/localbus/" title="localbus"><span class="fa fa-bus"></span> &#160; Bus</a>
+                                                    </li>
+                                                    <li {% if request.path == "/train/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/train/" title="train"><span class="fa fa-train"></span> &#160; Train</a>
+                                                    </li>
+                                                    <li {% if request.path == "/flight/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/flight/" title="flight"><span class="fa fa-plane"></span> Flight</a>
+                                                    </li>
+                                                    <li {% if request.path == "/taxi/" %} class="eactive dd1a" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/taxi/" title="taxi"><span class="fa fa-taxi"></span> &nbsp; Taxi</a>
+                                                    </li>
+                                                </ul>
+                                          
+                                    </li>
+                                    <li {% if request.path == "/business/Automobiles/" or request.path == "/business/Restarents/"  or request.path == "/business/Electronics/" or request.path == "/business/wedding/" or request.path == "/business/Hotels/" or request.path == "/business/Banks/" or request.path == "/business/Gift/" or request.path == "/business/shopping/" or request.path == "/business/Sweets/" or request.path == "/business/watches/" or request.path == "/business/Movie/" or request.path == "/business/Clubs/" or request.path == "/business/Sports/" or request.path == "/business/Bakeries/" or request.path == "/business/Wine/" or request.path == "/business/Resorts/" or request.path == "/business/Software/" or request.path == "/business/Hostels/" or request.path == "/business/Oldagehome/" or request.path == "/business/Logistics/" or request.path == "/business/Astrology/" or request.path == "/business/Gas/" or request.path == "/business/Gym" or request.path == "/business/Temples/" or request.path == "/business/Jute/" or request.path == "/business/Realestate/" or request.path == "/business/Bookshop/" or request.path == "/business/Dance/" or request.path == "/business/Pest/" or request.path == "/business/petshop/"%} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/business/shopping/" title="business directory"><span class="fa fa-fw fa-list"></span> Directory</a>
+                                    </li>
+                                    <li {% if request.path == "/education/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/education/" title="education"><span class="fa fa-fw fa-graduation-cap"></span> Education</a> 
+                                    </li>
+                                    <li {% if request.path == "/ngo/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                        <a href="/ngo/" title="ngo"><span class="fa fa-user-secret"></span> NGO / Charities</a>
+                                    </li>
+                                    <li {% if request.path == "/howdoi/home/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/howdoi/home/" title="howdoi"><span class="fa fa-fw fa-question"></span> HOW DO I?</a>
+                                    </li>
+                                    <li {% if request.path == "/hospital/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/hospital/" title="hospital"><span class="fa fa-plus-square"></span>  &nbsp; Hospitals</a>
+                                    </li>
+                                    
+                                    <li class="panel panel-default" id="dropdown" {% if '/emergency/' in request.path %} class="eactive" {% else %} class="wactive" {% endif %}>
+                                        <a href="#dropdown-lvl2" title="emergency" data-toggle="collapse">
+							<span class="fa fa-exclamation-circle"></span> Emergency <span class="caret"></span>
+						</a>
+                                      
+                                      
+                                                <ul id="dropdown-lvl2" class="nav navbar-nav collapse dd2">
+                                                    <li {% if request.path == "/emergency/police/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/emergency/police/" title="police"><span class="fa fa-ship"></span> Police Station</a>
+                                                    </li>
+                                                    <li {% if request.path == "/emergency/bloodbank/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/emergency/bloodbank/" title="bloodbank"> <span class="fa fa-circle"></span> Blood Bank</a>
+                                                    </li>
+                                                    <li {% if request.path == "/emergency/fire/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/emergency/fire/" title="fire"> <span class="fa fa-fire-extinguisher"></span> Fire Service</a>
+                                                    </li>
+                                                    <li {% if request.path == "/emergency/chemist/" %} class="active" {% else %} class="wactive" {% endif %}>
+                                                        <a href="/emergency/chemist/" title="chemist"> <span class="fa fa-medkit"></span> Chemist</a>
+                                                    </li>
+                                                </ul>
+                                           
+                                        
+                                    </li>
+                                   
+                                   
+                                    <li {% if request.path == "/complaints/" %} class="active" {% else %} class="wactive"{% endif %}>
+                                        <a href="/complaints/" title="complaints"><span class="fa fa-hand-o-right"></span> Complaints</a>
+                                    </li>
+                                   
+                                </ul>
+</div>
+                </div>
+              </nav>
+            </div>
+          </div>-->	  
+		  
+		  <div class="col-md-10 col-sm-12 col-xs-12 content">		
+{% block content_block %}
+
+{% endblock %}
+			
+</div>
+        </div>
+		</div>
+<div class="footer-container fluid">
+<footer class="container text-center"  style="background-color:rgb(0, 51, 153);">
+  <div class="col-md-4">
+    <img src="/media/footer-logo.png" class="img-responsive">
+    <div class="social">
+       <ul class="social-i">
+        <li><a href="https://www.facebook.com/smartcityvizag" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.twitter.com/smartcityvizag/" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/115832378597244363170/posts" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+       </ul>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h4>
+<b>Quick Links</b>
+    </h4>
+    <ul class="quick-link">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Directory</a></li>
+      <li><a href="#">Education</a></li>
+      <li><a href="#">Emergency</a></li>
+      <li><a href="#">Entertainment</a></li>
+      <li><a href="#">Contact Us</a></li>
+  </div>
+  <div class="col-md-4">
+  <h4><b>Quick Contact</b></h4>
+  DELEVERE
+</br>STARTUP MOKSHA</br>
+CYBER HILLS NO:2</br>
+MADHURAWADA</br>
+VISAKHAPATNAM,
+</br>Pincode:500045</br>
+Email Id:contact@smartvizag.com
+  </div>
+</footer>        
+</div>
+
+  {% block custjava %}
+
+
+            {% endblock %}
+       
+
+<script>
+
+ function calc(e) {
+        console.log(e.id);
+    }
+
+
+
+</script>
+
+
+
+    </body>
+
+</html>

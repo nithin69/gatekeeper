@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ event.title }}  {% endblock %}
+
+{% block content_block %}
+<style>
+	.well{
+	background-color: #FFFFFF;
+	}
+	h1{
+	color:#042DF0 ;
+	}
+	
+	</style>
+        <div class="row clearfix">
+          <div class="col-md-12">
+            <div class="well">
+              <h1 class="text-center">{{ event.title }}</h1><hr>
+              <img src="/media/{{event.image1 }}" style="height:300px; width:750px;">
+              <dl class="dl-horizontal">
+                <hr>
+                <dt>Date :</dt>
+                <dd>{{ event.from_date }} - {{ event.to_date }}</dd>
+                <hr>
+                <dt>Timings :</dt>
+                <dd>{{ event.from_time }} - {{ event.to_time }}</dd>
+                <hr>
+                <dt>Venue :</dt>
+                <dd>{{ event.venue }}</dd>
+                <hr>
+                <dt>Description :</dt>
+                <dd>{{ event.description }}</dd>
+                
+              </dl>
+            </div>
+          </div>
+        </div>
+  
+
+{% endblock %}

@@ -1,0 +1,243 @@
+    {% extends 'base2.html' %}
+
+    {% load static %}
+{% block title %}  {{ page_title|upper}}   {% endblock %}
+
+{% block meta %}
+
+
+{% if page_title == "Taxi" %}
+
+ {% include 'city/taximeta.html' %}
+
+{% elif page_title == "Government Offices" %}
+
+ {% include 'city/govtmeta.html' %}
+
+{% elif page_title == "NGO / Charities" %}
+
+ {% include 'city/ngometa.html' %}
+
+
+{% elif page_title == "Hospitals" %}
+
+ {% include 'city/hospitalmeta.html' %}
+
+{% else %}
+
+ {% include 'city/businessmeta.html' %}
+
+
+{% endif %}
+
+{% endblock %}
+
+
+
+{% block content_block %}
+
+
+
+{% include "city/datatable.html" %}
+
+    
+      <div class=" clearfix">
+                        
+<div class="inline page-title"> <h1> {% if page_title == "Business Directory" %} {{" "}} {% else %} {{page_title}} {% endif %}  </h1>   </div>
+	{% if page_title == "Business Directory" %}
+	
+<div class="bs-example">
+	<ul class="nav nav-pills">
+        <div class="btn-group">
+	
+        <button class="btn-menu" type="button"  data-toggle="dropdown"  {% if  request.path == "/business/Gift/" or request.path == "/business/shopping/" or request.path == "/business/Sweets/" or request.path == "/business/watches/" %}  {% else %}  {% endif %}>Shopping <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/business/Gift/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Gift/"><span class="fa fa-gift"></span>  Gifts</a>
+	</li>
+
+	<li {% if request.path == "/business/shopping/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/shopping/"><span class="fa fa-shopping-cart"></span>  Shopping</a>
+	</li>
+	<li {% if request.path == "/business/Sweets/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Sweets/"><span class="fa fa-home"></span>  Sweet Shops</a>
+	</li>
+	<li {% if request.path == "/business/watches/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/watches/"><span class="fa fa-clock-o"></span>  Watch Shops</a>
+	</li>
+	</ul>
+</div>
+	<div class="btn-group">
+        <button class="btn-menu" type="button" data-toggle="dropdown" {% if request.path == "/business/Movie/" or request.path == "/business/Clubs/" or request.path == "/business/Sports/" or request.path == "/business/wedding/" %}  {% else %}  {% endif %}>Entertainment <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/business/Movie/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Movie/"><span class="fa fa-film"></span>  Movie Theatres</a>
+	</li>
+
+	<li {% if request.path == "/business/Clubs/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Clubs/"><span class="fa fa-beer"></span>  Clubs</a>
+	</li>
+	<li {% if request.path == "/business/Sports/" %} class="active" && page_title=="Temple" {% else %} class="wactive" {% endif %}  >
+                                        <a href="/business/Sports/"><span class="fa fa-futbol-o"></span>  Sports</a>
+	</li>
+
+	<li {% if request.path == "/business/wedding/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/wedding/"><span class="fa fa-heart"></span>  Wedding</a></li>
+
+	</ul>
+</div>
+	<div class="btn-group">
+        <button class="btn-menu" type="button" data-toggle="dropdown" {% if  request.path == "/business/Restaurants/" or request.path == "/business/Hotels/" or request.path == "/business/Bakeries/" or request.path == "/business/Wine/" or request.path == "/business/Resorts/" %}  {% else %}  {% endif %}>Food & Dine <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/business/Restaurants/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Restaurants/"><span class="fa fa-cutlery"></span> Restaurants</a></li>
+		<li {% if request.path == "/business/Hotels/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Hotels/"><span class="fa fa-bed"></span>  Hotels</a></li>
+
+		<li {% if request.path == "/business/Bakeries/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Bakeries/"><span class="fa fa-birthday-cake"></span>  Bakery</a>
+	</li>
+	<li {% if request.path == "/business/Wine/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Wine/"><span class="fa fa-glass"></span>  Wine shops</a>
+	</li>
+	<li {% if request.path == "/business/Resorts/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Resorts/"><span class="fa fa-fire"></span>  Resorts</a>
+	</li>
+
+	</ul>
+</div>
+	<div class="btn-group">
+        <button class="btn-menu" type="button" data-toggle="dropdown" {% if  request.path == "/business/Software/" or request.path == "/business/Automobiles/" %}  {% else %}  {% endif %}>Industries <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/business/Software/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Software/"><span class="fa fa-mobile"></span>  IT companies</a>
+	</li>
+	
+	<li {% if request.path == "/business/Automobiles/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Automobiles/"><span class="fa fa-truck"></span>  Automobiles</a>
+	</li>
+	</ul>
+	</div>
+	<div class="btn-group">
+        <button class="btn-menu" type="button" data-toggle="dropdown" {% if  request.path == "/business/Hostels/" or request.path == "/business/Oldagehome/" or request.path == "/business/Packers/" or request.path == "/business/Logistics/" or request.path == "/business/Astrology/" or request.path == "/business/Banks/" or request.path == "/business/Gas/" or request.path == "/business/Meeseva/" %}  {% else %} {% endif %}>Services <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+	<li {% if request.path == "/business/Hostels/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Hostels/"><span class="fa fa-bed"></span>  Hostels</a>
+	</li>
+
+	<li {% if request.path == "/business/Oldagehome/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Oldagehome/"><span class="fa fa-umbrella"></span>  Old Age Homes</a>
+	</li>
+
+	<li {% if request.path == "/business/Packers/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Packers/"><span class="fa fa-truck"></span>  Packers & Movers</a>
+	</li>
+	<li {% if request.path == "/business/Logistics/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Logistics/"><span class="fa fa-bus"></span>  Logistics</a>
+	</li>
+
+	<li {% if request.path == "/business/Astrology/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Astrology/"><span class="fa fa-globe"></span>  Astrology</a>
+	</li>
+
+	<li {% if request.path == "/business/Banks/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Banks/"><span class="fa fa-briefcase"></span>  Banks</a></li>
+	<li {% if request.path == "/business/Gas/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Gas/"><span class="fa fa-fire"></span>  Gas Agencies</a>
+	</li>
+	<li {% if request.path == "/business/Meeseva/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Meeseva/"><span class="fa fa-globe"></span>  Meeseva</a>
+	</li>
+	</ul>
+</div>
+	<div class="btn-group">
+        <button class="btn-menu" type="button" data-toggle="dropdown" {% if request.path == "/business/Electronics/" or request.path == "/business/Gym/" or request.path == "/business/Temples/" or request.path == "/business/Jute/" or request.path == "/business/Realestate/" or request.path == "/business/Dance/" or request.path == "/business/petshop/" or request.path == "/business/Pest/" or request.path == "/business/Bookshop/" %}  {% else %}  {% endif %}>Others <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+	
+
+	<li {% if request.path == "/business/Electronics/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Electronics/"><span class="fa fa-flash"></span>  Electronics</a></li>
+		
+		
+	<li {% if request.path == "/business/Gym/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Gym/"><span class="fa fa-link"></span>  Gyms</a>
+	</li>
+	
+	
+
+	
+	<li {% if request.path == "/business/Temples/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Temples/"><span class="fa fa-road"></span>  Temples</a>
+	</li>
+	
+	
+	
+	<li {% if request.path == "/business/Jute/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Jute/"><span class="fa fa-check"></span>  Jute and Paper mills</a>
+	</li>
+	
+	
+	
+	<li {% if request.path == "/business/Realestate/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Realestate/"><span class="fa fa-th"></span>  Real Estates</a>
+	</li>
+	
+	<li {% if request.path == "/business/Bookshop/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Bookshop/"><span class="fa fa-book"></span>  Book Shop</a>
+	</li>
+	<li {% if request.path == "/business/Dance/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Dance/"><span class="fa fa-group"></span>  Dance Schools</a>
+	</li>
+	<li {% if request.path == "/business/Pest" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/Pest"><span class="fa fa-bug"></span>  Pest Control</a>
+	</li>
+	<li {% if request.path == "/business/petshop/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/business/petshop/"><span class="fa fa-paw"></span>  Pet Shops</a>
+	</li>
+	
+	</ul>
+</div>
+</li>
+
+</div>
+
+
+{% endif %}
+<div class="res-table ">
+       <div class="clearfix datarow">
+                        <div class="col-md-12">               
+               <table id="myTable" class=" display table dataTable table-bordered">
+        <thead>
+          <tr>
+                <th>Name </th>
+		<th>Phone</th>
+		<th>Address</th>
+                          </tr>
+        </thead>
+        <tbody>
+         
+                 {% for l in obj_list %}
+                 
+                <tr>
+                <td><a href="{{l.id}}/{{l.text}}">{{l.name }}</a></td>
+		<td width="20%">{{l.phone3}}<br>{{l.phone4}}</td>
+		<td>{{l.address}}</td>               
+          	</tr>
+                 
+                       
+                 
+                 {% endfor %}
+                  </tbody>
+  </table>
+                                                                                                                        
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+

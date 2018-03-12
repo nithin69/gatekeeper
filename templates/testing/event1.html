@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Events  {% endblock %}
+
+{% block content_block %}
+
+<style>
+.well{
+	background-color: #FFFFFF;
+	}
+	h1{
+	color:#042DF0 ;
+	}
+	img.img-responsive
+	{
+    
+    margin-left: auto;
+    margin-right: auto;
+	}
+</style>
+{% include "city/datatable.html" %}
+
+  
+        <div class="row">
+          <div class="col-md-12">
+            <div class="well">
+              <h1 class="text-center">{{ event.title }}</h1><hr>
+        
+                <dt>Date :</dt>
+                <dd>{{ event.from_date }} - {{ event.to_date }}</dd>
+               
+                <dt>Timings :</dt>
+                <dd>{{ event.from_time }} - {{ event.to_time }}</dd>
+               
+                
+                <dt>Description :</dt>
+                <dd>{{ event.description }}</dd>
+                
+                <dt>Website :</dt>
+                <dd>{{ event.website }}</dd>
+               
+              </dl>
+            </div>
+          </div>
+        </div>
+      
+{% endblock %}

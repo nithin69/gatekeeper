@@ -1,0 +1,239 @@
+    {% extends 'base.html' %}
+
+    {% load static %}
+{% block title %}  {{ page_title|upper}} IN VIZAG   {% endblock %}
+
+{% block meta %}
+
+
+{% if page_title == "Taxi" %}
+
+ {% include 'city/taximeta.html' %}
+
+{% elif page_title == "Government Offices" %}
+
+ {% include 'city/govtmeta.html' %}
+
+{% elif page_title == "NGO / Charities" %}
+
+ {% include 'city/ngometa.html' %}
+
+
+{% elif page_title == "Hospitals" %}
+
+ {% include 'city/hospitalmeta.html' %}
+
+{% else %}
+
+
+
+{% endif %}
+
+{% endblock %}
+
+
+
+{% block content_block %}
+
+
+
+{% include "city/datatable.html" %}
+
+    
+      <div class="row clearfix">
+                        <div class="col-md-12 column maincol">
+<div class="inline page-title"> <h1> {% if page_title == "Business Directory" %} {{" "}} {% else %} {{page_title}} in Vizag {% endif %}  </h1>   </div>
+	{% if page_title == "Gift" or  page_title == "shopping" or page_title == "Sweets" or page_title == "watches" or page_title == "Movie" or page_title == "Clubs" or page_title == "Sports" or page_title == "wedding" or page_title == "Restaurants" or page_title == "Hotels" or page_title == "Bakeries" or page_title == "Wine" or page_title == "Resorts" or page_title == "Software" or page_title == "Automobiles" or page_title == "Hostels" or page_title == "Oldagehome" or page_title == "Packers" or page_title == "Logistics" or page_title == "Astrology" or page_title == "Banks" or page_title == "Gas" or page_title == "Electronics" or page_title == "Gym" or page_title == "Temples" or page_title == "Jute" or page_title == "Realestate" or page_title == "Bookshop" or page_title == "Dance" or page_title == "Pest" or page_title == "petshop" %}
+	
+<div class="bs-example">
+	<ul class="nav nav-pills">
+        <div class="btn-group">
+	
+        <button type="button"  data-toggle="dropdown"  {% if  request.path == "/Gift/" or request.path == "/shopping/" or request.path == "/Sweets/" or request.path == "/watches/" %} class="btn btn-info dropdown-toggle" {% else %} class="btn btn-default dropdown-toggle" {% endif %}>Shopping <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/Gift/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Gift/"><span class="fa fa-gift"></span>  Gifts</a>
+	</li>
+
+	<li {% if request.path == "/shopping/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/shopping/"><span class="fa fa-shopping-cart"></span>  Shopping</a>
+	</li>
+	<li {% if request.path == "/Sweets/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Sweets/"><span class="fa fa-home"></span>  Sweet Shops</a>
+	</li>
+	<li {% if request.path == "/watches/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/watches/"><span class="fa fa-clock-o"></span>  Watch Shops</a>
+	</li>
+	</ul>
+</div>
+	<div class="btn-group">
+        <button type="button" data-toggle="dropdown" {% if request.path == "/Movie/" or request.path == "/Clubs/" or request.path == "/Sports/" or request.path == "/wedding/" %} class="btn btn-info dropdown-toggle" {% else %} class="btn btn-default dropdown-toggle" {% endif %}>Entertainment <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/Movie/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Movie/"><span class="fa fa-film"></span>  Movie Theatres</a>
+	</li>
+
+	<li {% if request.path == "/Clubs/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Clubs/"><span class="fa fa-beer"></span>  Clubs</a>
+	</li>
+	<li {% if request.path == "/Sports/" %} class="active" && page_title=="Temple" {% else %} class="wactive" {% endif %}  >
+                                        <a href="/Sports/"><span class="fa fa-futbol-o"></span>  Sports</a>
+	</li>
+
+	<li {% if request.path == "/wedding/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/wedding/"><span class="fa fa-heart"></span>  Wedding</a></li>
+
+	</ul>
+</div>
+	<div class="btn-group">
+        <button type="button" data-toggle="dropdown" {% if  request.path == "/Restaurants/" or request.path == "/Hotels/" or request.path == "/Bakeries/" or request.path == "/Wine/" or request.path == "/Resorts/" %} class="btn btn-info dropdown-toggle" {% else %} class="btn btn-default dropdown-toggle" {% endif %}>Food & Dine <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/Restaurants/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Restaurants/"><span class="fa fa-cutlery"></span> Restaurants</a></li>
+		<li {% if request.path == "/Hotels/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Hotels/"><span class="fa fa-bed"></span>  Hotels</a></li>
+
+		<li {% if request.path == "/Bakeries/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Bakeries/"><span class="fa fa-birthday-cake"></span>  Bakery</a>
+	</li>
+	<li {% if request.path == "/Wine/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Wine/"><span class="fa fa-glass"></span>  Wine shops</a>
+	</li>
+	<li {% if request.path == "/Resorts/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Resorts/"><span class="fa fa-fire"></span>  Resorts</a>
+	</li>
+
+	</ul>
+</div>
+	<div class="btn-group">
+        <button type="button" data-toggle="dropdown" {% if  request.path == "/Software/" or request.path == "/Automobiles/" %} class="btn btn-info dropdown-toggle" {% else %} class="btn btn-default dropdown-toggle" {% endif %}>Industries <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+
+		<li {% if request.path == "/Software/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Software/"><span class="fa fa-mobile"></span>  IT companies</a>
+	</li>
+	
+	<li {% if request.path == "/Automobiles/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Automobiles/"><span class="fa fa-truck"></span>  Automobiles</a>
+	</li>
+	</ul>
+	</div>
+	<div class="btn-group">
+        <button type="button" data-toggle="dropdown" {% if  request.path == "/Hostels/" or request.path == "/Oldagehome/" or request.path == "/Packers/" or request.path == "/Logistics/" or request.path == "/Astrology/" or request.path == "/Banks/" or request.path == "/Gas/" %} class="btn btn-info dropdown-toggle" {% else %} class="btn btn-default dropdown-toggle" {% endif %}>Services <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+	<li {% if request.path == "/Hostels/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Hostels/"><span class="fa fa-bed"></span>  Hostels</a>
+	</li>
+
+	<li {% if request.path == "/Oldagehome/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Oldagehome/"><span class="fa fa-umbrella"></span>  Old Age Homes</a>
+	</li>
+
+	<li {% if request.path == "/Packers/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Packers/"><span class="fa fa-truck"></span>  Packers & Movers</a>
+	</li>
+	<li {% if request.path == "/Logistics/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Logistics/"><span class="fa fa-bus"></span>  Logistics</a>
+	</li>
+
+	<li {% if request.path == "/Astrology/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <span class="fa fa-globe"></span><a href="/Astrology/">  Astrology</a>
+	</li>
+
+	<li {% if request.path == "/Banks/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Banks/"><span class="fa fa-briefcase"></span>  Banks</a></li>
+	<li {% if request.path == "/Gas/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Gas/"><span class="fa fa-fire"></span>  Gas Agencies</a>
+	</li>
+	
+	</ul>
+</div>
+	<div class="btn-group">
+        <button type="button" data-toggle="dropdown" {% if request.path == "/Electronics/" or request.path == "/Gym/" or request.path == "/Temples/" or request.path == "/Jute/" or request.path == "/Realestate/" or request.path == "/Dance/" or request.path == "/petshop/" or request.path == "/Pest/" or request.path == "/Bookshop/" %} class="btn btn-info dropdown-toggle" {% else %} class="btn btn-default dropdown-toggle" {% endif %}>Others <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+	
+
+	<li {% if request.path == "/Electronics/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Electronics/"><span class="fa fa-flash"></span>  Electronics</a></li>
+		
+		
+	<li {% if request.path == "/Gym/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Gym/"><span class="fa fa-link"></span>  Gyms</a>
+	</li>
+	
+	
+
+	
+	<li {% if request.path == "/Temples/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Temples/"><span class="fa fa-road"></span>  Temples</a>
+	</li>
+	
+	
+	
+	<li {% if request.path == "/Jute/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Jute/"><span class="fa fa-check"></span>  Jute and Paper mills</a>
+	</li>
+	
+	
+	
+	<li {% if request.path == "/Realestate/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Realestate/"><span class="fa fa-th"></span>  Real Estates</a>
+	</li>
+	
+	<li {% if request.path == "/Bookshop/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Bookshop/"><span class="fa fa-book"></span>  Book Shop</a>
+	</li>
+	<li {% if request.path == "/Dance/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Dance/"><span class="fa fa-group"></span>  Dance Schools</a>
+	</li>
+	<li {% if request.path == "/Pest" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/Pest"><span class="fa fa-bug"></span>  Pest Control</a>
+	</li>
+	<li {% if request.path == "/petshop/" %} class="active"{% else %} class="wactive" {% endif %} >
+                                        <a href="/petshop/"><span class="fa fa-paw"></span>  Pet Shops</a>
+	</li>
+	
+	</ul>
+</div>
+</li>
+
+</div>
+
+
+{% endif %}
+       <div class="row clearfix datarow">
+                        <div class="col-md-12">               
+                <table id="myTable" class="display table dataTable">
+        <thead>
+          <tr>
+                <th>Bank </th>
+		<th>Address</th>
+		<th>Ifsc - Codes</th>
+                          </tr>
+        </thead>
+        <tbody>
+         
+                 {% for l in ifsc %}
+                 
+                <tr>
+                <td>{{l.name }}</a></td>
+		<td width="20%">{{l.address}}</td>
+		<td>{{l.ifsc}}</td>               
+          	</tr>
+                 
+                 
+                 
+                 
+                 {% endfor %}
+                  </tbody>
+  </table>
+                                                                                                                        
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+

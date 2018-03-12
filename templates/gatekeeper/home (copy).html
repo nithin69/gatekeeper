@@ -1,0 +1,59 @@
+{% extends "base_gatekeeper.html" %}
+
+
+
+{% block content_block %}
+
+
+<h1 align = "center"> Gatekeeping App </h1>
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+
+<h1> Enter vehicle entries </h1>
+ {% if done %}
+
+<div class="col-md-12 addrcol">
+	<div class="inline page-title">
+	<p>Thank you for your enquiry. We will get back to you soon.</p>
+	</div>
+</div>	
+
+        {% else %}
+
+<center>
+<form method='POST' action=''>
+{% csrf_token %}
+
+{{ contact_form.as_p }}
+
+ <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+
+</div>
+</form>		
+</center>
+
+ {% endif %}
+
+
+</div>
+	</div>
+</div>
+
+<!--
+<div class='col-sm-12 col-sm-offset-3' style='margin-top: 50px;'>
+<h1>{{ form_title }}</h1>
+<form method='POST' action=''>{% csrf_token %}
+{{ form.as_p }}
+
+
+-->
+
+{% endblock %}

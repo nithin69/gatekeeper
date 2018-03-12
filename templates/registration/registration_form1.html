@@ -1,0 +1,70 @@
+    {% extends 'base2.html' %}
+ {% load i18n %}
+
+
+{% load static %}
+{% block title %}  Silk Thread Crafts Register  {% endblock %}
+
+{% block content_block %}
+
+       <div class="row clearfix">
+                        <div class="col-md-6 column logincol">
+                            
+<form data-toggle="validator" name = "register" class="form-horizontal" role="form" method="post" action=".">
+                          {% csrf_token %}
+			{{form.errors}}
+		
+<fieldset>
+
+
+<!-- Form Name -->
+<legend>Please fill in the below form to signup.</legend>
+
+<div class="row clearfix">
+		<div class="col-md-12 column regform">
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="id_username">Username</label>  
+  <div class="col-md-4">
+  <input required="required" id="id_username" maxlength="30" name="username" type="text" class="form-control">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="id_email">Email  </label>  
+  <div class="col-md-4">
+  <input required="required" id="id_email" name="email" type="email" class="form-control">
+
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="id_password1">Password Input</label>
+  <div class="col-md-4">
+    <input required="required" id="id_password1" name="password1" type="password" class="form-control">
+
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="id_password2">Password Again</label>
+  <div class="col-md-4">
+    <input required="required" id="id_password2" name="password2" type="password" class="form-control">
+  </div>
+</div>
+
+				<button type="submit" class="btn btn-default regsubmit"><b>Submit</b></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

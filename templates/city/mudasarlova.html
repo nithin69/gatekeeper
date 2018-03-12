@@ -1,0 +1,115 @@
+{% extends 'base-tour.html' %}
+
+{% load static %}
+{% block title %} Mudasarlova {% endblock %}
+
+
+{% block content_block %}
+
+<h2 align="center"> Mudasarlova</h2>
+
+
+<div class="col-md-9">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/media/img/Mudasarlova-1.jpg" alt="Mudasarlova" title="Mudasarlova" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="/media/img/Mudasarlova-2.jpg" alt="Mudasarlova" title="Mudasarlova" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="/media/img/Mudasarlova-3.jpg" alt="Mudasarlova" title="Mudasarlova" width="460" height="345">
+      </div>
+
+      <!-- <div class="item">
+        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+      </div> -->
+    </div>
+	</div>
+
+
+    <!-- Left and right controls -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->  
+<br><br>
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              </div>
+
+<p>
+				This Park developed next to the Mudasarlova Reservoir and is set up in the one of the picturesque valleys of Vizag. So near to bustling town but so calm. 
+Developed adjacent to Mudasarlova Cheruvu( Lake) which is fed by the Springs originating from Kambalakonda and Kailasa Hill Ranges. Mudasarlova is the major Source of Drinking Water To Vizag. The park has the best set up possible for picnicking. This beautiful site near the lake nestles amidst hills and palm trees.</p><p> There are pretty parks full of beautiful flowers and different types of trees, fountains, birds in cages as well as several picnic spots. There is also an excellent scenic Golf Course Club located here.<br><br>
+Mudasarlova can be reached by state run buses as well as own vehicle and is 6 km from the town.
+Picnicking- Mudasarlova is the place where vizagites go picnicking especially in the month of kartheeka(november). Otherwise the place is calm and still is the best for pickincing.
+			</p>
+
+	<!-- <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Timings</h3>
+                </div>
+              </div>
+
+				Monday - Friday: 8.00 AM - 5.00 PM<br>
+				Saturday: 8.00 AM - 5.00 PM<br>
+				Sunday: 8.00 AM - 5.00 PM<br>
+				Public Holidays: 8.00 AM - 5.00 PM
+			
+			
+          
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Bus</h3>
+                </div>
+              </div>
+			Buses available from RTC Complex
+			
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+              </div>
+Hanumanthavaka, Visakhapatnam, Andhra Pradesh -->
+<div class="col-md-7">
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:284px;width:100%;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">									embed google maps							</a></small></div><div><small><a href="http://buywebtrafficexperts.com">buy website traffic</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(17.7649023,83.2906246),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.7649023,83.2906246)});infowindow = new google.maps.InfoWindow({content:'<strong>mudasarlova</strong><br>mudasarlova, visakhapatnam, Andhra Pradesh<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div>
+<div class="col-md-5">
+<div class="tourist-time">
+   <h3>Timings</h3>
+   <p>Any time</p>
+			
+			<p>  Days: All	</p>
+			 <h3 >Bus</h3>
+			 <p>Buses available from RTC Complex
+			</p>
+			 
+			 <h3 >Address</h3>
+			 
+			 <p>Hanumanthavaka, Visakhapatnam, Andhra Pradesh </p>
+			 </div>
+</div>
+
+</div>
+
+
+{% endblock %}

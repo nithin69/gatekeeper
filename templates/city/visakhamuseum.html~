@@ -1,0 +1,105 @@
+{% extends 'base-tour.html' %}
+
+{% load static %}
+{% block title %} Visakha Museum {% endblock %}
+
+{% block content_block %}
+
+
+
+<h1 align="center">VISAKHA MUSEUM</h1>
+
+<div class="col-md-9">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/media/img/visakha-museum-1.jpg" alt="visakha-museum" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="/media/img/visakha-museum-2.jpg" alt="visakha-museum" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="/media/img/visakha-museum-3.jpg" alt="visakha-museum" width="460" height="345">
+      </div>
+
+      <!-- <div class="item">
+        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+      </div> -->
+    </div>
+	</div>
+
+    <!-- Left and right controls -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->  
+	
+<br><br>
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              </div>
+<p>
+								The Visakha Museum Visakhapatnam is to be found at an Old Dutch lodge on the R K Beach Road. The Visakha Museum Vizag has a few of the top and supreme creative substance pretend show. Representation several of them still at life-sized showing the constituent of the Royal people of the Vizianagaram and Boboli, 2 Armour suits, 2 place of lance and silence packing guns, quite a few very old armaments for example steel bows, handguns that meeting rear to the British-rule era are a little of the equipment one should not overlook. The Visakha Museum Visakhapatnam also displays case several of the relics composed from other establishment.</p> </p>These take in the 250-lb bombard that was fall by the Japanese for the epoch of the World War II. The casing bomb did not on the other hand detonate. The crust bomb is at present feigned demonstrated at the Museum. It is the best Visakhapatnam Tourist Places to see.
+          The Indira Gandhi Zoological Park Vizag Tourist Places launched behind belatedly the 3rd Prime Minister of India - Mrs. Indira Gandhi is a wildlife patch where frequent class of atypical and endanger fauna and avifauna are cushy inside their likely territory. Around 800 animals of diverse 80 varieties inhabit in this held sanctuary.
+			</p>
+
+	<!-- <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Timings</h3>
+                </div>
+              </div>10.00 AM to 5.00 PM
+		
+			<p> Days: All	</p>
+       
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Bus</h3>
+                </div>
+              </div>68K from RTC Complex to R.K Beach
+	
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+              </div>RK Beach Rd, Jalari Peta, Visakhapatnam, Andhra Pradesh 530003 -->
+			  <div class="col-md-6" style="float:right">
+  <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height: 284px;width: 490px;margin-left: -70px;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">									embed google map							</a></small></div><div><small><a href="http://freedirectorysubmissionsites.com/">reedirectorysubmissionsites.com</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(17.717166496666838,83.32943001379999),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.717166496666838,83.32943001379999)});infowindow = new google.maps.InfoWindow({content:'<strong>visakha museum</strong><br>rk beach visakhapatnam, Andhra Pradesh<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+  </div>
+  <div class="col-md-6" >
+   <h3>Timings</h3>
+   <p>10.00 AM to 5.00 PM</p>
+			
+			<p> Days: All	</p>
+			 <h3 >Bus</h3>
+			 <p>68K from RTC Complex to R.K Beach</p>
+			 
+			 <h3 >Address</h3>
+			 
+			 <p>Gangavaram, Visakhapatnam, Andhra Pradesh <br>530005</p>
+			 
+   
+    
+  </div>
+</div>
+
+
+
+{% endblock %}

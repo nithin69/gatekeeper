@@ -1,0 +1,58 @@
+{% extends 'base2.html' %} 
+ {% load static %}
+
+  
+{% block title %}aoucr - Search{% endblock %}
+
+
+{% block content_block %}
+
+{% include "testing/datatable.html" %}
+
+<div class="hero-unit">
+    
+      
+
+{% if buses %}
+    <h2> Keyword : {{ category }}  </h2>
+    
+        
+    
+     <table class="table table-hover table-bordered table-striped">
+    <thead>
+      <tr>
+        <th> Bus Number </th>
+        <th> From Number </th>
+	<th> To Number </th>
+	
+    
+      </tr>
+    </thead>
+    <tbody>
+     
+	 
+    
+	 
+	 {% for i in buses %}
+		<tr> 
+
+        <td>{{ i.bus_number}} </td>
+	
+          <td> {{ i.from_location}} </td>
+	<td> {{ i.to_location}} </td>
+
+      </tr>
+	
+{% endfor %}
+	 	
+	 	 
+    </tbody>
+  </table>
+   {% else %}
+                    
+    <h2> No results for keyword : {{ category }}  </h2>
+            {% endif %}
+            
+            
+</div>
+{% endblock %}

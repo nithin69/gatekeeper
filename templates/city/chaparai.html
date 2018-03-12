@@ -1,0 +1,113 @@
+{% extends 'base-tour.html' %}
+
+{% load static %}
+{% block title %} Chaparai {% endblock %}
+
+
+{% block content_block %}
+
+<h2 align="center"> Chaparai</h2>
+
+
+<div class="col-md-9">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/media/img/chaparai-1.jpg" alt="chaparai" title="chaparai" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="/media/img/chaparai-2.jpg" alt="chaparai" title="chaparai" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="/media/img/chaparai-3.jpg" alt="chaparai" title="chaparai" width="460" height="345">
+      </div>
+
+      <!-- <div class="item">
+        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+      </div> -->
+    </div>
+	</div>
+
+
+    <!-- Left and right controls -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->  
+<br><br>
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              </div>
+
+<p>
+				Chaparai is a well known picnic spot in Araku valley. A scenic place with water falls and surrounding forest area makes people relax and spend their holiday joyfully. Usually people who visit Araku valley won't miss this place as it is very nearer to the main Araku valley place. It is better not to enter into water flow area during rainy season as the water current will be high and dangerous. During winter season the water flow is less and people can enjoy their stay here. Landscapes and gardens are located surrounding this place. One can experience the beauty of water gushing through natural rocks.</p><p>
+Dumbriguda Chaaparai is not included in the one day Araku Package trip conducted by APTDC. People have to take their own vehicles or hire a taxi/auto from Araku and visit this place. Chaaparai is only 15Kms from Araku valley on the way to Paderu. Only road transportation is available to Chaaparai from Araku. <br>
+People can reach Araku valley by train or bus. Tourist normally plan to reach Araku valley from Visakhapatnam by taking the train ticket for Vizag Kirandul passenger train and send their private vehicle to Araku. During this journey they enjoy the scenic beauty of the valley, tunnels and bridges. 
+			</p>
+
+	<!-- <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Timings</h3>
+                </div>
+              </div>
+
+				Any time 
+			
+			<p> Days: All	</p>
+          
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Bus/Train</h3>
+                </div>
+              </div>
+			Araku bus from RTC Complex<br>
+			Vizag Kirandul passenger train
+			
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+              </div>
+Araku, Visakhapatnam, Andhra Pradesh -->
+<div class="col-md-7">
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:284px;width:100%;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">									embed google maps							</a></small></div><div><small><a href="http://www.autohuren.world/">auto huren</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(17.8462964,81.87979760000007),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.8462964,81.87979760000007)});infowindow = new google.maps.InfoWindow({content:'<strong>chaparai</strong><br>chaparai, visakhapatnam, Andhra Pradesh<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div>
+<div class="col-md-5">
+<div class="tourist-time">
+   <h3>Timings</h3>
+   <p>Any time 	</p>
+			
+			<p>  Days: All	</p>
+			 <h3 >Bus</h3>
+			 <p>Araku bus from RTC Complex<br>
+			Vizag Kirandul passenger train</p>
+			 
+			 <h3 >Address</h3>
+			 
+			 <p>Araku, Visakhapatnam, Andhra Pradesh </p>
+			 </div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,191 @@
+{% extends 'base.html' %} 
+ {% load static %}
+
+  
+{% block title %} Aoucr - Visakhapatnam{% endblock %}
+
+{% block meta %}
+
+<meta name="Title" content="aoucr Latest News | Latest Events | Local Search | Alerts | City updates in visakhapatnam, aoucr"  >
+<meta name="description" content="aoucr provides you latest news in vizag, Latest updates, latest events, localbuses in vizag, gvmc updates, latest alerts, trains, flight, emergency" >
+<meta name="keywords" content="aoucr Latest News, Latest Events, Alerts, localbuses, taxi, directory, education, ngo/charites, how do i, hospitals, emergency, police station, blood bank, fire services, chemist, Updates, Tourist Places in vizag, Vizag information, Vizag city, About Vizag, Vizag News Online, Jobs in Vizag, House for rent, Rentals, To-let, latest jobs, openings">
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" >
+<meta name="robots" content="all">
+<meta content='index, follow' name='GOOGLEBOT'>
+<meta content='index, follow' name='yahooBOT'>
+<meta property="og:url" content = "http://www.aoucr.com">
+<meta property="og:site_name" content = "http://www.aoucr.com"> 
+<meta property="og:title" content="aoucr Latest News | Latest Events | Local Search | Alerts | City updates in visakhapatnam, aoucr" >
+<meta property="og:type" content="article" >
+<meta property="og:description" content="aoucr provides you latest news in vizag, Latest updates, latest events, localbuses in vizag, gvmc updates, latest alerts, trains, flight, emergency" >
+<style>
+.image {
+position: relative;
+width: 100%;
+}
+
+h2 {
+position: absolute;
+top: -2px;
+left: 0;
+width: 100%;
+}
+
+h2 span {
+color: white;
+font: bold 24px/45px Helvetica, Sans-Serif;
+letter-spacing: -1px;
+background: rgb(0, 0, 0); /* fallback color */
+background: rgba(0, 0, 0, 0.28);
+padding: 5px;
+margin: 5px;
+}
+</style>
+
+{% endblock %}
+
+        {% block content_block %}
+
+   <div id="fb-root"></div>
+
+
+            <div class="col-md-8 col-xs-12">
+
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading newspanelhead">
+                               <h3 class="panel-title newsbox">
+                                    <span class="fa fa-fw fa-lg fa-newspaper-o">&nbsp;News</span>
+                                    
+                               <div id = "curdate">  </div>  </p></h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="media-list">
+                                    
+                                    
+                                       {% for n in nlist %}
+                                     
+                                      <li class="media">
+                                        <a class="pull-left" href="#"><img class="media-object" src="{{n.image1}}" alt="the hindu" height="200" width="220" title="image"></a>
+                                        <div class="media-body">
+                                            <h1 class="media-heading">
+                                                <a href={{n.url}} target="_blank" style="color:#005689" title="{{n.title }}" style="color:#1a0dab"> <b>{{n.title }}</b>  </a> <br/>
+                                                <small style="color:gray">-The Hindu ,  {{n.from_date }}</small> 
+                                            </h1>
+						
+                                            <p> {{n.description}}</p>
+                                        </div>
+                                    </li>
+                                       <hr>
+                                      {% endfor %}
+                                    
+                                
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="pagination">
+<span class="step-links">
+{% if nlist.has_previous %}
+<a href="?page={{ nlist.previous_page_number }}" title="previous"><b> << Previous</b></a>
+{% endif %}
+
+
+<span class="current">
+  Page {{ nlist.number }} of {{ nlist.paginator.num_pages }}
+</span>
+
+{% if nlist.has_next %}
+<a href="?page={{ nlist.next_page_number }}" title="next"><b>Next >> </b></a>
+{% endif %}
+</span>
+</div>   
+
+
+            </div>
+
+            <div class="col-md-4 col-xs-12">
+               
+              
+                <div class="row">
+                    <div class="well">
+                        <h3 class="text-primary" style="margin-top:-13px;">
+                            <i class="fa fa-fw text-primary fa-bell"></i>City Alerts</h3>
+                            
+                             {% for a in alist %}
+                            
+                             <h4>
+                            <strong> {{a.title }} </strong>
+                            </h4>
+                            <p> {{a.description|slice:":150"}}...  </p>
+                        
+                            
+                             {% endfor %}
+                            
+                       <a href="/alerts/" title="view more"><b>View More >></b></a>
+                      <!-- <a href="/alerts/" class="btn btn-primary btn-md" title="view more">View More Alerts</a>-->
+                        
+                    </div>
+           
+                    <div class="well">
+                        <h3 class="text-primary" style="margin-top:-13px;">
+                            <i class="fa fa-fw text-primary fa-calendar"></i>City Events</h3>
+                            
+                             {% for e in elist %}
+                            
+                             <h4>
+                            <strong>   <a href="/event/{{e.id}}/" title="{{e.title }}">  {{e.title }} </a> </strong>
+                            </h4>
+                            <p> {{e.description|slice:":150" }}...  </p>
+                        
+                            
+                             {% endfor %}
+                            
+                       
+                      
+                        <a href="/events/" title="view more"><b>View More >></b></a>
+                    </div>
+              
+
+
+
+                <div class="well">
+                    <h3 class="text-primary" style="margin-top:-13px;">
+                        <i class="fa fa-fw fa-group text-primary"></i>GVMC Updates</h3>
+                      {% for e in gvlist %}
+                            
+                             <h4>
+                            <strong>   <a href="/event/{{e.id}}/" title="{{e.title }}">  {{e.title }} </a> </strong>
+                            </h4>
+                            <p> {{e.description|slice:":150" }}...  </p>
+                        
+                            
+                             {% endfor %}
+			     <h4>
+                            <strong>   <a href="/updates/" title="gvmc zones list"> GVMC Zones List </a> </strong>
+                            </h4>
+			<a href="/updates/" title="view more"><b>View More >></b></a>
+                </div>
+                            
+                
+
+               <g:plusone size="standard" count="true" href="http://www.aoucr.com/"></g:plusone><br>
+<a href="https://twitter.com/aoucr" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" title="Follow @aoucr">Follow @aoucr</a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="aoucr" data-size="large" data-dnt="true">Tweet</a>
+<br>
+<div class="fb-like" data-href="https://www.facebook.com/aoucr" data-layout="standard" data-share="true" data-width="5" data-action="like" data-show-faces="true"></div>
+
+                <hr>
+
+
+
+
+                </div>
+
+        </div>
+{% endblock %}
+

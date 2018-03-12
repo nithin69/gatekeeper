@@ -1,0 +1,48 @@
+    {% extends 'base.html' %}
+
+    {% load static %}
+{% block title %} Movies  {% endblock %}
+
+{% block meta %}
+
+
+<meta name="Title" content="Movies|aoucr |Local Search" />
+<meta name="description" content="Movies in Vizag"/>
+<meta name="keywords" content="Latest movies, INOX movies, Movies in vizag, Varun INOX, Mukthas ,Jagadamba, Chitralaya, Upcoming movies"/>
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all"/>
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://aoucr.com/movies/"/>
+<meta property="og:sitename" content = "http://aoucr.com"/> 
+<meta property="og:title" content="Latest movies in vizag, INOX movies, CMR Central, Jagadamba, Chitralaya, Movies, Cinema in vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="aoucr provides information about movies with theatre address in Visakhapatnam" />
+
+{% endblock %}
+
+    {% block content_block %}
+
+
+
+{% include "city/datatable.html" %}
+
+
+
+				 <div class="inline page-title"> <h2> {{page_title }}  </h2>   </div>
+					<div class="col-md-12">
+			
+				<div class="row">
+	    {% for m in movie %}
+             <div class="col-md-4 text-right">
+            <a href="/movies/{{ m.text }}/"><img src="{{ m.image }}" style="width:357px; height:210px;" class="img-responsive"></a>
+            <a href="/movies/{{ m.text }}/"><h3 class="text-center text-danger">{{ m.movie_name }}
+			<h3></a>
+           
+          </div>
+
+	   {% endfor %}
+          
+		</div>
+</div>
+    {% endblock %}

@@ -1,0 +1,187 @@
+{% extends 'base-dash2.html' %}
+
+{% load static %}
+{% block title %} Tourist Places in Vizag {% endblock %}
+
+{% block meta %}
+
+<meta name="Title" content="Visakhapatnam Tourist Places, Tourist Places in vizag, Attractions in vizag, places to visit in vizag" />
+<meta name="description" content="aoucr provides information about tourist places in vizag, List of tourist places and their addresses in Visakhapatnam, Places to visit in visakhapatnam, Attractions in visakhapatnam"/>
+<meta name="keywords" content="Tourist Places in Vizag, Top 10 tourist places in vizag, Sightseeing places in vizag, Attractions in visakhapatnam, Places to visit in visakhapatnam, Sightseeing. ">
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all">
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://www.aoucr.com/touristplaces"/>
+<meta property="og:sitename" content = "http://www.aoucr.com"/> 
+<meta property="og:title" content="Tourist places in vizag, Nearby places to visit in vizag, Attractions in vizag, Sightseeing places in vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="aoucr provides information about tourist places in vizag, List of tourist places and their addresses in Visakhapatnam, tour places information in vizag" />
+<style>
+
+</style>
+{% endblock %}
+
+{% block content_block %}
+
+
+<br>
+    <div class="section">
+      <div class="container">
+<ul class="breadcrumb">
+			<li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+			<li></i> Tourist Places</li>
+			
+		</ul>
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">Tourist Places</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/kailasagiri/"><img src="/media/img/kailasagiri-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/kailasagiri/"><h3 class="text-center text-danger">Kailasagiri</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/dolphinnose/"><img src="/media/img/dolphin-nose-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/dolphinnose/"><h3 class="text-center text-danger">Dolphin Nose</h3></a>
+          
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/visakhamuseum/"><img src="/media/img/visakha-museum-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/visakhamuseum/"><h3 class="text-center text-danger">Visakha Museum</h3></a>
+           
+          </div>
+
+        </div>
+<hr>
+        <div class="row">
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/submarinemuseum/"><img src="/media/img/submarine-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/submarinemuseum/"><h3 class="text-center text-danger">Submarine</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/zoopark/"><img src="/media/img/zoological-park-2.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/zoopark/"><h3 class="text-center text-danger">Indira Gandhi Zoological Park</h3></a>
+          
+          </div>
+          <div class="col-md-4 text-right">
+           <a href="/touristplaces/yaradabeach/"><img src="/media/img/yarada-beach-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/yaradabeach/"><h3 class="text-center text-danger">Yarada Beach</h3></a>
+           
+          </div>
+        </div>
+<hr>
+		  <div class="row">
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/kambalakonda/"><img src="/media/img/Kambala-Konda-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/kambalakonda/"><h3 class="text-center text-danger">Kambala Konda Sanctuary</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/simhachalam/"><img src="/media/img/Simhachalam-Temple-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/simhachalam/"><h3 class="text-center text-danger">Simhachalam Temple</h3></a>
+          
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/vudapark/"><img src="/media/img/vuda-park-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/vudapark/"><h3 class="text-center text-danger">Vuda Park</h3></a>
+           
+          </div>
+        </div>
+<hr>
+		  <div class="row">
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/rkbeach/"><img src="/media/img/rkbeach-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/rkbeach/"><h3 class="text-center text-danger">RK Beach</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/borracaves/"><img src="/media/img/borracaves-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/borracaves/"><h3 class="text-center text-danger">Borra Caves</h3></a>
+          
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/rosshill/"><img src="/media/img/rosshill-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/rosshill/"><h3 class="text-center text-danger">Ross Hill</h3></a>
+           
+          </div>
+        </div>
+<hr>
+		  <div class="row">
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/matsyadarshini/"><img src="/media/img/matsyadarshini-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/matsyadarshini/"><h3 class="text-center text-danger">Matsyadarshini Aquarium</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/victoryatsea/"><img src="/media/img/victory-at-sea-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/victoryatsea/"><h3 class="text-center text-danger">Victory At Sea</h3></a>
+          
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/arakuvalley/"><img src="/media/img/arakuvalley-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/arakuvalley/"><h3 class="text-center text-danger">Araku Valley</h3></a>
+           
+          </div>
+        </div>
+<hr>
+		  <div class="row">
+          <div class="col-md-4 text-right">
+           <a href="/touristplaces/fishingharbour/"><img src="/media/img/fishing-harbour-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/fishingharbour/"><h3 class="text-center text-danger">Fishing Harbour</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/ananthagiri/"><img src="/media/img/Ananthagiri-3.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/ananthagiri/"><h3 class="text-center text-danger">Ananthagiri Hills</h3></a>
+          
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/chaparai/"><img src="/media/img/chaparai-1.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/chaparai/"><h3 class="text-center text-danger">Chaparai</h3></a>
+           
+          </div>
+        </div>
+<hr>
+		  <div class="row">
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/punyagiri/"><img src="/media/img/Punyagiri-3.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/punyagiri/"><h3 class="text-center text-danger">Punyagiri</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/lambasingi/"><img src="/media/img/lambasingi-3.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/lambasingi/"><h3 class="text-center text-danger">Lambasingi</h3></a>
+          
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/thotlakonda/"><img src="/media/img/thotlakonda-3.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/thotlakonda/"><h3 class="text-center text-danger">Thotlakonda</h3></a>
+           
+          </div>
+        </div>
+<hr>
+		  <div class="row">
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/mudasarlova/"><img src="/media/img/Mudasarlova-3.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/mudasarlova/"><h3 class="text-center text-danger">Mudasarlova</h3></a>
+           
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="/touristplaces/redsandhills/"><img src="/media/img/red sand-3.jpg" style="width:357px; height:210px; border-radius:25px;" class="img-responsive"></a>
+            <a href="/touristplaces/redsandhills/"><h3 class="text-center text-danger">Red Sand Hills</h3></a>
+          
+          </div> <div class="col-md-4 text-right">
+            <a href="/touristplaces/BojjanaKonda/"><img src="/media/img/BojjanaKonda.jpg" style="width:357px; height:210px; border-radius:25px;" 
+class="img-responsive"></a> </div>
+            <a href="/touristplaces/BojjanaKonda/"><h3 class="text-center text-danger">Bojjana Konda</h3></a> </div>
+              </div>
+          </div>
+  
+{% endblock %}
+
+

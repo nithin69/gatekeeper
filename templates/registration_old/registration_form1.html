@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+    {% load static %}
+
+
+       
+       
+{% block content_block %}
+
+      <div class="container logincont">
+          
+          
+            <div class="row">
+		<div class="col-md-12">
+      
+                        <form class="form-horizontal" role="form" method="post" action="">
+                               {% csrf_token %} 
+				{{ form.errors }}        
+<fieldset>
+
+<!-- Form Name -->
+<legend> Please fill in this form to register</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Email</label>  
+  <div class="col-md-4">
+  <input id="id_email" name="email" type="email" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <div class="col-md-4">
+  <input id="id_name" name="name" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Phone</label>  
+  <div class="col-md-4">
+  <input id="id_phone" name="phone" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password</label>  
+  <div class="col-md-4">
+  <input id="id_password1" name="password1" type="password" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Type Password Again</label>  
+  <div class="col-md-4">
+  <input id="id_password2" name="password2" type="password" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+<!-- Button -->
+  <div class="submit loginsubmit">
+                                        <button type="submit" class="btn btn-default loginbutton"><b>Submit</b></button>
+                                       
+                                          
+                                        </div>
+
+</fieldset>
+</form>
+
+        
+        
+        
+        
+              </div>
+      </div>
+    </div>
+      
+    
+
+
+{% endblock %}

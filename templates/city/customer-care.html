@@ -1,0 +1,51 @@
+     {% extends 'base.html' %}
+
+    {% load static %}
+{% block title %} Customer Care Nos  {% endblock %}
+
+    {% block content_block %}
+
+{% include "city/datatable.html" %}
+
+
+                   <div class="row clearfix">
+                        <div class="col-md-12 column maincol">
+				 
+					<div class="inline page-title"> <h2>  {{ core_cat|upper}} Nos </h2>   </div>
+					
+				</div>
+</div>
+       <div class="row clearfix datarow">
+                        <div class="col-md-12 column">             	
+
+
+                            <table id="myTable" class="table dataTable">
+                                <thead>
+      <tr>
+        <th> Name </th>
+        <th> Address </th>
+        <th> Phone </th>
+
+
+      </tr>
+    </thead>
+
+                     {% for l in obj_list %}
+
+	<tr>
+        <td> {{l.name }}</td>
+        <td> {{l.address }}</td>
+        <td> {{l.phone }}</td>
+
+
+      </tr>
+
+                     {% endfor %}
+                      </tbody>
+      </table>
+
+	
+                                                       </div>
+                                                    </div>
+
+    {% endblock %}

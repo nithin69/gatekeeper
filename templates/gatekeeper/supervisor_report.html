@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+
+
+{% block content_block %}
+{% block responsive %}
+
+<br/><br/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" id="printableArea">
+<form novalidate=""  method="get" action="/admin/search/" class="reply-form">
+
+    <div class="controls col-md-4">
+        <p class="datetime">From Date: <input class="form-control form-control-inline vDateField" id="id_time_of_entry_0" name="from_date" placeholder="From Date" id="from_date" size="10" title="" type="text"/></p>
+    </div>
+
+    <div class="controls col-md-4">
+        <p class="datetime">To Date: <input class="form-control form-control-inline vDateField" id="id_time_of_entry_0" name="to_date" placeholder="TO Date" id="to_date" size="10" title="" type="text"/></p>
+    </div>
+<div class="controls col-md-4"><button type="submit" class="btn btn-primary">Submit</button></div> 
+
+<!-- <input type="date" placeholder="Departure Date" id="departure_date" name="departure_date" required=""> -->
+
+
+</form>
+    </div>
+  </div>
+</div>    
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" id="printableArea">
+
+
+        
+      
+      <h2>List of Vehicle Entries </h2>
+     
+<table border="1" class="table table-striped bordered">
+
+<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Entry Gate
+						</th>
+
+						<th>
+							Entry Gatepass
+						</th>
+
+							<th>
+							Time of Entry
+						</th>
+						<th>
+							Moment type
+						</th>
+						<th>
+							Place
+						</th>
+						<th>
+							Bill No.
+						</th>
+
+<th>
+							Validity
+						</th>
+
+
+					</tr>
+				</thead>
+ {% for e in entries %}
+
+<tr>
+<td>
+{{e.id}} 
+</td>
+<td>
+{{e.gate}}
+</td>
+
+<td>
+{{e.gatepass}}
+</td>
+
+
+<td>
+{{e.time_of_entry}} 
+</td>
+<td>
+{{e.moment_type}}
+</td>
+
+<td>
+{{e.place_from}}
+</td>
+
+<td>
+{{e.bill_no}}
+</td>
+
+<td>
+{{e.validity_date}}
+</td>
+
+
+
+</tr>
+
+
+
+      {% endfor %}
+
+</table>
+    
+    
+</div>
+
+
+{% endblock %}
+{% endblock %}

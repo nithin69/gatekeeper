@@ -1,0 +1,87 @@
+    {% extends 'base.html' %}
+
+{% load static %}
+{% block title %}  Train Timings {% endblock %}
+
+{% block meta %}
+
+<meta name="Title" content="Train Information in visakhapatnam,Arrivals and Departures from vizag, Trains from vizag, Train timings from vizag" />
+<meta name="description" content="Smart vizag provides information about Train Time Table, Train information from vizag, Trains from vizag, Arrival/Departure" />
+<meta name="keywords" content="Train Time Table, Train number, Arrival/Departure, Train timings from vizag, Train information in vizag " />
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="robots" content="all">					 
+<meta content='index, follow' name='GOOGLEBOT'/>
+<meta content='index, follow' name='yahooBOT'/>
+<meta property="og:url" content = "http://www.smartvizag.com/train"/>
+<meta property="og:sitename" content = "http://www.smartvizag.com"/> 
+<meta property="og:title" content="Train Information in visakhapatnam,Arrivals and Departures from vizag, Trains from vizag, Train timings from vizag" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Smart vizag provides information about Train Time Table, Train information from vizag, Trains from vizag, Arrival/Departure" />
+
+{% endblock %}
+
+{% block content_block %}
+
+
+             <script>
+$(document).ready(function(){
+
+        $("#travel").show();
+
+});
+</script>     
+
+
+{% include "city/datatable.html" %}
+
+
+				 
+					<div class="inline page-title"> <h1> {{page_title }}  </h1>   </div>
+				
+       <div class="row clearfix datarow">
+ <div class="col-md-12 column">    
+                                                 <table id="myTable" class="display table dataTable">
+    <thead>
+      <tr>
+        <th>Train Number </th>
+        <th> Train Name </th>
+
+		  <th> From </th>
+  <th> To </th>
+  <th> Departure Time </th>
+  		  <th> Arrival Time </th>
+  
+      </tr>
+    </thead>
+    <tbody>
+     
+	 {% for l in obj_list %}
+	 
+	<tr>
+        <td> {{l.train_number }}</td>
+        <td> {{l.train_name }}</td>
+        <td> {{l.from_location }}</td>
+        <td> {{l.to_location }}</td>
+	<td> {{l.from_time }}</td>	
+	<td> {{l.to_time }}</td>
+        
+      
+
+
+      </tr>
+	 
+	 
+	 
+	 
+	 {% endfor %}
+	  </tbody>
+  </table>
+                                              
+                                              
+
+</script>    
+	
+				</div>
+</div>      
+
+{% endblock %}

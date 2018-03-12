@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+ {% load static %}
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="../../../static/js-sm/bootstrap.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/bootstrap.css' %}"  rel="stylesheet" type="text/css">
+        <link href="{% static 'css-sm/weather_icons.css' %}" rel="stylesheet" type="text/css">
+            <link href="{% static 'css-sm/style.css' %}" rel="stylesheet" type="text/css">
+             <script type="text/javascript" src="{% static 'js-sm/scripts.js' %}"></script>
+ <title> {% block title %}  {% endblock %}</title> 
+  <!-- Data Tables -->
+
+ <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css"> 
+
+  <!-- Custom -->
+<link rel="stylesheet" href="{% static 'css/sidestyle.css' %}">
+     <script src="{% static 'js/bootstrap.js' %}"> </script>
+ <script src="{% static 'js/myscript.js' %}"> </script>
+
+        <script>
+  $(function(){
+    $("#myTable").dataTable();
+  })
+  </script>
+
+
+    </head>
+
+    
+    <body>
+        <div class="section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 hidden-sm hidden-xs"></div>
+                    <div class="col-md-6">
+                        <a href="/"><img src="{% static 'img-sm/logo_5.png' %}" alt="logo" class="center-block img-responsive"></a>
+                    </div>
+                    <div class="col-md-3 hidden-sm hidden-xs text-right"></div>
+                </div>
+                <div class="row text-center">
+                    <p> <div id = "curdate">  </div> <i class="glyphicon glyphicon-cloud"></i>&nbsp;&nbsp;33°C
+                        </p>
+                </div>
+            </div>
+            <hr>
+        </div>
+       
+			<div class="col-md-12 content">
+{% block jumbotron %}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+			</div>
+</div>
+<footer class="text-center footer">
+                <p class="col-md-12"></p>
+                <hr class="divider">Copyright © 2015
+                <a href="http://www.delevere.com">DELEVERE</a>
+                <p></p>
+            </footer>
+ <script>
+$('document').ready(function() {   
+curdate();
+});
+</script>
+        
+    </body>
+
+</html>

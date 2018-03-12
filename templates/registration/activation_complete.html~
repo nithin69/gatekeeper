@@ -1,0 +1,7 @@
+    {% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}  Agricomm  {% endblock %}
+{% block content_block %}
+<h3>{% trans "Your account is now activated." %}</h3>
+{% endblock %}

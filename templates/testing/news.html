@@ -1,0 +1,77 @@
+           <style>
+.index-cart{
+display:none;
+}
+  </style>   
+
+{% extends 'base.html' %} 
+ {% load static %}
+
+  
+{% block title %} Smart Vizag {% endblock %}
+        {% block content_block %}
+   
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                               <h3 class="panel-title newsbox">
+                                    
+					<ul class="nav nav-tabs">
+              <li>
+                <a href="#">Sports</a>
+              </li>
+              <li>
+                <a href="#">Political</a>
+              </li>
+              <li>
+                <a href="#">Movies</a>
+              </li>
+               <li>
+                <a href="#">Technology</a>
+              </li>
+            </ul> 
+                                    
+                               <div id = "curdate">  </div>  </p></h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="media-list">
+                                    
+                                    
+                                       {% for n in nlist %}
+                                     
+                                      <li class="media">
+                                        <a class="pull-left" href="#"><img class="media-object" src="{{n.image1}}"  height="200" width="250"></a>
+                                        <div class="media-body">
+                                            <h3 class="media-heading">
+                                                <a href={{n.url}} target="_blank"> {{n.title }}  </a> <br/>
+                                                 <small>-The Hindu ,  {{n.from_date }}</small>
+                                            </h3>
+                                            <p> {{n.description}}</p>
+                                        </div>
+                                    </li>
+                                     
+                                      {% endfor %}
+                                    
+                                
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+            {% endblock %}
+
+
+
+
+
+
+
+
+
+

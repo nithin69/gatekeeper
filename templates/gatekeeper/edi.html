@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+
+{% block content_block %}     
+
+
+ <form action="/admin/edi/" method="GET">       
+          <div class="form-row">
+          <label for="id_file_Liner">Liner:</label>
+
+          <select id="liner" name="liner">
+<option value="" selected="selected">---</option>
+{% for e in entries %}
+<option id ="liner" name="liner" value="{{e.liner}}">{{e.liner}}</option>
+{% endfor %}
+</select>
+<div class="submit-row">
+      <input type="submit" class="default" value="Submit">
+    </div>
+</form>
+        
+<form action="/admin/gatekeeperapp/vehicle/export/" method="POST">
+{% csrf_token %} 
+<!--  <input type='hidden' name='csrfmiddlewaretoken' value='nDg13oXTWfaJlVovSn7uuxExT8dqXxBE' />  -->
+
+    <fieldset class="module aligned">
+      
+      
+</div>
+<div class="form-row">
+          <label for="id_file_format">Format:</label>
+
+          <select id="id_file_format" name="file_format">
+<option value="" selected="selected">---</option>
+<option value="0">csv</option>
+<option value="1">xls</option>
+<option value="2">xlsx</option>
+<option value="3">tsv</option>
+<option value="4">ods</option>
+<option value="5">json</option>
+<option value="6">yaml</option>
+<option value="7">html</option>
+</select>
+
+          
+        </div>
+      
+    </fieldset>
+
+    <div class="submit-row">
+      <input type="submit" class="default" value="Submit">
+    </div>
+</form>
+
+        
+{% endblock %}

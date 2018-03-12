@@ -1,0 +1,90 @@
+{% extends "base.html" %} 
+
+{% block title %} aoucr | {{ morerent.property_name }} {% endblock %}
+
+{% block meta %}
+
+
+{% include 'city/rentalsmeta.html' %}
+
+
+
+{% endblock %}
+
+        {% block content_block %}
+<style>
+.fa, fa{
+font-size:1.25!important;
+}
+</style>
+         
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section">
+                                <div class="row">
+                                    
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <img src="/media/noimage.png" class="center-block img-responsive img-thumbnail"
+                                                style="width:333px; height:250px; overflow:hidden;"></a>
+                                            </div>
+                                            <div class="col-md-7 text-left">
+                                                <h3>{{ morerent.property_name }}</a>
+                                                    
+                                                </h3>
+						
+    
+    						<table width="600" border="0" cellspacing="0" cellpadding="0"  style="border: none; border-top: none; border-bottom: none; line-height:2.1;">
+						
+						<tr>
+						<td>Rent Price:</td>
+						<td>{{morerent.rent_price}}</td>
+						</tr>
+						<tr>
+						<td>Bedrooms:</td>
+						<td>{{morerent.bed_rooms}}</td>
+						</tr>
+						<tr>
+						<td>Bathrooms:</td>
+						<td>{{morerent.bath_rooms}}</td>
+						</tr>
+						<tr>
+						<td>Plot Area:</td>
+						<td>{{morerent.plot_area}}</td>
+						</tr>
+						
+						<tr>
+						<td>Facing:</td>
+						<td>{{morerent.facing}}</td>
+						</tr>
+						
+						</table>
+				
+				
+						
+                                                <hr>
+                                            </div>
+						</div>
+                                        </div>
+					  
+</div>                        </div>
+                    </div>
+                </div>
+           <div class="col-md-12">
+<div class="section">
+<div class="row">
+<h3>About</h3>
+<address>
+                                                    
+	 <i class="fa fa-fw fa-map-marker"></i>{{ morerent.Address }}
+                                                    </address>
+						<p>Reserved Parking: {{morerent.reserved_parking}}</p>
+                                                <p>Property Age: {{morerent.property_age}}</p>
+						<p>Available For: {{morerent.available_for}}</p>
+						<p>Availble From: {{morerent.available_from}}                                      
+                            </div>
+</div>
+</div>
+				
+{% endblock %}

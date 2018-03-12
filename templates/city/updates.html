@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} GVMC Updates  {% endblock %}
+
+{% block content_block %}
+
+{% include "city/datatable.html" %}
+    <div class="row clearfix">
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{page_title }}</h3>
+              </div>
+            </div>
+          </div>
+	{% for l in obj_list %}
+          
+                
+                <div class="col-md-12">
+			
+                  <h2 style="color:blue;">{{l.title }}</h2>
+			
+                  <h4 style="color:green;">{{l.from_date }}</h4>
+                  
+                  <h4>Description:</h4>   {{l.description }}
+		<hr>
+                </div>
+              
+              {% endfor %}
+	
+        </div>
+
+<div class="row clearfix">
+          <div class="col-md-12">
+	
+    <h2 align="center">
+           <b> Pictorial Representation Of GVMC Zone Wise  </b>
+	
+   </h2>
+
+<img style="width:800px;" src="/media/gvmc-zones.jpg/">
+<p>The Greater Visakhapatnam Municipal Corporation (GVMC) will have six zones. The first zone which will be having the area of Madhurawada will have six wards, the second zone which will have MVP Colony, Seethammadara,&nbsp; Balayya Sastry Layout, Akkayyapalem highway, Diamond Park, Siripuram, Beach Road areas and will have 12 wards. Similarly the third zone areas will contain areas of Siripuram, KGH, Ramnagar and Allipuram and will have 19 wards, the fourth zone will have Akkayyapalem, NH 5, NAD junction, Karasa, Convent junction region will 16 wards, the fifth zone will have the regions of Gajuwaka and Steel Plant with 16 wards and the sixth zone will have the regions of NAD Junction, Simhachalam, Vepagunta, Pendurthy with seven wards.</p>
+
+</div>
+         
+       
+</div>       
+
+{% endblock %}

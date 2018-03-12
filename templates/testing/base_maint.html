@@ -1,0 +1,104 @@
+ <!DOCTYPE html>
+    {% load static %}
+<html lang="en">
+<head>
+      <title>Smart Vizag Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+  <!-- Data Tables -->
+
+ <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css"> 
+
+  <!-- Custom -->
+<link rel="stylesheet" href="{% static 'css/sidestyle.css' %}">
+ <script src="{% static 'js/myscript.js' %}"> </script>
+
+<script>
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+</script>
+
+    <script>
+  $(function(){
+    $("#myTable").dataTable();
+  })
+  </script>
+
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top barbeq">
+    <div class="smartheader">
+      
+          
+           <a href="/"> <img src="{% static "img/logo3_up.jpg" %}" width=250 height=60 alt="Smart Vizag"> </a>
+    	
+    </div>
+    <div class="collapse navbar-collapse navbar-right smart-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href = "#"><span class="glyphicon glyphicon-earphone"></span> 888 678 0891 </a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div><!--/.navbar -->
+
+
+  <div id="main">
+      <div class="col-md-12 xbody">
+      	  <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+                {% block content_block %}
+                
+                {% endblock %}
+
+      </div>
+  </div>
+</div><!--/row-offcanvas -->
+  
+  
+<footer>
+<hr class="footer_hr">
+	<div class="container_12">
+		<div class="grid_12">
+			
+			<div class="clear"></div>
+			<div class="copy"  text-align="center">
+			<ul class = "footer_list">
+				<li>
+				<b>&copy; Smart Vizag 2015 </b>
+				</li>
+<li>
+				<a href="/city/contact/"> <b> Contact Us </b> </a>
+				</li>
+
+
+			</ul>
+			</div>
+		</div>
+	</div>
+</footer>        
+
+</body>
+</html>

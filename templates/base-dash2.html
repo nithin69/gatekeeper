@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+ {% load static %}
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <title> {% block title %}  {% endblock %}</title> 
+ {% block meta %}  {% endblock %}
+
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+			
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet" type="text/css">
+
+	<link rel="shortcut icon" href="/static/img/favicon.ico" title="favicon" >
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+       
+  <!-- Custom -->
+            <link href="{% static 'css-sm/style1.css' %}" rel="stylesheet" type="text/css">
+ <script src="{% static 'js/myscripts.js' %}"> </script>
+
+
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?sensor=false">
+  </script>
+
+    </head>
+
+    
+    <body>
+<div class="container">
+<div class ="row">
+<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+<ul class="nav navbar-nav ">
+
+<li>
+<a href="/accounts/login/">Login</a>
+</li>
+<li>
+<a href="/accounts/register/">Register</a>
+</li>
+</ul>
+<div id="tfheader">
+		<form id="tfnewsearch" method="get" action="/smartsearch/">
+		        <input type="text" class="tftextinput"  name="q" placeholder="Search..." size="21" maxlength="120">
+			<input type="submit" value="search" class="tfbutton">
+		</form>
+
+	<div class="tfclear"></div>
+	</div>
+
+
+
+</div>
+<hr style="margin-top:0px;">
+</div>   
+
+     
+        <div class="row">
+	<div class="col-md-3 navcol">
+	</div>
+          <div class="col-md-6 navcol">
+          
+	   
+           <a href="/"><img src="/media/logo.png/"  alt= "logo" title="smartvizag" class="center-block img-responsive"></a>
+	</div>
+        <div class="col-md-3 navcol">
+	</div>
+          
+        
+      </div>
+    </div>
+{% block content_block %}
+
+{% endblock %}			
+
+
+
+<script>
+$('document').ready(function() {   
+curdate();
+});
+</script>
+
+    
+
+    </body>
+
+</html>

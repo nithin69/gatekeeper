@@ -1,0 +1,160 @@
+      {% extends 'base.html' %}
+
+    {% load static %}
+    {% block title %} Job Posting {% endblock %}
+
+{% block content_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+ <legend>   Please fill-in the below form to post your job</legend>
+
+<div class="row clearfix"></br>
+<center>
+​
+<div class="col-sm-12">
+    {% if done %}
+        <h3> Your job has been successfully posted on aoucr.com. Please visit <a href="/jobs/">www.aoucr/jobs/</a></h3>
+
+
+        {% else %}
+
+<form class="form-horizontal" id="job_form" method="post" action="/jobposting/"
+              enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+{{ job_form.errors }}
+
+<div class="container-fluid">
+<h3><b>Enter Job Details:</b></h3>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Job Title</label>  
+  <div class="col-md-4">
+  <input id="id_title" name="title" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Position Type</label>  
+  <div class="col-md-4">
+  <select name="position_type" id="position_type" class="form-control">
+<option value="Full Time" selected>Full Time</option>
+<option value="Part Time">Part Time</option>
+<option value="Work From Home">Work From Home</option>
+</select>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Salary Type</label>  
+  <div class="col-md-4">
+  <select name="salary_type" id="salary_type" class="form-control">
+<option value="Monthly" selected>Monthly</option>
+<option value="Weekly">Weekly</option>
+</select>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Job Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_description" name="description" required></textarea>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Address</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_address" name="address" required></textarea>
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Phone Number</label>  
+  <div class="col-md-4">
+  <input id="id_phone" name="phone" type="phone" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Company Name</label>  
+  <div class="col-md-4">
+  <input id="id_company_name" name="company_name" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Company Profile</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="id_company_profile" name="company_profile" required></textarea>
+  </div>
+</div>
+
+
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Skills Required</label>  
+  <div class="col-md-4">
+  <input id="id_key_skills" name="key_skills" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton">Image</label>
+  <div class="col-md-4">
+    <input id="id_image" name="image" type="file" class="input-file">
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Timings</label>  
+  <div class="col-md-4">
+  <input id="id_timings" name="timings" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+​<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Experience Required</label>  
+  <div class="col-md-4">
+  <input id="id_experience" name="experience" type="text" class="form-control input-md" required>
+
+  </div>
+</div>
+
+
+</div>
+
+   <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+ 
+
+</form>
+
+        {% endif %}
+         
+</div>
+</div>
+            
+{% endblock %}

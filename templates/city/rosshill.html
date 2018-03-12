@@ -1,0 +1,103 @@
+{% extends 'base-tour.html' %}
+
+{% load static %}
+{% block title %} Ross Hill {% endblock %}
+
+{% block content_block %}
+
+
+<h2 align="center">ROSS HILL</h2>
+
+<div class="col-md-9">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/media/img/rosshill-1.jpg" alt="rosshill" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="/media/img/rosshill-2.jpg" alt="rosshill" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="/media/img/rosshill-3.jpg" alt="rosshill" width="460" height="345">
+      </div>
+
+      <!-- <div class="item">
+        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
+      </div> -->
+    </div>
+	</div>
+
+    <!-- Left and right controls -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->  
+	
+	<br><br>
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Description</h3>
+                </div>
+              </div>
+
+<p>The Ross Hill Vizag, also acknowledged as the kanyamarykonda (the hill of Mother Mary) is the vital and the highest mountain between the 3 crests those defines the Visakhapatnam Port from 3 sides. The Ross Hill Visakhapatnam baptize later than the Monsieur Ross who built a house over this hillock in the year 1864 also occur to be one of the chief mountain of the whole Eastern Ghats.</p><p> From the pinnacle of the Ross Hill Visakhapatnam the mainly wasteful glasses of the wonderful beaches of Visakhapatnam, the jostle busy Visakhapatnam Port and the ship edifice yard can be pragmatic. Further remarkable visitor end placed close by contain Sri Venkateswara Konda and the Ishaq Medina Dargah.
+			</p>
+	<!-- <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Timings</h3>
+                </div>
+              </div>
+9.00 AM to 6.00 PM
+			
+			<p> Days: All	</p>
+      
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Bus</h3>
+                </div>
+              </div>
+
+				Bus Route
+		
+	<div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+              </div>
+Port Area, Visakhapatnam, Andhra Pradesh 530001 -->
+  <div class="col-md-7">
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:284px;width:100%;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">									embed google map							</a></small></div><div><small><a href="http://freedirectorysubmissionsites.com">directory submission sites</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(17.68394661279009,83.28200292432857),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(17.68394661279009,83.28200292432857)});infowindow = new google.maps.InfoWindow({content:'<strong>Ross hill</strong><br>ross hill visakhapatnam, Andhra Pradesh<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div>
+<div class="col-md-5">
+<div class="tourist-time">
+   <h3>Timings</h3>
+   <p>9.00 AM to 6.00 PM	</p>
+			
+			<p>  Days: All	</p>
+			 <h3 >Bus</h3>
+			 <p>Bus Route</p>
+			 
+			 <h3 >Address</h3>
+			 
+			 <p>Port Area, Visakhapatnam, Andhra Pradesh 530001 </p>
+			 </div>
+</div>
+</div>
+
+{% endblock %}

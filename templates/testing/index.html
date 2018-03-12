@@ -1,0 +1,201 @@
+{% extends 'base2.html' %} 
+ {% load static %}
+
+  
+{% block title %}SMART VIZAG - Visakhapatnam{% endblock %}
+
+{% block meta %}
+
+<meta name="Title" content="smartvizag Latest News | Latest Events | Local Search | Alerts | City updates in visakhapatnam, Smart vizag"  >
+<meta name="description" content="Smart vizag provides you latest news in vizag, Latest updates, latest events, localbuses in vizag, gvmc updates, latest alerts, trains, flight, emergency" >
+<meta name="keywords" content="Smart vizag Latest News, Latest Events in vizag, Alerts, localbuses in vizag, taxi, directory, education, ngo/charites, how do i, hospitals, emergency, police station, blood bank, fire services, chemist, Updates, Vizag News Online">
+<meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" >
+<meta name="robots" content="all">
+<meta content='index, follow' name='GOOGLEBOT'>
+<meta content='index, follow' name='yahooBOT'>
+<meta property="og:url" content = "http://www.smartvizag.com">
+<meta property="og:site_name" content = "http://www.smartvizag.com"> 
+<meta property="og:title" content="smartvizag Latest News | Latest Events | Local Search | Alerts | City updates in visakhapatnam, Smart vizag" >
+<meta property="og:type" content="article" >
+<meta property="og:description" content="Smart vizag provides you latest news in vizag, Latest updates, latest events, localbuses in vizag, gvmc updates, latest alerts, trains, flight, emergency" >
+
+
+{% endblock %}
+
+        {% block content_block %}
+
+   <div id="fb-root"></div>
+
+
+            <div class="col-md-8 col-xs-12">
+
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading newspanelhead">
+                               <h3 class="panel-title newsbox">
+                                    <span class="fa fa-fw fa-lg fa-newspaper-o">&nbsp;News</span>
+                                    
+                               <div id = "curdate">  </div>  </p></h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="media-list">
+                                    
+                                    
+                                       {% for n in nlist %}
+                                     
+                                      <li class="media">
+                                        <a class="pull-left" href="#"><img class="media-object" src="{{n.image1}}" alt="the hindu" height="200" width="220" title="image"></a>
+                                        <div class="media-body">
+                                            <h1 class="media-heading">
+                                                <a href={{n.url}} target="_blank" title="{{n.title }}"> {{n.title }}  </a> <br/>
+                                                <small>-The Hindu ,  {{n.from_date }}</small> 
+                                            </h1>
+						
+                                            <p> {{n.description|slice:":150"}} ...</p>
+                                        </div>
+                                    </li>
+                                       <hr>
+                                      {% endfor %}
+                                    
+                                
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="pagination">
+<span class="step-links">
+{% if nlist.has_previous %}
+<a href="?page={{ nlist.previous_page_number }}" title="previous"><b> << Previous</b></a>
+{% endif %}
+
+
+<span class="current">
+  Page {{ nlist.number }} of {{ nlist.paginator.num_pages }}
+</span>
+
+{% if nlist.has_next %}
+<a href="?page={{ nlist.next_page_number }}" title="next"><b>Next >> </b></a>
+{% endif %}
+</span>
+</div>   
+
+
+            </div>
+            <div class="col-md-4 col-xs-12">
+<div class="row">              
+              
+<div class="img-panel clearfix">
+
+<h2 class="sticky-title" >
+City Events
+</h2>
+<div class="clearfix display-img">
+<a href=""><img src="http://127.0.0.1:8000/media/ipl.png/" width="100%" ></a>
+</div>
+<div class="col-xs-12 clearfix">
+<h3 class="e-name"> Event name </h3>
+<div class="desc">
+<p>A simple interest at the rate of two percent (2%) per month shall be charged incase of failure to pay property tax by the end of the month of June for the first half year and by the end of t</p>
+</div>
+<div class="button-wrap clearfix">
+<button type="button" class="btn btn-primary">Read More Events</button>
+</div>
+</div>
+</div>
+<div class="img-panel clearfix">
+
+<h2 class="sticky-title" >
+City Events
+</h2>
+<div class="clearfix display-img">
+<a href=""><img src="http://127.0.0.1:8000/media/ipl.png/" width="100%" ></a>
+</div>
+<div class="col-xs-12 clearfix">
+<h3 class="e-name"> Event name </h3>
+<div class="desc">
+<p>A simple interest at the rate of two percent (2%) per month shall be charged incase of failure to pay property tax by the end of the month of June for the first half year and by the end of t</p>
+</div>
+<div class="button-wrap clearfix">
+<button type="button" class="btn btn-primary">Read More Events</button>
+</div>
+</div>
+</div>
+
+                
+                    <div class="well">
+                        <h2 class="text-primary">
+                            <i class="fa fa-fw text-primary fa-bell"></i>City Alerts</h2>
+                            
+                             {% for a in alist %}
+                            
+                             <h4>
+                            <strong> {{a.title }} </strong>
+                            </h4>
+                            <p> {{a.description}}  </p>
+                        
+                            
+                             {% endfor %}
+                            
+                       
+                      
+                        
+                    </div>
+           
+                  <hr>
+                    <div class="well">
+                        <h2 class="text-primary">
+                            <i class="fa fa-fw text-primary fa-calendar"></i>City Events</h2>
+                            
+                             {% for e in elist %}
+                            
+                             <h4>
+                            <strong>   <a href="/event/{{e.id}}/" title="{{e.title }}">  {{e.title }} </a> </strong>
+                            </h4>
+                            <p> {{e.description|slice:":100"}}...  </p>
+                        
+                            
+                             {% endfor %}
+                            
+                       
+                      
+                        <a href="/events/" class="btn btn-primary btn-md" title="view more">View More</a>
+                    </div>
+              
+                <hr>
+
+
+
+
+                <div class="well">
+                    <h2 class="text-primary">
+                        <i class="fa fa-fw fa-group text-primary"></i>GVMC Updates</h2>
+                      {% for e in gvlist %}
+                            
+                             <h4>
+                            <strong>   <a href="/event/{{e.id}}/" title="{{e.title }}">  {{e.title }} </a> </strong>
+                            </h4>
+                            <p> {{e.description|slice:":100"}}...  </p>
+                        
+                            
+                             {% endfor %}
+                </div>
+                <hr>
+               <g:plusone size="standard" count="true" href="http://www.smartvizag.com/"></g:plusone><br>
+<a href="https://twitter.com/smartcityvizag" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" title="Follow @smartcityvizag">Follow @smartcityvizag</a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="smartcityvizag" data-size="large" data-dnt="true">Tweet</a>
+<br>
+<div class="fb-like" data-href="https://www.facebook.com/smartcityvizag" data-layout="standard" data-share="true" data-width="5" data-action="like" data-show-faces="true"></div>
+
+                <hr>
+
+
+
+
+                </div>
+
+        </div>
+{% endblock %}

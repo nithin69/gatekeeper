@@ -1,5 +1,5 @@
 
-from registration.backends.default.views import RegistrationView
+#from registration.backends.default.views import RegistrationView
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
@@ -9,6 +9,7 @@ import object_tools
 from django.contrib import admin
 from adminplus.sites import AdminSitePlus
 
+admin.site.index_template = 'admin/gatekeeper/change_form.html'
 admin.site = AdminSitePlus()
 admin.autodiscover()
 

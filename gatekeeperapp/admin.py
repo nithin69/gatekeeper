@@ -9,13 +9,14 @@ from gateuser import *
 from django.contrib.admin import DateFieldListFilter
 from gateuser.models import Employee
 from daterange_filter.filter import DateRangeFilter
-
+from django.contrib.auth.models import Group
 from gatekeeperapp.forms import EntryForm
+from django_admin_listfilter_dropdown.filters import DropdownFilter, RelatedDropdownFilter
 
 # Register your models here.
 
 from .models import *
-
+#from django.contrib.auth.models import Permission
 
 
 '''
@@ -48,8 +49,18 @@ class ContainerInline(admin.TabularInline):
 
 
 class ContainerAdmin(admin.ModelAdmin):
-	list_display = ('container_no', 'vehicle','status')
+	list_display = ('container_no','status', 'sz','tare_weight')
 	field = '__all__'
+
+
+class LinerAdmin(admin.ModelAdmin):
+    #list_display = ('liner')
+    list_filter = ('liner',)
+    field = '__all__'
+
+class SealAdmin(admin.ModelAdmin):
+    list_filter = ('line','prefix', 'start_range', 'end_range', 'status')
+    field = '__all__'
 
 
 
@@ -58,11 +69,13 @@ class VehicleAdmin(ImportExportMixin, admin.ModelAdmin):
 	readonly_fields=('gatepass_id', 'time_of_entry')
   	resource_class = VehicleResource
 	list_display = (
-       	'gatepass', 'gate', 'vehicle_no'
+       	'gatepass', 'gate', 'vehicle_no',
     	)
-        list_filter = (('time_of_entry', DateRangeFilter), 'line' )
+        list_filter = (('time_of_entry', DateRangeFilter), ('line', RelatedDropdownFilter), ('gate', RelatedDropdownFilter), ('container', RelatedDropdownFilter), ('movement_type'))
         #list_filter = ('line', )
         field = ('gate', 'vehicle_no')
+        search_fields = ['gatepass','customer_name__customer_name', 'line__liner', 'transporter_name__transporter_name', 'bill_no', ]
+        list_filter = ('customer_name','line',)
 
         form = EntryForm
 	
@@ -140,27 +153,25 @@ def reports(request, *args, **kwargs):
     list_filter = ('time_of_entry',)
     user = User.objects.get(username = request.user)
     employee = Employee.objects.get(user = user)
-    
-    designation = employee.designation
-    print "empldesignationoyee is",designation
-    print dir(employee)
-    print user
-    
+    designation = employee.designation    
    
-    #profile = Profile.objects.get(user = user)
-    #print "profile is ", profile , "  -   "  ,profile.type_user
-    
-    
     if designation == 'guard':
-        vehicle = Vehicle.objects.all().order_by('-gatepass')
-        context_dict = {'entries' : vehicle}
+
+        vehicles = Vehicle.objects.all().order_by('-gatepass')
+        containers = []
+        cont = Container.objects.all()
+        for v in vehicles: 
+           cs = Container.objects.filter(vehicle = v,) 
+           containers.append(cs) 
+        elist = zip(vehicles, containers)
+        context_dict = {'elist' : elist, 'entry' : cont}
         return render(request, 'gatekeeper/guard_report.html', context_dict)
-    elif designation == 'manager':
-        print " in man rep..." 
+    elif designation == 'manager' or designation == 'supervisor':
+        liner = Liner.objects.all()
         vehicle = Vehicle.objects.all().order_by('-gatepass')
-        print vehicle
-        context_dict = {'entries' : vehicle}
+        #context_dict = {'entries' : vehicle}
         gates = Gate.objects.all()
+        context_dict = {'liner':liner,'entries' : vehicle, 'gates' : gates}
         ydata = []
         xdata = []
         for g in gates:
@@ -169,13 +180,13 @@ def reports(request, *args, **kwargs):
             xdata.append(g.gate) 
 #        xdata = ["Apple", "Apricot", "Avocado", "Banana", "Boysenberries", "Blueberries", "Dates", "Grapefruit", "Kiwi", "Lemon"]
 #        ydata = [52, 48, 160, 94, 75, 71, 490, 82, 46, 17]
-        print "xd is ", xdata
-        print ydata  
         chartdata = {'x': xdata, 'y': ydata}
         charttype = "pieChart"
         chartcontainer = 'piechart_container'
         data = {
-		    'entries' : vehicle,
+		    'liner' : liner,
+            'entries' : vehicle,
+            'gates' : gates,
             'charttype': charttype,
 		    'chartdata': chartdata,
 		    'chartcontainer': chartcontainer,
@@ -184,18 +195,20 @@ def reports(request, *args, **kwargs):
 			'x_axis_format': '',
 			'tag_script_js': True,
 			'jquery_on_ready': False,
+
             }
 		}
         #return render(request, 'gatekeeper/piechart.html', data) 
         return render(request, 'gatekeeper/manager_report.html', context_dict)
-    elif designation == 'supervisor':
+   
+        ''' 
+        elif designation == 'supervisor':
 	context = RequestContext(request)
 	if 'from_date' in request.GET:
 	        from_date = request.GET['from_date']
-		print "from date ", from_date
-        if 'to_date' in request.GET:
-	        to_date = request.GET['to_date']
-	
+		if 'to_date' in request.GET:
+	           to_date = request.GET['to_date']
+        '''	
 #	vehicle = Vehicle.objects.filter(from_date=from_date, to_date=to_date)
 #        print vehicle
 
@@ -212,13 +225,25 @@ def reports(request, *args, **kwargs):
     #    context_dict = {} 
     #    return render(request, 'gatekeeper/error.html', context_dict)
 
+
+
+
+
+
+
+
 admin.site.register_view('reports', view=reports)
-admin.site.register_view('search/', view=search)
+#admin.site.register_view('search/', view=search)
 #admin.site.register_view('edi/', view=edi)
 admin.site.register(Gate)
-admin.site.register(Liner)
+admin.site.register(Transporter)
+admin.site.register(Place)
+admin.site.register(Cha)
+admin.site.register(Yard)
+admin.site.register(Customer)
+admin.site.register(Liner, LinerAdmin)
 admin.site.register(Container, ContainerAdmin)
 admin.site.register(Vehicle, VehicleAdmin)
-
+#admin.site.register(Permission)
 
 #admin.site.register(CustomUser)

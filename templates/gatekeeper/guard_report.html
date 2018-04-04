@@ -6,101 +6,30 @@
 
 <div class="container">
   <div class="row">
-    <!-- <div class="col-md-12" id="printableArea">
-	-->
+<p>
+<form method="get" class="reply-form" action = "/guardsearch/" name="form1" id="form1">
+    <div class="form-group col-md-2">
+        <p class="datetime"> <input class="form-control form-control-inline vTimeField"  id="id_date_from_1" id="from_time" name="from_time" size="8" type="text"/></p>
+    </div>
+
+<div class="form-group col-md-2">
+        <p class="datetime"> <input class="form-control form-control-inline vTimeField"  id="id_date_from_1" id="to_time" name="to_time" size="8" type="text" /></p>
+    </div>
+<div class="form-group col-md-2"><button type="submit" class="btn btn-primary">Submit</button></div> 
+</form>
+</p>
+</div>
+</div>
+
+
+<div class="container">
+  <div class="row">
 	<div class="col-md-12">
         
       
-      <h2>List of Vehicle Entries </h2>
- <!--    
-<table border="1" class="table table-striped bordered">
-
-<thead>
-					<tr>
-						<th>
-							#
-						</th>
-						<th>
-							Entry Gate
-						</th>
-
-						<th>
-							Entry Gatepass
-						</th>
-
-							<th>
-							Time of Entry
-						</th>
-						<th>
-							Liner
-						</th>
-						<th>
-							Place
-						</th>
-						<th>
-							Bill No.
-						</th>
-						<th>
-							Movement
-						</th>
-
-<th>
-							Validity
-						</th>
-
-
-					</tr>
-				</thead>
- {% for e in entries %}
-
-<tr>
-<td>
-{{e.gatepass}} 
-</td>
-<td>
-{{e.gate}}
-</td>
-
-<td>
-{{e.gatepass}}
-</td>
-
-
-<td>
-{{e.time_of_entry}} 
-</td>
-<td>
-{{e.line}}
-</td>
-
-<td>
-{{e.place_from}}
-</td>
-
-<td>
-{{e.bill_no}}
-</td>
-
-<td>
-{{e.movement_type}}
-</td>
-
-<td>
-{{e.validity_date}}
-</td>
-
-
-
-</tr>
-
-
-
-      {% endfor %}
-
-</table>
--->    
+      <h2>List of Containers </h2>
+ 
     </div>
-   <!--  <input type="button" onclick="printDiv('printableArea')" value="print" /> -->
   </div>
 </div>
 
@@ -113,7 +42,7 @@
 		<div class="col-md-12">
 
 
-<table border="1" class="table table-striped bordered">
+<table border="0" class="table table-striped bordered"  id="example" class="display" style="width:100%">
 
 <thead>
 					<tr>
@@ -121,95 +50,76 @@
 							#
 						</th>
 						<th>
-							Entry Gatepass
+							Container Number
 						</th>
-
 						<th>
-							Entry Gate
+							Size 
 						</th>
-
-							<th>
+						<th>
 							Time of Entry
 						</th>
 						<th>
-							Liner
+							Received  From
 						</th>
 						<th>
-							Place
-						</th>
-						<th>
-							Movement
-						</th>
-						<th>
-							Bill No.
+							Movement Type
 						</th>
 
-<th>
+						<th>
+							Bill No(Do/Ro)
+						</th>
+						<th>
 							Validity
 						</th>
-
-<th>
-							Print
+						<th>
+							Gatepass
 						</th>
 					</tr>
 				</thead>
- {% for e in entries %}
+ {% for e in entry %}
 
 <tr id="printableArea">
-<td>
+<td id="id-{{e.gatepass}}">
 {{e.id}} 
 </td>
-<td>
- {{e.gatepass}}
+<td id="id-{{e.gatepass}}">
+{{e.container_no}} 
+</td>
+<td id="gatepass-{{e.gatepass}}">
+ {{e.sz}}
+</td>
+<td id="movement_type-{{e.gatepass}}">
+  {{e.vehicle.time_of_entry}}
 </td>
 
-<td>
-{{e.gate}}  
+<td id="gate-{{e.gatepass}}">
+{{e.vehicle.customer_name}}  
 </td>
 
-
-<td>
-{{e.time_of_entry}} 
-</td>
-<td>
-{{e.line}}
+<td id="movement_type-{{e.gatepass}}">
+  {{e.vehicle.movement_type}}
 </td>
 
-<td>
-{{e.place_from}}
+<td id="movement_type-{{e.gatepass}}">
+  {{e.vehicle.bill_no}}
 </td>
-
-<td>
-  {{e.movement_type}}
+<td id="movement_type-{{e.gatepass}}">
+  {{e.vehicle.validity_date}}
 </td>
-
-<td>
-{{e.bill_no}} 
+<td id="movement_type-{{e.gatepass}}">
+  {{e.vehicle.gatepass}}
 </td>
-
-<td>
-{{e.validity_date}}
-</td>
-
-<td>
-<input type="button" onclick="printDiv('printableArea')" value="Print" />
-</td>
-
-
-
-</tr>
 
 
 
       {% endfor %}
 
 </table>
-
-
-
-
-
-
+ <script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+ </script>   
 
 
 		</div>
@@ -219,36 +129,217 @@
 
 
 
+  <script>
+    function printDiv(printableArea, clicked_id)
+  {
+  //	id = this.id;
+  	console.log("id",clicked_id);
+
+  	var validity_date =   "validity_date-".concat(clicked_id);
+  	var validity_date_id = document.getElementById(validity_date).innerHTML;
+
+  	  	var gatepass =   "gatepass-".concat(clicked_id);
+  	var gatepass_id = document.getElementById(gatepass).innerHTML;
+
+  	  	var movement_type =   "movement_type-".concat(clicked_id);
+  	var movement_type_id = document.getElementById(movement_type).innerHTML;
+
+  	  	var gate =   "gate-".concat(clicked_id);
+  	var gate_id = document.getElementById(gate).innerHTML;
+
+  	  	var time_of_entry =   "time_of_entry-".concat(clicked_id);
+  	var time_of_entry_id = document.getElementById(time_of_entry).innerHTML;
+
+  	  	var line =   "line-".concat(clicked_id);
+  	var line_id = document.getElementById(line).innerHTML;
+
+  	  	var place_from =   "place_from-".concat(clicked_id);
+  	var place_from_id = document.getElementById(place_from).innerHTML;
+
+  	  	var bill_no =   "bill_no-".concat(clicked_id);
+  	var bill_no_id = document.getElementById(bill_no).innerHTML;
+
+
+	var container_1 =   "container_1-".concat(clicked_id);
+  	var container_1_id = document.getElementById(container_1).innerHTML;
+
+
+
+  	console.log("cam er here");
+
+	var sz_1 =   "sz_1-".concat(clicked_id);
+  	var sz_1_id = document.getElementById(sz_1).innerHTML;
+
+	var mty_1 =   "mty_1-".concat(clicked_id);
+  	var mty_1_id = document.getElementById(mty_1).innerHTML;
+
+	var mfg_year_1 =   "mfg_year_1-".concat(clicked_id);
+	var mfg_year_1_id = document.getElementById(mfg_year_1).innerHTML;
+
+	var gr_weight_1 =   "gr_weight_1-".concat(clicked_id);
+	var gr_weight_1_id = document.getElementById(gr_weight_1).innerHTML;
+
+	var tare_weight_1 =   "tare_weight_1-".concat(clicked_id);
+	var tare_weight_1_id = document.getElementById(tare_weight_1).innerHTML;
+
+	var cbm_1 =   "cbm_1-".concat(clicked_id);
+	var cbm_1_id = document.getElementById(cbm_1).innerHTML;
+
+	var action_required_1 =   "action_required_1-".concat(clicked_id);
+	var action_required_1_id = document.getElementById(action_required_1).innerHTML;
+
+	var status_1 =   "status_1-".concat(clicked_id);
+	var status_1_id = document.getElementById(status_1).innerHTML;
+
+	var location_1 =   "location_1-".concat(clicked_id);
+	var location_1_id = document.getElementById(location_1).innerHTML;
+
+	var grade_1 =   "grade_1-".concat(clicked_id);
+	var grade_1_id = document.getElementById(grade_1).innerHTML;
+
+	var remarks_1 =   "remarks_1-".concat(clicked_id);
+  	var remarks_1_id = document.getElementById(remarks_1).innerHTML;
+
+
+
+
+
+	var container_2 =   "container_2-".concat(clicked_id);
+  	var container_2_id = document.getElementById(container_2).innerHTML;
+
+	var sz_2 =   "sz_2-".concat(clicked_id);
+  	var sz_2_id = document.getElementById(sz_2).innerHTML;
+
+	var mty_2 =   "mty_2-".concat(clicked_id);
+  	var mty_2_id = document.getElementById(mty_2).innerHTML;
+
+	var mfg_year_2 =   "mfg_year_2-".concat(clicked_id);
+	var mfg_year_2_id = document.getElementById(mfg_year_2).innerHTML;
+
+	var gr_weight_2 =   "gr_weight_2-".concat(clicked_id);
+	var gr_weight_2_id = document.getElementById(gr_weight_2).innerHTML;
+
+	var tare_weight_2 =   "tare_weight_2-".concat(clicked_id);
+	var tare_weight_2_id = document.getElementById(tare_weight_2).innerHTML;
+
+	var cbm_2 =   "cbm_2-".concat(clicked_id);
+	var cbm_2_id = document.getElementById(cbm_2).innerHTML;
+
+	var action_required_2 =   "action_required_2-".concat(clicked_id);
+	var action_required_2_id = document.getElementById(action_required_2).innerHTML;
+
+	var status_2 =   "status_2-".concat(clicked_id);
+	var status_2_id = document.getElementById(status_2).innerHTML;
+
+	var location_2 =   "location_2-".concat(clicked_id);
+	var location_2_id = document.getElementById(location_2).innerHTML;
+
+	var grade_2 =   "grade_2-".concat(clicked_id);
+	var grade_2_id = document.getElementById(grade_2).innerHTML;
+
+	var remarks_2 =   "remarks_2-".concat(clicked_id);
+  	var remarks_2_id = document.getElementById(remarks_2).innerHTML;
 
 
 
 
 
 
-
-<script>
-function printDiv(divName) {
-     
-     
-var t = "<table border='1' class='table table-striped bordered'> <thead> <tr>  <th>#</th><th> Entry Gatepass </th> <th> Entry Gate </th> <th> Time of Entry  </th> <th> Liner  </th> <th>  Place </th> <th> Movement </th> <th> Bill No. </th> <th> Validity </th> <th> Print </th> </tr> 				</thead> <tr>";
-
-
-var k = "</tr> </table> ";
-
-var printContents =document.getElementById(divName).innerHTML;
+  	console.log("vd is ", validity_date_id)
+  	console.log("gp is ", gatepass_id)
+  	console.log("mt is ", movement_type_id)
+  	console.log("gi is ", gate_id)
+  	console.log("toe is ", time_of_entry_id)
+  	console.log("li is ", line_id)
+  	console.log("pf is ", place_from_id)
+	console.log("bn is ", bill_no_id)
 
 
+  	var t= document.getElementById('printableArea').innerHTML;
+    newWindow=window.open('','','');
 
-var printContents12 = t.concat(printContents, k);
-     console.log(printContents12); 
-var originalContents = document.body.innerHTML;
+var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table th, table td {' +
+        'border:1px solid #000;' +
+        'padding;0.5em;' +
+        '}' +
+        '</style>';
 
-     document.body.innerHTML = printContents12;
 
-     window.print();
+    var str1="<form><table><tr><td>Entry Gatepass:</td><td>".concat(gatepass_id);
+    var str2="</td></tr><tr><td>Entry Gate:</td><td>".concat(gate_id);
+    var str3="</td></tr><tr><td>Time of Entry:</td><td>".concat(time_of_entry_id);
+    var str4="</td></tr><tr><td>Liner:</td><td>".concat(line_id);
+    var str5="</td></tr><tr><td>Place:</td><td>".concat(place_from_id);
+    var str6="</td></tr><tr><td>Movement:</td><td>".concat(movement_type_id);
+    var str7="</td></tr><tr><td>Bill no:</td><td>".concat(bill_no_id);
+    var str8="</td></tr><tr><td>validity:</td><td>".concat(validity_date_id);
+  
 
-     document.body.innerHTML = printContents12;
+   var str9="</td></tr><tr><td> <h3> Container 1 No : </h3></td><td>".concat(container_1_id);
+ var str10="</td></tr><tr><td>SZ & TE </td><td>".concat(sz_1_id);
+ var str11="</td></tr><tr><td>MTY & LDN </td><td>".concat(mty_1_id);
+ var str12="</td></tr><tr><td>MFG YEAR </td><td>".concat(mfg_year_1_id);
+ var str13="</td></tr><tr><td>GR. WEiGHT 	</td><td>".concat(gr_weight_1_id);
+ var str14="</td></tr><tr><td>TARE WEIGHT </td><td>".concat(tare_weight_1_id);
+ var str15="</td></tr><tr><td>CBM </td><td>".concat(cbm_1_id);
+ var str16="</td></tr><tr><td>Action Required </td><td>".concat(action_required_1_id);
+ var str17="</td></tr><tr><td>Status </td><td>".concat(status_1_id);
+ var str18="</td></tr><tr><td>Location</td><td>".concat(location_1_id);
+ var str19="</td></tr><tr><td>Grade</td><td>".concat(grade_1_id);
+ var str20="</td></tr><tr><td>Remarks</td><td>".concat(remarks_1_id);
+
+    var str_last="</td></tr></table></form>";
+
+
+
+
+
+//    var str_total=str1.concat(str2, str3, str4, str5, str6, str7, str8, str9, str10);
+
+
+
+
+if (container_2_id != ""){
+
+
+
+
+    var str21="</td></tr><tr><td> <h3> Container 2 No : </h3> </td><td>".concat(container_2_id);
+ var str22="</td></tr><tr><td>SZ & TE </td><td>".concat(sz_2_id);
+ var str23="</td></tr><tr><td>MTY & LDN </td><td>".concat(mty_2_id);
+ var str24="</td></tr><tr><td>MFG YEAR </td><td>".concat(mfg_year_2_id);
+ var str25="</td></tr><tr><td>GR. WEiGHT 	</td><td>".concat(gr_weight_2_id);
+ var str26="</td></tr><tr><td>TARE WEIGHT </td><td>".concat(tare_weight_2_id);
+ var str27="</td></tr><tr><td>CBM </td><td>".concat(cbm_2_id);
+ var str28="</td></tr><tr><td>Action Required </td><td>".concat(action_required_2_id);
+ var str29="</td></tr><tr><td>Status </td><td>".concat(status_2_id);
+ var str30="</td></tr><tr><td>Location</td><td>".concat(location_2_id);
+ var str31="</td></tr><tr><td>Grade</td><td>".concat(grade_2_id);
+ var str32="</td></tr><tr><td>Remarks</td><td>".concat(remarks_2_id);
+ 
+
+ var str_total=str1.concat(str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 , str21 , str22 , str23 , str24 , str25 , str26 , str27 , str28 , str29 ,str30 , str31 , str32 ,str_last);
+
+
+}  else{
+
+
+ var str_total=str1.concat(str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 ,str_last);
+
+
+
 }
+
+
+        str_total += htmlToPrint;
+
+    newWindow.document.write(str_total);
+    newWindow.focus();
+    newWindow.print(); 
+    
+  }
 </script>
 
 {% endblock %}

@@ -11,7 +11,7 @@
 	<div class="col-md-12">
         
       
-      <h2>List of Vehicle Entries in Last 2 Hours </h2>
+      <h2>List of Vehicle Entries in Last 2 Hours </h2>  <h4> <a href="/admin/reports">  Click here to go to Reports Home </a>  </h4>
    
 <table border="1" class="table table-striped bordered">
 
@@ -20,6 +20,21 @@
 						<th>
 							#
 						</th>
+						 <th>
+                           container_no
+                           </th>
+                           <th>
+                           size
+                           </th>
+                           <th>
+                           tare_weight
+                           </th>
+                           <th>
+                           grade
+                           </th>
+                           <th>
+                           status
+                           </th>
 						<th>
 							Entry Gate
 						</th>
@@ -51,43 +66,60 @@
 
 					</tr>
 				</thead>
- {% for e in entries %}
+ {% for e in containers %}
 
 <tr>
 <td>
-{{e.gatepass}} 
+{{e.id}} 
 </td>
+                       </td>
+                           <td>
+                           {{e.container_no}}
+                           </td>
+                           <td>
+                           {{e.sz}}
+                           </td>
+                           <td>
+                           {{e.tare_weight}}
+                           </td>
+                           <td>
+                           {{e.grade}}
+                           </td>
+                           <td>
+                           {{e.status}}
+                           </td>
 <td>
-{{e.gate}}
+{{e.vehicle.gate}}
 </td>
 
 <td>
-{{e.gatepass}}
+{{e.vehicle.gatepass}}
 </td>
 
 
 <td>
-{{e.time_of_entry}} 
+{{e.vehicle.time_of_entry}} 
 </td>
 <td>
-{{e.line}}
+{{e.vehicle.line}}
 </td>
 
 <td>
-{{e.place_from}}
+{{e.vehicle.place_from}}
 </td>
 
 <td>
-{{e.bill_no}}
+{{e.vehicle.bill_no}}
 </td>
 
 <td>
-{{e.movement_type}}
+{{e.vehicle.movement_type}}
 </td>
 
 <td>
-{{e.validity_date}}
+{{e.vehicle.validity_date}}
 </td>
+
 
 
 

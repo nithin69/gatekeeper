@@ -1,0 +1,15 @@
+<body>
+<input type="button" onclick="printDiv()" value="Print" />
+</body>
+<script>
+function printDiv() {
+var t= document.getElementById('printableArea').innerHTML;
+newWindow=window.open('','','');
+
+var str1= "<div class='container'><div class='row'><div class='col-sm-6' ><img src='/media/logo.png'></div><div class='col-sm-6'>dfhdfhdfh </div><div class='col-sm-12'>DATE & TIME :</div><div class="'col-sm-5'" >Gate Pass No :</div><div class="'col-sm-7'" >dfhdfhdfh </div><div class="'col-sm-4'" >c </div><div class="'col-sm-4'" >s </div><div class="'col-sm-4'" >l </div><div class="'col-sm-6'" >from </div><div class="'col-sm-6'" >party name </div><div class="'col-sm-6'" >Transport name </div><div class="'col-sm-6'" > vehicle no </div><hr><div class="'col-sm-12'" >EIR REPORT</div><div class="'col-sm-12'" ><img src="'/media/container.jpg/'"></div><div class="'col-sm-12'" >ERI REPORT <textarea> </textarea></div><div class="'col-sm-4'" >Signature of driver:</div><div class="'col-sm-4'" >Surveyor ID:</div><div class="'col-sm-4'" >Gate Login Id:</div><div class="'col-sm-12'" >Name:</div><div class="'col-sm-12'" >Date and Time:</div></div></div></body></html>  "
+
+    newWindow.document.write(str1);
+    newWindow.focus();
+    newWindow.print(); 
+}
+</script>

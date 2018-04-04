@@ -1,68 +1,93 @@
 {% extends "base.html" %}
 
 {% block content_block %}
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
 
 
-      <h2> Select Report to View </h2>
-     
+    <p> <h3>Select Report to View 
+         <a href="/piechartpage/">
+      <button type="button" class="btn btn-secondary btn-md">
+        View Containers by Gate
+      </button>
+    </a>  
+
+    <a href="/tvehicles/">
+      <button type="button" class="btn btn-secondary btn-md">
+        View Containers Of Today
+      </button>
+    </a>
+
+    <a href="/twohours/">
+      <button type="button" class="btn btn-secondary btn-md">
+        View Containers in last 2 hours
+      </button>
+    </a></h3>
+    </p>
 
 
 
 <div class="container">
   <div class="row">
 
-<form method="get" class="reply-form" action = "/" name="form1" id="form1">
-
+<form method="get" class="reply-form" action = "/managersearch/" name="form1" id="form1">
+<!--
 <div class="form-group col-md-2">
 				 
 
 <select class="selectpicker form-control" name="reporttype" id="reporttype"  onChange="chgAction()">
 
   <option id = "piechart">Select Report </option>
-  <option id = "piechart">View Vehicles by Gate </option>
+  <option id = "gate">View Vehicles by Gate </option>
+  <option id = "liner">View Vehicles by Liner </option>
   <option id = "tvehicles">View Vehicles Of Today</option>
   <option id = "twohours">View Vehicles in last 2 hours</option>
   <option id = "report"> Search By Date</option>
 
 
-</select>
-
-
+</select>   
 </div>
+-->
 
-<div class="form-group col-md-3">
+<div class="form-group col-md-2">
 				 
 
-<select class="selectpicker form-control" name="reporttype" id="reporttype"  onChange="chgAction()">
+<select class="selectpicker form-control" name="momenttype" id="momenttype"  onChange="chgAction()">
 
-  <option id = "piechart">Container Status </option>
-  <option id = "piechart">All </option>
+  <option value="all">ALL </option>
   <option id = "tvehicles">IN</option>
   <option id = "twohours">OUT</option>
-  <option id = "report"> INandOUT</option>
   <option id = "report"> INandNOTOUT</option>
 
 
 </select>
+</div>
 
+<div class="form-group col-md-2">
+<select class="selectpicker form-control" name="linertype" id="linertype"  onChange="chgAction()">
+
+<option value = "all">All Liner</option>
+{% for l in liner %}
+ <option value="{{l.id}}">{{l.liner}} </option>
+{% endfor %}
+</select>
 
 </div>
 
-
     <div class="form-group col-md-2">
-        <p class="datetime"> <input requierd class="form-control form-control-inline vDateField" id="id_time_of_entry_0" name="from_date" placeholder="From Date" id="from_date" size="10" title="" type="text"/></p>
+        <p class="datetime"> <input required class="form-control form-control-inline vDateField" id="id_time_of_entry_0" name="from_date" placeholder="From Date" id="from_date" size="10" title="" type="text"/></p>
     </div>
 
     <div class="form-group col-md-2">
         <p class="datetime"><input required class="form-control form-control-inline vDateField" id="id_time_of_entry_0" name="to_date" placeholder="TO Date" id="to_date" size="10" title="" type="text"/></p>
     </div>
 <div class="form-group col-md-2"><button type="submit" class="btn btn-primary">Submit</button></div> 
+    <div class="form-group col-md-2">
 
+    </div>
 <!-- <input type="date" placeholder="Departure Date" id="departure_date" name="departure_date" required=""> -->
 
 
@@ -84,6 +109,110 @@
 </div>
 </div>
 
+
+<!-- ####################################### Table ####################################### -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" id="printableArea">
+
+
+        
+      
+      <h3>List of Vehicle Entries </h3>
+     
+<table border="0" id="example" class="display" style="width:100%">
+
+<thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Entry Gate
+            </th>
+
+            <th>
+              Entry Gatepass
+            </th>
+
+              <th>
+              Time of Entry
+            </th>
+            <th>
+              Moment type
+            </th>
+            <th>
+              Place
+            </th>
+            <th>
+              Bill No.
+            </th>
+
+<th>
+              Validity
+            </th>
+
+
+          </tr>
+        </thead>
+ {% for e in entries %}
+
+<tr>
+<td>
+{{e.gatepass}} 
+</td>
+<td>
+{{e.gate}}
+</td>
+
+<td>
+00{{e.gatepass}}
+</td>
+
+
+<td>
+{{e.time_of_entry}} 
+</td>
+<td>
+{{e.movement_type}}
+</td>
+
+<td>
+{{e.place_from}}
+</td>
+
+<td>
+{{e.bill_no}}
+</td>
+
+<td>
+{{e.validity_date}}
+</td>
+
+
+
+</tr>
+
+
+
+      {% endfor %}
+
+</table>
+ <script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+ </script>   
+    
+</div>
+</div>
+</div>
+
+
+
+
+
 {% endblock %}
 
 
@@ -91,7 +220,7 @@
 
 {% block customjs_block %}
 
-
+<!--
 <script type="text/javascript">
 
 
@@ -118,13 +247,8 @@ function chgAction() {
 
     }
 }
-
-
 </script>
-
-
-
-
+-->
 {% endblock %}
 
 

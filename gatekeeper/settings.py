@@ -37,13 +37,9 @@ ALLOWED_HOSTS = ['*']
 LOGIN_URL='/admin/login/'
 
 INSTALLED_APPS = (
-   # 'grappelli',
     'object_tools',
-    #'jet.dashboard',
-    #'jet',
-    #'bootstrap3',
-    #'django_admin_bootstrapped',
-    #'django.contrib.admin',
+    'flat_responsive',
+    #'flat',
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,16 +52,13 @@ INSTALLED_APPS = (
     'gatekeeperapp',
     'adminplus',
     'import_export',
-    #'export',
+    #'checkboxselectmultiple',
     'django_nvd3',
-    #'rest_framework',
-    #'accounts', 
-    #'webcam',
-    'registration',
+    'django_admin_listfilter_dropdown',
     'daterange_filter',
-    #'material',
-    #'material.frontend',
     'djangobower',
+    'billing',
+
 
 )
 
@@ -116,7 +109,7 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-'NAME': 'gatekeeper3',                      # Or path to database file if using sqlite3.
+'NAME': 'gatekeeper5',                      # Or path to database file if using sqlite3.
 # The following settings are not used with sqlite3:
 'USER': 'root',
 'PASSWORD': 'Helapuri1234%',

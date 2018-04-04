@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12" id="printableArea">
-<form novalidate=""  method="get" action="/admin/search/" class="reply-form">
+<form novalidate=""  method="get" action="/search/" class="reply-form">
 
     <div class="controls col-md-4">
         <p class="datetime">From Date: <input class="form-control form-control-inline vDateField"  name="from_date" placeholder="From Date" id="from_date" size="10" title="" type="text"/></p>
@@ -47,6 +47,21 @@
 						<th>
 							#
 						</th>
+												 <th>
+                           container_no
+                           </th>
+                           <th>
+                           size
+                           </th>
+                           <th>
+                           tare_weight
+                           </th>
+                           <th>
+                           grade
+                           </th>
+                           <th>
+                           status
+                           </th>
 						<th>
 							Entry Gate
 						</th>
@@ -78,39 +93,61 @@
 				</thead>
 
 
- {% for e in entries %}
+ {% for e in containers %}
 
 <tr id="printableArea">
 <td>
 {{e.id}} 
 </td>
+                       </td>
+                           <td>
+                           {{e.container_no}}
+                           </td>
+                           <td>
+                           {{e.sz}}
+                           </td>
+                           <td>
+                           {{e.tare_weight}}
+                           </td>
+                           <td>
+                           {{e.grade}}
+                           </td>
+                           <td>
+                           {{e.status}}
+                           </td>
 <td>
-{{e.gate}}
+{{e.vehicle.gate}}
 </td>
 
 <td>
-{{e.gatepass}}
+{{e.vehicle.gatepass}}
 </td>
 
 
 <td>
-{{e.time_of_entry}} 
+{{e.vehicle.time_of_entry}} 
 </td>
 <td>
-{{ e.movement_type }}
+{{e.vehicle.line}}
 </td>
 
 <td>
-{{e.place_from}}
+{{e.vehicle.place_from}}
 </td>
 
 <td>
-{{e.bill_no}}
+{{e.vehicle.bill_no}}
 </td>
 
 <td>
-{{e.validity_date}}
+{{e.vehicle.movement_type}}
 </td>
+
+<td>
+{{e.vehicle.validity_date}}
+</td>
+
+
 
 
 

@@ -24,6 +24,33 @@ class Liner(models.Model):
     def __unicode__(self):
         return self.liner  
 
+class Transporter(models.Model):
+    transporter_name = models.CharField(max_length=255, verbose_name="Transporter Name")
+    
+    def __unicode__(self):
+        return self.transporter_name 
+
+class Place(models.Model):
+    place_from = models.CharField(max_length=255, verbose_name="Place From")
+    
+    def __unicode__(self):
+        return self.place_from 
+    class Meta:
+        verbose_name = "Location"
+        verbose_name_plural = "Locations"
+
+
+class Cha(models.Model):
+    cha_shipper = models.CharField(max_length=255, verbose_name="Cha/Shipper")
+    
+    def __unicode__(self):
+        return self.cha_shipper 
+
+class Customer(models.Model):
+    customer_name = models.CharField(max_length=255, verbose_name="Customer Name")
+    
+    def __unicode__(self):
+        return self.customer_name                         
 
 class Gate(models.Model):
     gate = models.CharField(max_length=255, null=True, blank=True)
@@ -31,29 +58,25 @@ class Gate(models.Model):
     def __unicode__(self):
         return self.gate    
 
-
-'''
-class Profile(models.Model):
-    USER_TYPE_CHOICES = (
-        ('guard', 'Guard'),
-        ('manager', 'Manager' ),
-        ('supervisor', 'Supervisor' ),
-    )
-    user = models.OneToOneField(User)
-    #gate = models.ForeignKey(Gate, null=True, blank=True)
-    type_user = models.CharField(max_length=20, default='guard',choices=USER_TYPE_CHOICES)
+class Yard(models.Model):
+    yard_name = models.CharField(max_length=255, null=True, blank=True)
+    gate_name = models.ForeignKey(Gate)
+    location =  models.CharField(max_length=255, null=True, blank=True)
+    sub_location = models.CharField(max_length=255, null=True, blank=True)
     def __unicode__(self):
-        return unicode(self.user)
-'''
+        return self.yard_name    
 
-'''
-class Transport(models.Model):
-    transporter_name = models.CharField(max_length=255, null=True, blank=True)
-    customer_name = models.CharField(max_length=255, null=True, blank=True) 
+
+class Seal(models.Model):
+    line = models.ForeignKey(Liner, verbose_name="Liner", null=True, blank=True)
+    prefix = models.CharField(max_length=20, null=True, blank=True)
+    start_range = models.IntegerField()
+    end_range = models.IntegerField()
+    status = models.BooleanField(default=False)
     def __unicode__(self):
-        return self.transporter_name
+        return self.prefix    
 
-'''
+
 
 class Vehicle(models.Model):
     movement_choices = (
@@ -65,17 +88,18 @@ class Vehicle(models.Model):
     time_of_entry = models.DateTimeField(default=datetime.now(), null=True, blank=True)
 
     line = models.ForeignKey(Liner, verbose_name="Liner", null=True, blank=True)
-    customer_name = models.CharField(max_length=255, null=True, blank=True, verbose_name="Customer Name")
-    cha = models.CharField(max_length=255, null=True, blank=True, verbose_name="CHA/Shipper")
+    customer_name = models.ForeignKey(Customer, null=True, blank=True, verbose_name="Customer Name")
+    cha = models.ForeignKey(Cha, null=True, blank=True)
     #moment_type = models.CharField(max_length=255, null=True, blank=True, verbose_name="liner Type")
-    place_from = models.CharField(max_length=255, null=True, blank=True, verbose_name="Place From")
+    place_from = models.ForeignKey(Place, null=True, blank=True, verbose_name="Place From")
     vessel_name = models.CharField(max_length=255, null=True, blank=True, verbose_name="Vessel Name")
     vay_no =  models.CharField(max_length=255, null=True, blank=True, verbose_name="Vay. No.")
-    transporter_name = models.CharField(max_length=255, null=True, blank=True, verbose_name="Transporter Name")
+    transporter_name = models.ForeignKey(Transporter, null=True, blank=True, verbose_name="Transporter Name")
     vehicle_no = models.CharField(max_length=255, null=True, blank=True, verbose_name="Truck No.")
     bill_no = models.CharField(max_length=255, null=True, blank=True, verbose_name="BL No.")
     validity_date = models.DateField()
     movement_type = models.CharField(max_length=20, choices=movement_choices, null=True, blank=True)
+    surveyor = models.CharField(max_length=255, null=True, blank=True)
     
 
     
@@ -119,18 +143,49 @@ class Vehicle(models.Model):
 
     
 class Container(models.Model):
+    action_choices = (
+            ('CW', 'CW'),
+            ('DS', 'DS'),
+            ('DC', 'DC'),
+            ('DW', 'DW'),
+            ('HD', 'HD'),
+            ('N/A', 'N/A'),
+            ('SP', 'SP'),
+            ('WW', 'WW'),
+            ('3P', '3P')
+
+    )
+    status_choices = (
+            ('AI', 'AI'),
+            ('AP', 'AP'),
+            ('AR', 'AR'),
+            ('AV', 'AV'),
+            ('EV', 'EV'),
+            ('TTL', 'TTL')
+            
+    )
+
+    grade_choices = (
+            ('A', 'A'),
+            ('B', 'B'),
+            ('C', 'C'),
+            
+    )    
     vehicle = models.ForeignKey(Vehicle, verbose_name="Vehicle")
     container_no = models.CharField(max_length=255, null=True, blank=True, verbose_name="Container No.")
-
+    type_of_gate = models.CharField(max_length=255, null=True, blank=True, verbose_name="Movement Type of Container")
     sz = models.CharField(max_length=255, null=True, blank=True, verbose_name="Sz & Te")
-    mty = models.CharField(max_length=255, null=True, blank=True, verbose_name="Mty / Ldn")
+    csc = models.CharField(max_length=255, null=True, blank=True, verbose_name="CSC Plate Details")
     mfg_year = models.CharField(max_length=255, null=True, blank=True, verbose_name="Mfg Year")    
     gr_weight = models.CharField(max_length=255, null=True, blank=True, verbose_name="Gr. Weight")
     tare_weight = models.CharField(max_length=255, null=True, blank=True, verbose_name="Tare Weight")
-    cbm = models.CharField(max_length=255, null=True, blank=True, verbose_name="Cbm")
-    action_required = models.CharField(max_length=255, null=True, blank=True, verbose_name="Action Required")
-    grade = models.CharField(max_length=255, null=True, blank=True, verbose_name="Grade")
-    status = models.CharField(max_length=255, null=True, blank=True, verbose_name="Status")
+    #cbm = models.CharField(max_length=255, null=True, blank=True, verbose_name="Cbm")
+    set_temp = models.CharField(max_length=255, null=True, blank=True, verbose_name="Set Temp")
+    ventilation = models.CharField(max_length=255, null=True, blank=True, verbose_name="Ventilation")
+    humidity = models.CharField(max_length=255, null=True, blank=True, verbose_name="Humidity")
+    action_required = models.CharField(max_length=255, choices=action_choices, null=True, blank=True, verbose_name="Action Required")
+    grade = models.CharField(max_length=255, choices=status_choices, null=True, blank=True, verbose_name="Grade")
+    status = models.CharField(max_length=255, choices=status_choices, null=True, blank=True, verbose_name="Status")
     location = models.CharField(max_length=255, null=True, blank=True, verbose_name="Location")
     remarks = models.CharField(max_length=255, null=True, blank=True, verbose_name="Remarks")
 #    created_by = models.ForeignKey('auth.User')
@@ -145,30 +200,25 @@ class Container(models.Model):
     def __unicode__(self):
         return self.container_no
 
-'''
-class Entry(models.Model):
-    gate = models.ForeignKey(Gate)
-    vehicle = models.ForeignKey(Vehicle)
-    gatepass = models.CharField(max_length=255, null=True, blank=True)
-    time_of_entry = models.DateTimeField(default=datetime.now)
-    moment_type = models.CharField(max_length=255, null=True, blank=True)
-    place_from = models.CharField(max_length=255, null=True, blank=True)
-    bill_no = models.CharField(max_length=255, null=True, blank=True)
-    validity_date = models.DateTimeField()
-    action_required = models.TextField(null=True, blank=True)
-    #photo = CameraField('CameraPictureField', format='jpeg', null=True, blank=True)
-    created_by = models.ForeignKey(User, related_name='created_by', null = True, blank = True)
 
-     
-    def save(self, *args, **kwargs):
-       if self.request:
-	   self.created_by = self.request.user
-       self.save()
-       return obj 
+class Docs(models.Model):
+    order_no = models.CharField(max_length=255, null=True, blank=True)
+    equipmentno = models.CharField(max_length=255, null=True, blank=True)
+    size = models.CharField(max_length=255, null=True, blank=True)
+    container_size = models.CharField(max_length=255, null=True, blank=True)
+    container_type = models.CharField(max_length=255, null=True, blank=True)
+    size_feet = models.CharField(max_length=255, null=True, blank=True)
+    tareweight = models.CharField(max_length=255, null=True, blank=True)
+    cargoweight = models.CharField(max_length=255, null=True, blank=True)
+    pin = models.CharField(max_length=255, null=True, blank=True)
+    interimpin = models.CharField(max_length=255, null=True, blank=True)
+    properties = models.CharField(max_length=255, null=True, blank=True)
+    quantity = models.CharField(max_length=255, null=True, blank=True)
+    validity_port_date = models.CharField(max_length=255, null=True, blank=True)
+    validity_port_time = models.CharField(max_length=255, null=True, blank=True)
+    cntr_return_date = models.CharField(max_length=255, null=True, blank=True)
+    cntr_return_time = models.CharField(max_length=255, null=True, blank=True)
     
     def __unicode__(self):
-        return unicode(self.gatepass)
-    
-'''
-
+        return self.equipmentno
 

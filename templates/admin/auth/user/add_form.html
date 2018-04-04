@@ -1,0 +1,206 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block after_field_sets %}
+<!--
+<form enctype="multipart/form-data" action="" method="post" id="user_form" novalidate>
+<fieldset class="module aligned ">
+    <h2>Personal info</h2>
+    
+    
+        <div class="form-row field-first_name">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_first_name">First name:</label>
+                        
+                            <input type="text" name="first_name" id="id_first_name" class="vTextField" maxlength="30" />
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-last_name">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_last_name">Last name:</label>
+                        
+                            <input type="text" name="last_name" id="id_last_name" class="vTextField" maxlength="30" />
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-email">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_email">Email address:</label>
+                        
+                            <input type="email" name="email" id="id_email" class="vTextField" maxlength="254" />
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+<fieldset class="module aligned ">
+    <h2>Permissions</h2>
+    
+    
+        <div class="form-row field-groups">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_groups">Groups:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="groups" data-field-name="groups" multiple="multiple" id="id_groups" data-is-stacked="0" class="selectfilter">
+  <option value="5">guardgroup</option>
+
+  <option value="3">manager</option>
+
+  <option value="2">supervisorgroup</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link add-related" id="add_id_groups"
+            href="/admin/auth/group/add/?_to_field=id&amp;_popup=1"
+            title="Add another group"><img src="/static/admin/img/icon-addlink.svg" alt="Add"/></a>
+    
+</div>
+                        
+                    
+                    
+                        <div class="help">The groups this user belongs to. A user will get all permissions granted to each of their groups. Hold down "Control", or "Command" on a Mac, to select more than one.</div>
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+</form> -->
+
+
+<p>{% trans "First, enter a username and password. Then, you'll be able to edit more user options." %}</p>
+<fieldset class="module aligned ">
+    <h2>Personal info</h2>
+    
+    
+        <div class="form-row field-first_name">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_first_name">First name:</label>
+                        
+                            <input type="text" name="first_name" id="id_first_name" class="vTextField" maxlength="30" />
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-last_name">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_last_name">Last name:</label>
+                        
+                            <input type="text" name="last_name" id="id_last_name" class="vTextField" maxlength="30" />
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-email">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_email">Email address:</label>
+                        
+                            <input type="email" name="email" id="id_email" class="vTextField" maxlength="254" />
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+<!--
+<fieldset class="module aligned">
+
+<div class="form-row">
+  {{ form.groups.errors }}
+  {# TODO: get required class on label_tag #}
+  <label for="id_groups" class="required">{% trans 'Groups' %}:</label> {{ form.groups }}
+  <p class="help">{% trans 'All existing Groups listed here. If you are not seeing any group, means you dont have any groups object created.' %}</p>
+</div>
+
+
+</fieldset>
+-->
+<fieldset class="module aligned ">
+    <h2>Permissions</h2>
+    
+    
+        <div class="form-row field-groups">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_groups">Groups:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="groups" data-field-name="groups" multiple="multiple" id="add_id_groups" data-is-stacked="0" class="selectfilter">
+  <option value="5">guardgroup</option>
+
+  <option value="3">manager</option>
+
+  <option value="2">supervisorgroup</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link add-related" id="add_id_groups"
+            href="/admin/auth/group/add/?_to_field=id&amp;_popup=1"
+            title="Add another group"><img src="/static/admin/img/icon-addlink.svg" alt="Add"/></a>
+    
+</div>
+                        
+                    
+                    
+                        <div class="help">The groups this user belongs to. A user will get all permissions granted to each of their groups. Hold down "Control", or "Command" on a Mac, to select more than one.</div>
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+<script type="text/javascript">document.getElementById("id_username").focus();</script>
+
+{% endblock %}

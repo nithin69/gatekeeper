@@ -1,0 +1,1448 @@
+
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<style>
+input{
+  width:100%;
+}
+@media only screen and (max-width: 760px){
+
+table, thead, tbody, th, td, tr { 
+ 
+    display: block; 
+  }
+  .table{
+    border: 1px solid black;
+  }
+label, .value{
+      font-size:10px;
+    }
+}
+</style>
+</head>
+<body onload="startTime()">
+
+
+<div class="container mt2">
+
+
+ 
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+{% if user.is_authenticated and request.user.designation == 'guard'%} 
+        <h1 id="site-name"><a href="/admin/">Gatekeeper</a></h1>
+{% else %}
+       {{request.user.designation}}
+        <h1 id="site-name"><a href="/">Gatekeeper</a></h1>
+{% endif %}
+        </div>
+        
+        
+        <div id="user-tools">
+{% if user.is_authenticated %}            
+                Welcome,
+                <strong>{{request.user}}</strong> <strong> @ </strong> {{request.user.employee.assigned_to}}
+                /<a href="/admin/password_change/">Change password</a> /
+                <a href="/admin/logout/">Log out</a>
+{% else %}
+<a href="/accounts/login/">Login</a>
+{% endif %}
+
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+    
+<br/>  
+
+
+
+<div id="success"></div>
+
+
+            {% if done %}
+        <p style="line-height:0px;">  Data has been sucessfully saved.</p> &nbsp; &nbsp; &nbsp;<br>	
+        <input type="button" onclick="printDiv('printableArea', this.id)" value="Print" class="btn btn-primary">
+        <br>
+        <a href= "/"> Click here to go to go to Home page. </a> <br/>  </p>
+
+<!--   ####################################  printible area ################################### -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 table-responsive" >
+
+<table border="1" class="table table-bordered" id="printableArea">
+
+  	<tr>
+        <th>#</th>
+        <td id="id">{{entries}}</td>
+     </tr>
+     <tr>
+        <th>Entry gate</th>
+        <td id="gate">{{entries.gate.gate}}</td>
+     </tr>
+     <tr>
+        <th> Entry Gatepass </th>
+        <td id="gatepass">{{entries}}  </td>
+      </tr>
+      <tr>
+        <th>   Time of Entry </th>
+        <td id="time_of_entry"> {{entries.time_of_entry}}  </td>
+      </tr>
+      <tr>
+        <th>  Liner</th>
+        <td id="line"> {{entries.line}} </td>
+      </tr>
+      <tr>
+        <th>  CHA</th>
+        <td id="line"> {{entries.cha}} </td>
+      </tr>
+      <tr>
+        <th> Place </th>
+        <td id="place_from"> {{entries.place_from}} </td>
+      </tr>
+      <tr>
+        <th>  Movement</th>
+        <td id="movement_type"> {{entries.movement_type}} </td>
+      </tr>
+      <tr>
+        <th>   Bill No. </th>
+        <td id="bill_no"> {{entries.bill_no}}  </td>
+      </tr>
+      <tr>
+        <th> Validity</th>
+        <td id="validity_date"> {{entries.validity_date}}</td>
+      </tr>
+      <tr>
+        <th style="background-color:#79aec8;color:white">  Container_1 </th>
+        <td id="container_1"><b>{{container_1.container_no}} </b> </td>
+      </tr>
+      <tr>
+        <th> SZ & TE</th>
+        <td id="sz_1">  {{container_1.sz}} </td>
+      </tr>
+      <tr>
+        <th> MTY / LDN </th>
+        <td> {{entries.gatepass}} </td>
+      </tr><tr>
+        <th> MFG YEAR. </th>
+        <td id="mfg_year_1"> {{container_1.mfg_year}} </td>
+      </tr>
+      <tr>
+        <th>  GR. WEIGHT </th>
+        <td id="gr_weight_1"> {{container_1.gr_weight}} </td>
+      </tr>
+      <tr>
+        <th> TARE WEIGHT </th>
+        <td id="tare_weight_1"> {{container_1.tare_weight}} </td>
+      </tr>
+      <tr>
+        <th>  CBM </th>
+        <td> {{entries.gatepass}} </td>
+      </tr>
+      <tr>
+        <th> ACTION REQUIRED </th>
+        <td id="action_required_1"> {{container_1.action_required}} </td>
+      </tr>
+      <tr>
+        <th> STATUS </th>
+        <td id="status_1">{{container_1.status}} </td>
+      </tr>
+      <tr>
+        <th> LOCATION </th>
+        <td id="location_1">  {{container_1.location}} </td>
+      </tr>
+      <tr>
+        <th> GRADE </th>
+        <td id="grade_1">  {{container_1.grade}} </td>
+      </tr>
+      <tr>
+        <th>  Remarks </th>
+        <td id="remarks_1"> {{container_1.remarks}} </td>
+      </tr>
+      <tr>
+        <th style="background-color:#79aec8;color:white" >  Container_2 </th>
+        <td id="container_2"> <b>{{container_2.container_no}}</b> </td>
+      </tr>
+      <tr>
+        <th> SZ & TE </th>
+        <td id="sz_2"> {{container_2.sz}} </td>
+      </tr>
+      <tr>
+        <th> MTY / LDN </th>
+        <td> {{entries.gatepass}} </td>
+      </tr>
+      <tr>
+        <th>  MFG YEAR. </th>
+        <td id="mfg_year_2"> {{container_2.mfg_year}} </td>
+      </tr>
+      <tr>
+        <th> GR. WEIGHT </th>
+        <td id="gr_weight_2"> {{container_2.gr_weight}} </td>
+      </tr>
+      <tr>
+        <th>  TARE WEIGHT </th>
+        <td id="tare_weight_2"> {{container_2.tare_weight}}</td>
+      </tr>
+      <tr>
+        <th>  CBM </th>
+        <td> {{entries.gatepass}} </td>
+      </tr>
+      <tr>
+        <th>  ACTION REQUIRED </th>
+        <td id="action_required_2">{{container_2.action_required}} </td>
+      </tr>
+      <tr>
+        <th>  STATUS </th>
+        <td id="status_2"> {{container_2.status}} </td>
+      </tr>
+      <tr>
+        <th> LOCATION </th>
+        <td id="location_2"> {{container_2.location}}</td>
+      </tr>
+      <tr>
+        <th>  GRADE </th>
+        <td id="grade_2"> {{container_2.grade}}</td>
+      </tr>
+      <tr>
+        <th> Remarks </th>
+        <td id="remarks_2"> {{container_2.remarks}} </td>
+      </tr>
+      <tr>
+        <th> Container2P </th>
+        <td id="container2present"> {{ container2present }}  </td>
+      </tr>
+
+       <tr>
+        <th> Surveyor </th>
+        <td id="surveyor"> {{ entries.surveyor }}  </td>
+      </tr>
+
+
+      </table>
+      <!-- <th>
+              Entry Gate
+            </th>
+
+              <th>
+              Time of Entry
+            </th>
+            <th>
+              Liner
+            </th>
+            <th>
+              Place
+            </th>
+            <th>
+              Movement
+            </th>
+            <th>
+              Bill No.
+            </th>
+
+		<th>
+              Validity
+            </th>
+
+
+
+
+		<th>
+              Container_1
+            </th>
+
+		<th>
+              SZ & TE
+            </th>
+	<th>
+             MTY / LDN
+            </th>
+	<th>
+              MFG YEAR.
+            </th>
+	<th>
+              GR. WEIGHT
+            </th>
+	<th>
+              TARE WEIGHT
+            </th>
+	<th>
+             CBM
+            </th>
+	<th>
+              ACTION REQUIRED
+            </th>
+	<th>
+              STATUS
+            </th>
+
+<th>
+              LOCATION
+            </th>
+
+
+
+<th>
+              GRADE
+            </th>
+
+<th>
+              Remarks
+            </th>
+
+
+
+		<th>
+              Container_2
+            </th>
+
+
+<th>
+              SZ & TE
+            </th>
+	<th>
+             MTY / LDN
+            </th>
+	<th>
+              MFG YEAR.
+            </th>
+	<th>
+              GR. WEIGHT
+            </th>
+	<th>
+              TARE WEIGHT
+            </th>
+	<th>
+             CBM
+            </th>
+	<th>
+              ACTION REQUIRED
+            </th>
+	<th>
+              STATUS
+            </th>
+
+<th>
+              LOCATION
+            </th>
+
+
+
+<th>
+              GRADE
+            </th>
+
+
+<th>
+              Remarks
+            </th>
+
+<th>
+            Container2P
+            </th>
+
+
+
+          </tr>
+        </thead>
+ <tr id="printableArea">
+<td id="id">
+{{entries.gatepass}} 
+</td>
+<td id="gatepass">
+ {{entries.gatepass}}
+</td>
+
+<td id="gate">
+{{entries.gate}}  
+</td>
+
+
+<td id="time_of_entry">
+{{entries.time_of_entry}} 
+</td>
+<td id="line">
+{{entries.line}}
+</td>
+
+<td id="place_from">
+{{entries.place_from}}
+</td>
+
+<td id="movement_type">
+  {{entries.movement_type}}
+</td>
+
+<td id="bill_no">
+{{entries.bill_no}} 
+</td>
+<td id="validity_date">
+{{entries.validity_date}}
+</td>
+
+
+
+<td id="container_1">
+{{container_1.container_no}} 
+</td>
+
+<td id="sz_1">
+ {{container_1.sz}}
+</td>
+
+
+
+<td id="mfg_year_1">{{container_1.mfg_year}}
+
+</td>
+
+<td id="gr_weight_1">
+{{container_1.gr_weight}}
+</td>
+
+<td id="tare_weight_1">
+ {{container_1.tare_weight}}
+</td>
+
+
+
+<td id="action_required_1">
+ {{container_1.action_required}}
+</td>
+
+<td id="status_1">
+{{container_1.status}}
+</td>
+
+<td id="location_1">
+ {{container_1.location}}
+</td>
+
+<td id="grade_1">
+ {{container_1.grade}}
+</td>
+
+<td id="remarks_1">
+{{container_1.remarks}} 
+</td>
+
+
+<td id="container_2">
+{{container_2.container_no}}
+</td>
+
+
+
+<td id="sz_2">
+ {{container_2.sz}}
+</td>
+
+
+
+
+<td id="mfg_year_2">
+{{container_2.mfg_year}}
+</td>
+
+<td id="gr_weight_2">
+{{container_2.gr_weight}}
+</td>
+
+<td id="tare_weight_2">
+ {{container_2.tare_weight}}
+</td>
+
+
+
+<td id="action_required_2">
+ {{container_2.action_required}}
+</td>
+
+<td id="status_2">
+{{container_2.status}}
+</td>
+
+<td id="location_2">
+ {{container_2.location}}
+</td>
+
+<td id="grade_2">
+ {{container_2.grade}}
+</td>
+
+<td id="remarks_2">
+{{container_2.remarks}} 
+</td>
+
+<td id="container2present">
+{{ container2present }} 
+</td>
+
+
+
+
+</tr>-->
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--  #################################### printible area close ############################ -->        
+         <br/> 
+
+        <a href= "/"> Click here to go to go to Home page. </a> <br/>  </p>
+    {% else %}
+
+    <form method="post" name = "entryform" action="/gentryin/" onsubmit="return validateForm()">
+    {% csrf_token %}
+
+              <div class="col-md-8 col-xs-8" style=" height:50px">
+            <div class="col-md-4 col-xs-4">
+                    <div class="form-group">
+                        <label for="usr">Gate pass id: </label><span class="value">
+                          {{gatepass_count}}
+                        </span>
+                        
+                    </div>
+            </div>
+
+           <div class="col-md-4 col-xs-4">
+                    <div class="form-group">
+                        <label for="usr">Gate: </label><span class="value">
+                          <input type="hidden" class="form-control" readonly id ="gate" name="gate" value="{{gate_id}}">{{gate}}
+                          <input type="hidden" class="form-control" id ="created_by" name="created_by" value="{{emp_id}}">
+                        </span>
+                        
+                    </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                    <div class="form-group">
+                        <label for="usr">Time of Entry: </label><span class="value" id="demo"></span>
+                        
+                  </div>
+            </div>
+        </div>
+
+<div class="container" >
+           <div style="overflow-x:auto;margin-top:10px;" class="col-md-12"  ">
+        
+                <table class= "table color" >
+                    <thead> 
+                        <th>CONTAINER DETAILS</th>
+                    </thead>
+                </table>
+            
+            </div>
+            <div style="overflow-x:auto;" class="col-md-12">
+        <table   class="table">
+               
+            <tr>
+              <td><small for="container no1">Container 1 No.:</small>  
+              	<input placeholder = " " required type="text" name="container_no_1" id="container_no_1" class="form-control"> 
+              </td>
+                
+                   
+                    
+                    <td>
+                    <small for="SZ & TE">SZ & TE:</small>
+                      <div class="form-group">
+                      <select class="form-control" id="sz_1" name="sz_1">
+                        <option>--Select SZ & TE--</option>
+                          <option value="20DV">20' DV</option>
+                          <option value="20OT">20' OT</option>
+                          <option value="20FR">20' FR</option>
+                          <option value="20REF">20' REF</option>
+                          <option value="40DV">40' DV</option>
+                          <option value="40HC">40' HC</option>
+                          <option value="40FR">40' FR</option>
+                          <option value="40OT">40' OT</option>
+                          <option value="40REF">40' REF</option>
+                          <option value="45HC">45' HC</option>
+
+                      </select>
+                  </div>
+                </td>
+                 <td><small for="movementtype">Movement Type</small>
+                  <select class="form-control" id="type_of_gate_1" name="type_of_gate_1" >
+                        <option>--Movement Type--</option>
+                          <option value="By Road">By Road</option>
+                          <option value="By Vessel">By Vessel</option>
+                          <option value="By Rake">By Rake</option>
+                          <option value="De Staffing">De Staffing</option>
+                          <option value="FDS Return/Export return">FDS Return/Export return</option>
+                          <option value="other">other</option>
+                          
+
+                      </select>
+                   </td>
+                    <td>
+                    	<small for="MFG YEAR">MFG Year:</small>
+                    	<input placeholder = "" required type="text" name="mfg_year_1" id="mfg_year_1" class="form-control"> 
+                    </td>
+                    <td>
+                    	<small for=" GR. WEIGHT"> GR. Weight:</small>
+                    	<input placeholder = " " required type="text" name="gr_weight_1" id="gr_weight_1" class="form-control">
+                    </td>
+        
+                    <td><small for="TARE WEIGHT">Tare Weight:</small>
+                    	<input placeholder = " " required type="text" name="tare_weight_1" id="tare_weight_1" class="form-control">
+                    </td>
+                    </tr>
+                    <tr>
+                     <td>
+                     	<small for="ACTION REQUIRED">Action:</small>
+                      	<div class="form-group">
+                        <select class="form-control" id="action_required_1" name="action_required_1">
+                        <option>-- ACTION--</option>
+                        
+                          <option value="CW">CW</option>
+                          <option value="DS">DS</option>
+                          <option value="DC">DC</option>
+                          <option value="DW">DW</option>
+                          <option value="HD">HD</option>
+                          <option value="NA">N/A</option>
+                          <option value="SP">SP</option>
+                          <option value="WW">WW</option>
+                          <option value="3P">3P</option>
+
+                      </select>
+                  </div>
+                </td>
+                    <td>
+                    <div class="form-group">
+                    	<small for="STATUS">Status:</small>
+                        <select class="form-control" id="status_1" name="status_1">
+                       
+                        
+                          <option value="AI" selected>AI</option>
+                          <option value="AP">AP</option>
+                          <option value="AR">AR</option>
+                          <option value="AV">AV</option>
+                          <option value="EV">EV</option>
+                          <option value="TTL">TTL</option>                          
+                      </select>
+                  </div>
+                  </td>
+                  <!--  <td><input placeholder = "YARD" required type="text" name="location_1" id ="location_1"></td>  -->
+                            
+                  <td>
+                  	<small for="GRADE">Grade:</small>
+                    <div class="form-group">
+                        <select class="form-control" name="grade_1" id="grade_1" required>
+                        <option>--GRADE--</option>
+                        
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          
+                  </div>
+                  </td>
+                  <td>
+                  	<small for="REMARKS">Remarks:</small>
+                  <input placeholder = "" required type="text" name="remarks_1" id ="remarks_1" class="form-control">
+                  </td>  
+                  <td><small for="CSC plate details">CSC Plate Details:</small>
+                  	<input placeholder = "" required type="text" name="csc_1" id="csc_1" class="form-control"></td>
+                   <td><input type="hidden" readonly name="vehicle_1" id ="vehicle_1" value = {{vehicles_count}}></td>
+
+      		 </tr>
+	</table>
+  		<table class="table" >
+                <tr>
+                    <td>
+                    	<small> Container 2 No.:</small>
+                    <input placeholder = " " type="text" name="container_no_2" id="container_no_2" class="form-control">
+                    </td>
+
+                  
+                    <td>
+                    	<small> SZ & TE:</small>
+	                      <div class="form-group">
+	                        <select class="form-control" id="sz_2" name="sz_2">
+	                       	  <option>--Select SZ & TE--</option>
+	                          <option value="20DV">20' DV</option>
+	                          <option value="20OT">20' OT</option>
+	                          <option value="20FR">20' FR</option>
+	                          <option value="20REF">20' REF</option>
+	                          <option value="40DV">40' DV</option>
+	                          <option value="40HC">40' HC</option>
+	                          <option value="40FR">40' FR</option>
+	                          <option value="40OT">40' OT</option>
+	                          <option value="40REF">40' REF</option>
+	                          <option value="45HC">45' HC</option>
+	                    
+	                      </select>
+	                  </div>
+                </td>
+                	<td><small for="movementtype">Movement Type</small>
+                  <select class="form-control" id="type_of_gate_2" name="type_of_gate_2">
+                        <option>--Movement Type--</option>
+                          <option value="By Road">By Road</option>
+                          <option value="By Vessel">By Vessel</option>
+                          <option value="By Rake">By Rake</option>
+                          <option value="De Staffing">De Staffing</option>
+                          <option value="FDS Return/Export return">FDS Return/Export return</option>
+                          <option value="other">other</option>
+                          
+
+                      </select>
+                   </td>
+                    <td>
+                    	<small> MFG Year:</small>
+                    	<input placeholder = ""  type="text" name="mfg_year_2" id="mfg_year_2" class="form-control">
+                    </td>
+                    <td>
+                    	<small> GR. Weight:</small>
+                    	<input placeholder = " "  type="text" name="gr_weight_2" id="gr_weight_2" class="form-control">
+                    </td>
+
+                    <td>
+                    	<small> TARE Weight:</small>
+                    	<input placeholder = "  " type="text" name="tare_weight_2" id="tare_weight_2" class="form-control">
+                    </td>
+                   	</tr>
+        		    <tr> 
+                    <td>
+                    	<small> Action:</small>
+                      <div class="form-group">
+                        <select class="form-control" id="action_required_2" name="action_required_2">
+                        <option>--Select ACTION--</option>
+                        
+                          <option value="CW">CW</option>
+                          <option value="DS">DS</option>
+                          <option value="DC">DC</option>
+                          <option value="DW">DW</option>
+                          <option value="HD">HD</option>
+                          <option value="NA">N/A</option>
+                          <option value="SP">SP</option>
+                          <option value="WW">WW</option>
+                          <option value="3P">3P</option>
+                        
+                      </select>
+                  </div>
+                </td>
+                    
+                    <td>
+                    	<small> Status:</small>
+                    <div class="form-group">
+                        <select class="form-control" id="status_2" name="status_2">
+                        
+                        
+                          <option value="AI" selected>AI</option>
+                          <option value="AP">AP</option>
+                          <option value="AR">AR</option>
+                          <option value="AV">AV</option> 
+                          <option value="EV">EV</option>
+                          <option value="TTL">TTL</option>
+                       
+                      </select>
+                  </div>
+                  </td>
+               
+                    <td>
+                    	<small> Grade:</small>
+                    	<div class="form-group">
+                        <select class="form-control" name="grade_2" id="grade_2">
+                          <option>--Select GRADE--</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                        
+                     	 </select>
+                  		</div>
+                  </td>
+                  
+                  <td>
+                  	<small>Remarks:</small>
+                    <input placeholder = ""  type="text" name="remarks_2" id ="remarks_2" class="form-control">
+                   </td>
+                    <td>
+                    <small for="CSC plate details">CSC Plate Details:</small>
+                    <input placeholder = "" type="text" name="csc_2" id="csc_2" class="form-control">
+                  </td>
+
+
+                    <td><input type="hidden" readonly name="vehicle_2" id ="vehicle_2" value = {{vehicles_count}}></td>
+                </tr>
+              </table>
+            </div>
+          
+    </div>
+
+
+<div class="container">
+           <div style="overflow-x:auto;" class="col-md-12">
+        
+                <table class= "table color" >
+                    <thead> 
+                        <th>VEHICLE DETAILS</th>
+                    </thead>
+                </table>
+            
+            </div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+         <div class="col-md-4 col-xs-12">
+       
+            <div class="form-group">
+              <small for="sel1">Liner:</small>
+              <select class="form-control" id="line" name="line">
+                <option>Select Liner</option>
+                {% for l in liner %}
+                  <option value="{{l.id}}">{{l.liner}}</option>
+                {% endfor %}
+              </select>
+          </div>
+        </div>
+              <input type="hidden" class="form-control" id="movement_type" name="movement_type" readonly value ="IN" >
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+            	<small>DO NO.:</small>
+                <input placeholder ="" type="text" class="form-control" id="bill_no" name="bill_no">
+          </div>
+        </div>
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+            	<small>Validity Date:</small>
+
+                <input placeholder ="" type="text" class="form-control" id="validity_date" name="validity_date">
+          </div>
+        </div>
+    </div>
+        <div class="col-md-12 col-xs-12">
+           <div class="col-md-4 col-xs-12">
+           <div class="form-group">
+             <small>Customer Name:</small>
+              <select class="form-control" id="customer_name" name="customer_name">
+                <option>--Select Customer Name--</option>
+                {% for c in customers %}
+                  <option value="{{c.id}}">{{c.customer_name}}</option>
+                {% endfor %}
+              </select>
+          </div>
+        </div>
+  
+   
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+             <small>CHA/Shipper:</small>
+              <select class="form-control" id="cha" name="cha">
+                <option>--Select CHA/Shipper--</option>
+                {% for c in chas %}
+                  <option value="{{c.id}}">{{c.cha_shipper}}</option>
+                {% endfor %}
+              </select>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+            	<small>Vessel Name:</small>
+                <input placeholder ="" type="text" class="form-control" id="vessel_name" name="vessel_name">
+          </div>
+        </div>
+    </div>
+   <div class=" col-md-12 col-xs-12">
+          <div class="col-md-4 col-xs-12">
+	            <div class="form-group">
+	            	<small>Voy. No.:</small>
+	                <input placeholder ="" type="text" class="form-control" id="vay_no" name="vay_no">
+	          </div>
+        </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+             <small>Transporter Name.:</small>
+              <select class="form-control" id="transporter_name" name="transporter_name">
+                <option>--Select Transporter Name--</option>
+                {% for t in transporters %}
+                  <option value="{{t.id}}">{{t.transporter_name}}</option>
+                {% endfor %}
+              </select>
+          </div>
+        </div>
+         <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+            	<small>Truck no.:</small>
+                <input placeholder ="" type="text" class="form-control" id="vehicle_no" name="vehicle_no">
+          </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-xs-12">
+    	 <div class="col-md-4">
+    	 	<small>Surveyor NAME/ID:</small>
+             <input placeholder ="" type="text" class="form-control" id="surveyor" name="surveyor">
+        </div>
+    	<div class="col-md-8">
+	        <div class="col-md-4 col-xs-12">
+	            <div class="form-group">
+				<small>No.of Containers:</small>
+	                <input placeholder ="" type="text" class="form-control" id="" readonly name="">
+	          </div>
+	        </div>
+	        <div class="col-md-4 col-xs-12">
+	            <div class="form-group">
+	            	<small>Lift off Charges:</small>
+	                <input placeholder ="" type="text" class="form-control" id="lift_charges" readonly name="lift_charges">
+	          </div>
+	        </div>
+
+	        <div class="col-md-4 col-xs-12">
+	            <div class="form-group">
+	            	<small>Transportation Charges:</small>
+	                <input placeholder ="" type="text" class="form-control" id="transport_charges" readonly name="transport_charges">
+	          </div>
+	        </div>
+	    </div>
+	   
+    </div>
+
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+</div>
+      
+   
+        
+
+    <br>
+   
+</form>
+
+{% endif %}
+
+</div>
+
+
+<script>
+function printDiv(divName, clicked_id) {
+     
+     
+// var t = "<table> <thead> <tr>  <th>#</th><th> Entry Gatepass </th> <th> Entry Gate </th> <th> Time of Entry  </th> <th> Liner  </th> <th>  Place </th> <th> Movement </th> <th> Bill No. </th> <th> Validity </th> <th> Print </th> </tr>         </thead> <tr>";
+
+
+// var k = "</tr> </table> ";
+
+// var printContents =document.getElementById(divName).innerHTML;
+
+
+
+// var printContents12 = t.concat(printContents, k);
+   //  console.log(printContents12); 
+// var originalContents = document.body.innerHTML;
+
+   //   document.body.innerHTML = printContents12;
+
+     // window.print();
+
+//     document.body.innerHTML = printContents12;
+
+
+id = this.id;
+  	console.log("id is ",clicked_id);
+
+  	var validity_date =   "validity_date";
+  	var validity_date_id = document.getElementById(validity_date).innerHTML;
+
+  	  	var gatepass =   "gatepass";
+  	var gatepass_id = document.getElementById(gatepass).innerHTML;
+
+  	  	var movement_type =   "movement_type";
+  	var movement_type_id = document.getElementById(movement_type).innerHTML;
+
+  	  	var gate =   "gate";
+  	var gate_id = document.getElementById(gate).innerHTML;
+
+  	  	var time_of_entry =   "time_of_entry";
+  	var time_of_entry_id = document.getElementById(time_of_entry).innerHTML;
+
+  	  	var line =   "line";
+  	var line_id = document.getElementById(line).innerHTML;
+
+//  	  	var transporter_name =   "transporter_name";
+//  	var transporter_name_id = document.getElementById(transporter_name).innerHTML;
+
+        var place_from =   "place_from";
+    var place_from_id = document.getElementById(place_from).innerHTML;
+
+
+
+
+
+  	  	var bill_no =   "bill_no";
+  	var bill_no_id = document.getElementById(bill_no).innerHTML;
+
+  	//var shipper= document.getElementById(cha).innerHTML;
+
+
+  	var container_1_id = document.getElementById("container_1").innerHTML;
+
+
+  	var sz_1_id = document.getElementById("sz_1").innerHTML;
+
+
+  	
+
+
+	var mfg_year_1_id = document.getElementById("mfg_year_1").innerHTML;
+
+
+	var gr_weight_1_id = document.getElementById("gr_weight_1").innerHTML;
+
+
+	var tare_weight_1_id = document.getElementById("tare_weight_1").innerHTML;
+
+
+	
+
+
+	var action_required_1_id = document.getElementById("action_required_1").innerHTML;
+
+
+	var status_1_id = document.getElementById("status_1").innerHTML;
+
+
+	var location_1_id = document.getElementById("location_1").innerHTML;
+
+
+	var grade_1_id = document.getElementById("grade_1").innerHTML;
+  	var remarks_1_id = document.getElementById("remarks_1").innerHTML;
+
+
+
+
+  	var container_2_id = document.getElementById("container_2").innerHTML;
+
+
+  	var sz_2_id = document.getElementById("sz_2").innerHTML;
+
+
+  
+
+
+	var mfg_year_2_id = document.getElementById("mfg_year_2").innerHTML;
+
+
+	var gr_weight_2_id = document.getElementById("gr_weight_2").innerHTML;
+
+
+	var tare_weight_2_id = document.getElementById("tare_weight_2").innerHTML;
+
+
+	
+
+
+	var action_required_2_id = document.getElementById("action_required_2").innerHTML;
+
+
+	var status_2_id = document.getElementById("status_2").innerHTML;
+
+
+	var location_2_id = document.getElementById("location_2").innerHTML;
+
+
+	var grade_2_id = document.getElementById("grade_2").innerHTML;
+  	var remarks_2_id = document.getElementById("remarks_2").innerHTML;
+
+
+    var surveyor = document.getElementById("surveyor").innerHTML;
+
+
+var container2present = document.getElementById("container2present").innerText;
+
+console.log("container2present is ", container2present);
+	
+  	console.log("vd is ", validity_date_id)
+  	console.log("gp is ", gatepass_id)
+  	console.log("mt is ", movement_type_id)
+  	console.log("gi is ", gate_id)
+  	console.log("toe is ", time_of_entry_id)
+  	console.log("li is ", line_id)
+  	console.log("pf is ", place_from_id)
+	console.log("bn is ", bill_no_id)
+
+
+
+  	var t= document.getElementById('printableArea').innerHTML;
+    
+
+var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table th, table td {' +
+        'border:1px solid #000;' +
+        'padding;0.5em;' +
+        '}' +
+
+        '</style>';
+
+    var str0="<!DOCTYPE html><html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'></head><body>" ;
+    var str1 = "<div class='col-md-12 col-sm-12 col-xs-12' style='color:blue;text-align: -webkit-right;' ><h6 style='margin-left:100px'>OFFICE COPY </h6> </div><br>";
+  
+    var str2="<div class='container'><div class='row'><div class='col-md-3 col-sm-3 col-xs-3' style='text-align: -webkit-center;padding-left:50px;'><img src='/static/download.png' width='150px'  > </div><div class='col-md-9 col-sm-9 col-xs-9' style='color:#0d95d9' ><h3 style='color:#0d95d9'><b>SRAVAN SHIPPING SERVICES PVT LTD</b></h3><h4 style='margin-left:100px'>(EMR DIVISION)</h4> </div><br>";
+    
+        var str_custcopy = "<div class='col-md-12 col-sm-12 col-xs-12' style='color:blue;text-align: -webkit-right;' ><h6 style='margin-left:100px'>CUSTOMER COPY </h6> </div><br>";
+
+            var str_seccopy= "<div class='col-md-12 col-sm-12 col-xs-12' style='color:blue;text-align: -webkit-right;' ><h6 style='margin-left:100px'>SECURITY COPY </h6> </div><br>";
+
+
+    //var str2="<div class='col-md-6 col-sm-6 col-xs-6' style='color:blue' ><h6 style='margin-left:100px'>(EMR DIVISION)</h6> <h6 style='margin-left:70px'>Block \"C\", IDA, China Mulagada</h6><h6 style='margin-left:40px'>Vishakhapatnam - 530 012, Andhra Pradesh-INDIA </h6></div><br>";
+    var str3="<div class='col-md-7 col-sm-7 col-xs-7'></div><div class='col-md-5 col-sm-5 col-xs-5'>DATE & TIME :".concat(time_of_entry_id);
+    var str4="</div><div class='col-md-4 col-sm-4 col-xs-4' > Gate Pass No : ".concat(gatepass_id);
+    var str5="<!--</div><div class='col-md-8 col-sm-8 col-xs-8' >REFERENCE No:12345 -->"
+    var str6="</div><br><div class='col-md-4 col-sm-4 col-xs-4' >Container No:".concat(container_1_id);
+    var str7="</div><div class='col-md-4 col-sm-4 col-xs-4'>SIZE:".concat(sz_1_id);
+    var str8="</div><div class='col-md-4 col-sm-4 col-xs-4' >Liner:".concat(line_id);
+    var str9="</div><br><div class='col-md-4 col-sm-4 col-xs-4' >REFERENCE No:12345" ;
+    var str10="</div><div class='col-md-4 col-sm-4 col-xs-4' >Shipper:"//.concat(shipper);
+    var str11="</div><div class='col-md-4 col-sm-4 col-xs-4' >Movement Type: IN"
+    var str12="</div><div class='col-md-4 col-sm-4 col-xs-4' >Transport no:"//.concat(transporter_name_id);
+    var str13=  "</div><div class='col-md-4 col-sm-4 col-xs-4' >vehicle no:"
+    var str14=" </div><div class='col-md-4 col-sm-4 col-xs-4' ></div><div class=' col-md-12 col-sm-12 col-xs-12' ><h1 style='text-align:center'>EIR REPORT</h1></div><div class='col-md-12 col-sm-12 col-xs-12' ><img src='/media/container.jpg/' class='img-responsive' >"
+    var str15="</div><div class=' col-md-2 col-sm-2 col-xs-2' >DAMAGE REPORT : "
+    var str16="</div><div class='col-md-8 col-sm-8 col-xs-8' style='border:solid 1px;height:250px;margin-bottom:10px;'></div><div class='col-md-2 col-sm-2' ></div><br></br><div class='col-md-4 col-sm-4 col-xs-4' >Signature of driver: "
+    var str17="</div><div class='col-md-4 col-sm-4 col-xs-4' >Surveyor ID:".concat(surveyor); 
+    var str18="</div><div class='col-md-4 col-sm-4 col-xs-4' >Name:"
+    var str19="</div><div class='col-md-4 col-sm-4 col-xs-4' > "
+    var str20="</div><div class='col-md-8 col-sm-8 col-xs-4'></div><div class=' col-md-4 col-sm-4 col-xs-4' > "
+    var str21="</div></div></div></body></html>"
+    var str55="<br><br><br><br><br><br><br><br><br>"
+
+   /* var str1="<div class='col-md-6'><table><tr><td>Entry Gatepass No. :</td><td>".concat(gatepass_id);
+    var str2="</td></tr><tr><td>Entry Gate:</td><td>".concat(gate_id);
+    var str3="</td></tr><tr><td>Time of Entry:</td><td>".concat(time_of_entry_id);
+    var str4="</td></tr><tr><td>Liner:</td><td>".concat(line_id);
+    var str5="</td></tr><tr><td>Place:</td><td>".concat(place_from_id);
+    var str6="</td></tr><tr><td>Movement:</td><td>".concat(movement_type_id);
+    var str7="</td></tr><tr><td>Bill no:</td><td>".concat(bill_no_id);
+    var str8="</td></tr><tr><td>Validity:</td><td>".concat(validity_date_id);
+    var str9="</td></tr><tr><td> <h3> Container 1 No : </h3></td><td>".concat(container_1_id);
+ var str10="</td></tr><tr><td>SZ & TE </td><td>".concat(sz_1_id);
+  var str11=  ""; // "</td></tr><tr><td>MTY & LDN </td><td>".concat(mty_1_id);
+ var str12="</td></tr><tr><td>MFG YEAR </td><td>".concat(mfg_year_1_id);
+ var str13="</td></tr><tr><td>GR. WEiGHT 	</td><td>".concat(gr_weight_1_id);
+ var str14="</td></tr><tr><td>TARE WEIGHT </td><td>".concat(tare_weight_1_id);
+ var str15= "";   // "</td></tr><tr><td>CBM </td><td>".concat(cbm_1_id);
+ var str16="</td></tr><tr><td>Action Required </td><td>".concat(action_required_1_id);
+ var str17="</td></tr><tr><td>Status </td><td>".concat(status_1_id);
+ var str18="</td></tr><tr><td>Location</td><td>".concat(location_1_id);
+ var str19="</td></tr><tr><td>Grade</td><td>".concat(grade_1_id);
+ var str20="</td></tr><tr><td>Remarks</td><td>".concat(remarks_1_id);
+
+    var str_last="</td></tr></table></form>"
+*/
+
+
+
+
+if (container2present == "True"){
+
+var str22="<!DOCTYPE html><html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'></head><body>"    
+    var str23="<div class='col-md-12 col-sm-12 col-xs-12' style='color:blue;text-align: -webkit-right;' ><h6 style='margin-left:100px'>OFFICE COPY </h6> </div><br>";
+    var str24="<div class='container'><div class='row'><div class='col-md-3 col-sm-3 col-xs-3' style='text-align: -webkit-center;padding-left:50px;'><img src='/static/download.png' width='150px'  > </div><div class='col-md-9 col-sm-9 col-xs-9' style='color:#0d95d9' ><h3 style='color:#0d95d9'><b>SRAVAN SHIPPING SERVICES PVT LTD</b></h3><h4 style='margin-left:100px'>(EMR DIVISION)</h4> </div><br>";
+    var str25="<div class='col-md-7 col-sm-7 col-xs-7'></div><div class='col-md-5 col-sm-5 col-xs-5'>DATE & TIME :".concat(time_of_entry_id);
+    var str26="</div><div class='col-md-4 col-sm-4 col-xs-4' > Gate Pass No : ".concat(gatepass_id);
+    var str27="<!--</div><div class='col-md-8 col-sm-8 col-xs-8' >REFERENCE No:12345 -->"
+    var str28="</div><br><div class='col-md-4 col-sm-4 col-xs-4' >Container No:".concat(container_2_id);
+    var str29="</div><div class='col-md-4 col-sm-4 col-xs-4'>SIZE:".concat(sz_2_id);
+    var str30="</div><div class='col-md-4 col-sm-4 col-xs-4' >Liner:".concat(line_id);
+    var str31="</div><br><div class='col-md-4 col-sm-4 col-xs-4' >REFERENCE No:12345" ;
+    var str32="</div><div class='col-md-4 col-sm-4 col-xs-4' >Shipper:"
+    var str33="</div><div class='col-md-4 col-sm-4 col-xs-4' >Movement Type:" 
+    var str34="</div><div class='col-md-4 col-sm-4 col-xs-4' >Transport no:" 
+    var str35=  "</div><div class='col-md-4 col-sm-4 col-xs-4' >vehicle no:"
+    var str36=" </div><div class='col-md-4 col-sm-4 col-xs-4' ></div><div class=' col-md-12 col-sm-12 col-xs-12' ><h1 style='text-align:center'>EIR REPORT</h1></div><div class='col-md-12 col-sm-12 col-xs-12' ><img src='/media/container.jpg/' class='img-responsive' >"
+    var str37="</div><div class=' col-md-2 col-sm-2 col-xs-2' >DAMAGE REPORT : "
+    var str38="</div><div class='col-md-8 col-sm-8 col-xs-8' style='border:solid 1px;height:250px;margin-bottom:10px;'></div><div class='col-md-2 col-sm-2' ></div><br></br><div class='col-md-4 col-sm-4 col-xs-4' >Signature of driver: "
+    var str39="</div><div class='col-md-4 col-sm-4 col-xs-4' >Surveyor ID:".concat(surveyor); 
+    var str40="</div><div class='col-md-4 col-sm-4 col-xs-4' >Name:"
+    var str41="</div><div class='col-md-4 col-sm-4 col-xs-4' > "
+    var str42="</div><div class='col-md-8 col-sm-8 col-xs-4'></div><div class=' col-md-4 col-sm-4 col-xs-4' > "
+    var str43="</div></div></div></body></html>"
+/*
+  var str22="</td></tr><tr><td> <h3> Container 2 No : </h3> </td><td>".concat(container_2_id);
+ var str23="</td></tr><tr><td>SZ & TE </td><td>".concat(sz_2_id);
+ var str24=  ""; // "</td></tr><tr><td>MTY & LDN </td><td>".concat(mty_2_id);
+ var str25="</td></tr><tr><td>MFG YEAR </td><td>".concat(mfg_year_2_id);
+ var str26="</td></tr><tr><td>GR. WEiGHT 	</td><td>".concat(gr_weight_2_id);
+ var str27="</td></tr><tr><td>TARE WEIGHT </td><td>".concat(tare_weight_2_id);
+ var str28= "";  // "</td></tr><tr><td>CBM </td><td>".concat(cbm_2_id);
+ var str29="</td></tr><tr><td>Action Required </td><td>".concat(action_required_2_id);
+ var str30="</td></tr><tr><td>Status </td><td>".concat(status_2_id);
+ var str31="</td></tr><tr><td>Location</td><td>".concat(location_2_id);
+ var str32="</td></tr><tr><td>Grade</td><td>".concat(grade_2_id);
+ var str33="</td></tr><tr><td>Remarks</td><td>".concat(remarks_2_id);
+ */
+
+// breaks at 43, 
+
+
+
+ var str_total=str0.concat(str1,str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 , str21 ,str55, str22 , str23 , str24 , str25 , str26 , str27 , str28 , str29 ,str30 , str31 , str32 ,str33,str34,str35,str36,str37,str38,str39,str40,str41,str42,str43,str55, str_custcopy,str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 , str21 ,str55, str22 , str23 , str24 , str25 , str26 , str27 , str28 , str29 ,str30 , str31 , str32 ,str33,str34,str35,str36,str37,str38,str39,str40,str41,str42,str43,str55, str_seccopy,str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 , str21 ,str55, str22 , str23 , str24 , str25 , str26 , str27 , str28 , str29 ,str30 , str31 , str32 ,str33,str34,str35,str36,str37,str38,str39,str40,str41,str42,str43);
+
+
+ } else{
+
+
+ var str_total=str0.concat(str1,str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 ,str21,str55, str_custcopy,str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 ,str21, str55,str_seccopy,str2, str3, str4, str5, str6, str7, str8, str9, str10 , str11 , str12 , str13 , str14,str15 , str16 , str17,str18 , str19 , str20 ,str21);
+
+
+
+}
+
+        str_total += htmlToPrint;
+    newWindow=window.open('','','');
+    newWindow.document.write(str_total);
+
+    newWindow.focus();
+    newWindow.print(); 
+
+    
+
+}
+    </script>
+<script type="text/javascript">
+
+$( "#container_no_1" ).autocomplete({
+
+    source: function( request, response ) {
+       var container_val = $('#container_no_1').val();
+        $.ajax({
+            url : "/autocomplete/get/",
+            dataType: "json",
+            data: {
+                container_id: container_val,
+            },
+            success: function( data ) {
+
+               console.log("data is ", data);
+               size = data[0].sz
+               tw = data[0].tare_weight
+               vd = data[0].validity_date
+               console.log(data[0].sz);
+               
+               $("#sz_1").val("40HC");
+               $("#tare_weight_1").val(tw);
+               $("#validity_date").val(vd);
+
+   $("#bill_no").val(data[0].order_no);
+                
+            }
+        });
+    },
+    minLength: 7,
+   
+});
+
+</script>
+
+<script type="text/javascript">
+
+$( "#container_no_2" ).autocomplete({
+
+    source: function( request, response ) {
+       var container_val = $('#container_no_2').val();
+        $.ajax({
+            url : "/autocomplete/get/",
+            dataType: "json",
+            data: {
+                container_id: container_val,
+            },
+            success: function( data ) {
+
+               console.log("data is ", data);
+               size = data[0].sz
+               tw = data[0].tare_weight
+               vd = data[0].validity_date
+               console.log(data[0].sz);
+               
+               $("#sz_2").val("40HC");
+               $("#tare_weight_2").val(tw);
+   
+   
+                
+            }
+        });
+    },
+    minLength: 7,
+   
+});
+
+</script>
+
+
+
+<script>
+//var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+//var d = new Date();
+
+
+//document.getElementById("demo").innerHTML =  d.toLocaleDateString("en-US", options);
+
+function startTime() {
+    var today = new Date();
+    var d= today.getDay();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    var nowDate = new Date(); 
+  var date = nowDate.getDate()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getFullYear(); 
+    document.getElementById('demo').innerHTML = date +" "+
+    h+ ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+
+</script>
+
+<script>
+
+$('#validity_date').datepicker({
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    dateFormat: "yy-mm-dd"
+});
+
+
+</script>
+
+
+
+<script>
+
+$("#line, #place_from").change(function(){
+   
+var liner_val = $('#line').val();
+var place_from_val = $('#place_from').val();
+
+var gate = $('#gate').val();
+
+if (liner_val !=""  && place_from_val !="")
+{
+
+  console.log("  getting bill rates");
+   $.ajax({
+            url : "/autocomplete/getcharges/",
+            dataType: "json",
+            data: {
+                liner_val: liner_val,
+                place_from_val : place_from_val,
+                gate_val : gate, 
+            },
+            success: function( data ) {
+
+               console.log("billing data is ", data);
+               // size = data[0].sz
+                // tw = data[0].tare_weight
+              //  vd = data[0].validity_date
+                // console.log(data[0].sz);
+               
+
+               $("#transport_charges").val(data.transportation_charges);
+               $("#lift_charges").val(data.lift_on_charges);
+              // $("#validity_date").val(vd);
+
+                
+            }
+        });
+
+
+}
+
+
+
+});
+
+</script>
+
+
+
+
+  <script>
+function validateForm() {
+
+
+
+    var container_no_2 = document.forms["entryform"]["container_no_2"].value;
+    var sz_2 = document.forms["entryform"]["sz_2"].value;
+    var mty_2 = ""; // document.forms["entryform"]["mty_2"].value;
+    var mfg_year_2 = document.forms["entryform"]["mfg_year_2"].value;
+    var gr_weight_2 = document.forms["entryform"]["gr_weight_2"].value;
+    var tare_weight_2 = document.forms["entryform"]["tare_weight_2"].value;
+    var cbm_2 = ""; document.forms["entryform"]["cbm_2"].value;
+    var action_required_2 = document.forms["entryform"]["action_required_2"].value;
+    var grade_2 = document.forms["entryform"]["grade_2"].value;
+    var status_2 = document.forms["entryform"]["status_2"].value;
+    var location_2 = document.forms["entryform"]["location_2"].value;
+    var remarks_2 = document.forms["entryform"]["remarks_2"].value;
+
+
+
+
+    console.log(container_no_2);
+    if (container_no_2 != "") {
+
+
+
+if (sz_2 == "" | mty_2 == "" | sz_2 == "" | mfg_year_2 == "" | gr_weight_2 == "" | tare_weight_2 == "" | cbm_2 == "" | action_required_2 == "" | grade_2 == "" |  status_2 == "" |   location_2 == "" |  remarks_2 == "")
+
+{
+
+
+event.preventDefault();
+
+
+//    console.log("sz2 is not empty", sz_2);
+  //      document.forms['entryform'].submit();
+}
+        
+    }
+else{
+
+
+
+
+
+        document.forms['entryform'].submit();
+
+// return true;
+}
+
+}
+</script>
+
+
+
+</body>
+</html>

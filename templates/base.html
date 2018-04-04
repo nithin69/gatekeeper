@@ -13,7 +13,9 @@
 <link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
 <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript">
+</script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -35,6 +37,15 @@
 
 <meta name="robots" content="NONE,NOARCHIVE" />
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<style>
+td::first-letter {
+    text-transform: capitalize;
+}
+</style>
+
 
 
 </head>
@@ -51,7 +62,6 @@
     <div id="header">
         <div id="branding">
 {% if user.is_authenticated and request.user.designation == 'guard'%} 
-        {{request.user.designation}}
         <h1 id="site-name"><a href="/admin/">Gatekeeper</a></h1>
 {% else %}
        {{request.user.designation}}
@@ -63,7 +73,7 @@
         <div id="user-tools">
 {% if user.is_authenticated %}            
                 Welcome,
-                <strong>{{request.user}}</strong> / &nbsp;<strong>At :</strong> {{request.user.employee.assigned_to}}
+                <strong>{{request.user}}</strong> <strong> @ </strong> {{request.user.employee.assigned_to}}
                 /<a href="/admin/password_change/">Change password</a> /
                 <a href="/admin/logout/">Log out</a>
 {% else %}
